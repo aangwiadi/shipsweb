@@ -23,7 +23,7 @@
       <li><?php echo form_label('Mic2', 'Mic2') . form_input('Mic2', $manager->Mic2); ?></li>
       <li><?php echo form_label('Mic3', 'Mic3') . form_input('Mic3', $manager->Mic3); ?></li>
       <li><?php echo form_label('Mic4', 'Mic4') . form_input('Mic4', $manager->Mic4); ?></li>
-      <li><?php echo form_label('Remarks', 'Remarks') . form_input('Remarks', $manager->Remarks); ?></li>
+      <li><?php echo form_label('Remarks', 'Remarks') . form_textarea(array('name' => 'Remarks', 'id' => 'Remarks', 'value' => $manager->Remarks, 'rows' => '2', 'cols' => '23')); ?></li>
       <li><?php echo form_label('City', 'City') . form_dropdown('Cities', $ddcity, $manager->CityId); ?></li>
     </ul>
 <?php

@@ -20,44 +20,45 @@
     <li><span>Mic 3:</span><?php echo $manager->Mic3; ?></li>
     <li><span>Mic 4:</span><?php echo $manager->Mic4; ?></li>
     <li><span>Remarks:</span><?php echo $manager->Remarks; ?></li>
-    <li>City:</span><?php echo $manager->CityId; ?></li>
+    <li><span>City:</span><?php echo $manager->CityName; ?></li>
   </ul>
-  
-  $this->table->add_row('Name', $result->Name);
-  $this->table->add_row('IMONumber', $result->IMONumber);
-  $this->table->add_row('Type', $result->Type);
-  $this->table->add_row('Dwat', $result->Dwat);
-  $this->table->add_row('Built', $result->Built);
-  $this->table->add_row('Gear', $result->Gear);
-  $this->table->add_row('Call Sign', $result->CallSign);
-  $this->table->add_row('LOA', $result->LOA);
-  $this->table->add_row('Beam', $result->Beam);
-  $this->table->add_row('Draft', $result->Draft);
-  $this->table->add_row('Grain', $result->Grain);
-  $this->table->add_row('Bale', $result->Bale);
-  $this->table->add_row('HO', $result->HO);
-  $this->table->add_row('HO Dimensions', $result->HO_dims);
-  $this->table->add_row('HA', $result->HA);
-  $this->table->add_row('HA Dimensions', $result->HA_dims);
-  $this->table->add_row('Captains Name', $result->CaptName);
-  $this->table->add_row('Crew', $result->Crew);
-  $this->table->add_row('BRT', $result->BRT);
-  $this->table->add_row('NRT', $result->NRT);
-  $this->table->add_row('BT', $result->BT);
-  $this->table->add_row('NT', $result->NT);
-  $this->table->add_row('Speed (ballast)', $result->Speed_ball);
-  $this->table->add_row('Speed (laden)', $result->Speed_laden);
-  $this->table->add_row('IFO (sea ballast)', $result->IFO_sea_ball);
-  $this->table->add_row('IFO (sea laden)', $result->IFO_sea_laden);
-  $this->table->add_row('MDO (sea ballast)', $result->MDO_sea_ball);
-  $this->table->add_row('MDO (sea laden)', $result->MDO_sea_laden);
-  $this->table->add_row('MDO (port)', $result->MDO_port);
-  $this->table->add_row('IFO (port)', $result->IFO_port);
-  $this->table->add_row('Mobile', $result->Mobile);
-  $this->table->add_row('Class', $result->Class);
-  $this->table->add_row('PandI', $result->Pandi);
-  $this->table->add_row('Remarks', $result->Remarks);
-  $this->table->add_row('Manager', $result->ManagerName);
-  $this->table->add_row('Home port', $result->HomePort);
-  $this->table->add_row('Flag', $result->Flag);
-  
+  <?php if(count($vessels) > 0) { ?>
+    <table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Dwat</th>
+			<th>Built</th>
+			<th>LOA</th>
+			<th>Beam</th>
+			<th>Draft</th>
+			<th>Grain</th>
+			<th>Bale</th>
+			<th>HO</th>
+			<th>HA</th>
+			<th>BT</th>
+			<th>NT</th>
+			<th>Mobile</th>
+		</tr>
+	<tbody>
+		<?php foreach($vessels as $vessel): ?>
+		<tr>
+			<td><?php echo anchor(site_url().'/vessel/index/'.$vessel['Id'], $vessel['Name']); ?></td>
+			<td><?php echo $vessel['Type']; ?></td>
+			<td><?php echo $vessel['Dwat']; ?></td>
+			<td><?php echo $vessel['Built']; ?></td>
+			<td><?php echo $vessel['LOA']; ?></td>
+			<td><?php echo $vessel['Beam']; ?></td>
+			<td><?php echo $vessel['Draft']; ?></td>
+			<td><?php echo $vessel['Grain']; ?></td>
+			<td><?php echo $vessel['Bale']; ?></td>
+			<td><?php echo $vessel['HO']; ?></td>
+			<td><?php echo $vessel['HA']; ?></td>
+			<td><?php echo $vessel['BT']; ?></td>
+			<td><?php echo $vessel['Mobile']; ?></td>
+		</tr>
+		<?php endforeach ?>
+	</tbody>
+     </table>
+  <?php } ?>

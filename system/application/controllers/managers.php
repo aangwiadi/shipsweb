@@ -7,6 +7,7 @@ class Managers extends Controller
     parent::Controller();
     echo $this->load->model('Managers_model');
     $this->load->helper('url');
+    $this->output->enable_profiler(TRUE);
     is_logged_in();
   }
 
@@ -19,7 +20,7 @@ class Managers extends Controller
     $config['base_url'] = $baseurl.$sort_col.'/'.$sort_direction.'/';
     $config['uri_segment'] = 5;
     $config['total_rows'] = $this->Managers_model->get_total();
-    $config['per_page'] = '10';
+    $config['per_page'] = '15';
     $config['num_links'] = '10';
     $config['full_tag_open'] = '<p>';
     $config['full_tag_close'] = '</p>';
