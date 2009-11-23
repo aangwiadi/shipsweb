@@ -2,57 +2,52 @@
 
 class Manager_model extends Model
 {
-    protected $table = 'MANAGER';
-   
-    function Manager_model()
-    {
-	parent::Model();
-	$this->load->database();
-    }
+	protected $table = 'MANAGER';
 
-    function create($data)
-    {
-	$this->db->insert($this->table);
-	return;
-    }
-
-    function get($id)
-    {
-	$query = $this->db->get_where($this->table, array('ID' => $id));
-	if($query->num_rows() > 0)
+	function Manager_model()
 	{
-	    return $query->row();
+		parent::Model();
+		$this->load->database();
 	}
-    }
-    
-    function get_all()
-    {
-      $query = $this->db->get('MANAGER');
-      if($query->num_rows() > 0)
-      {
-	return $query->result_array();
-      }
-      
-      return array();
-    }
 
-    function get_all_ordered()
-    {
-      $this->db->order_by('Name');
-      $query = $this->db->get('MANAGER');
-      
-      if($query->num_rows() > 0)
-      {
-	return $query->result_array();
-      }
-      
-      return array();
-    }
-    
-    function update($id, $data)
-    {
-      $this->db->where('Id', $id);
-      return $this->db->update($this->table, $data);
-    }
+	function create($data)
+	{
+		$this->db->insert($this->table);
+		return;
+	}
+
+	function get($id)
+	{
+		$sql = "SELECT MANAGER.Id, MANAGER.Name, Address, PostalCode, 
+			Phone1, Phone2, Phone3, Fax, Email1, Email2, 
+			Homepage, Mic1, Mic2, Mic3, Mic4, 
+			Remarks, CITY.Name AS CityName, CityId
+			FROM MANAGER
+			LEFT JOIN CITY ON CityId = CITY.Id
+			WHERE MANAGER.Id = ?";
+
+		$query = $this->db->query($sql, array((int)$id));
+		if($query->num_rows() > 0)
+		{
+			return $query->row();
+		}
+	}
+
+	function get_all_ordered()
+	{
+		$this->db->order_by('Name');
+		$query = $this->db->get('MANAGER');
+		if($query->num_rows() > 0)
+		{
+			return $query->result_array();
+		}
+		return array();
+	}
+
+	function update($id, $data)
+	{
+		$this->db->where('Id', $id);
+		return $this->db->update($this->table, $data);
+	}
 }
 ?>
