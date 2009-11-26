@@ -17,6 +17,14 @@ class Vessels extends Controller
 	{
 		$baseurl = base_url() . 'index.php/vessels/index/';
 
+		// get any posted search parameters
+		// todo
+		if($this->input->post('submit'))
+		{
+		    $searchtext = $this->input->post('searchtext');
+		    $searchitem = $this->input->post('searchitem');
+		}
+
 		// pagination
 		$this->load->library('pagination');
 		$config['base_url'] = $baseurl.$sort_col.'/'.$sort_direction.'/';
@@ -26,7 +34,12 @@ class Vessels extends Controller
 		$config['num_links'] = '5';
 		$this->pagination->initialize($config);
 
-		$result = $this->Vessels_model->get_vessels_page($config['per_page'], $start_index, $sort_col, $sort_direction);
+		$data['fields'] = $this->Vessels_model->get_tabel_def();
+
+		$result = $this->Vessels_model->get_vessels_page($config['per_page'], 
+		    						 $start_index, 
+								 $sort_col, 
+								 $sort_direction);
 
 		$tmpl = array (
 			'table_open'        	=> '<table>',
@@ -85,7 +98,7 @@ class Vessels extends Controller
 			'Manager'
 		);
 
-		$this->template->write_view('content', 'vessels_view');
+		$this->template->write_view('content', 'vessels_view', $data);
 		$this->template->render();
 	}
 
