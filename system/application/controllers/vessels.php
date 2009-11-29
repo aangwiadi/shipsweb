@@ -21,8 +21,16 @@ class Vessels extends Controller
 		// todo
 		if($this->input->post('submit'))
 		{
-		    $searchtext = $this->input->post('searchtext');
+			$searchtext = $this->input->post('searchtext');
+
 		    $searchitem = $this->input->post('searchitem');
+		}
+
+		if($this-input-post('reset'))
+		{
+			// unset search params
+			//
+
 		}
 
 		// pagination
