@@ -22,15 +22,16 @@ class Vessels extends Controller
 		if($this->input->post('submit'))
 		{
 			$searchtext = $this->input->post('searchtext');
-
-		    $searchitem = $this->input->post('searchitem');
+			$this->session->set_userdata('searchtext', $searchtext);
+			$searchitem = $this->input->post('searchitem');
+			$this->session->set_userdata('searchitem', $searchitem);
 		}
 
-		if($this-input-post('reset'))
+		if($this->input->post('reset'))
 		{
 			// unset search params
-			//
-
+			$this->session->unset_userdata('searchitem');
+			$this->session->unset_userdata('searchtext');
 		}
 
 		// pagination
@@ -45,15 +46,16 @@ class Vessels extends Controller
 		$data['fields'] = $this->Vessels_model->get_tabel_def();
 
 		$result = $this->Vessels_model->get_vessels_page($config['per_page'], 
-														 $start_index, 
-														 $sort_col, 
-														 $sort_direction);
+								 $start_index, 
+								 $sort_col, 
+								 $sort_direction
+							 	);
 
 		$tmpl = array (
 			'table_open'        	=> '<table>',
 			'heading_row_start'	=> '<tr>',
 			'heading_row_end'   	=> '</tr>',
-			'heading_cell_start'  	=> '<th>',
+			'heading_cell_start'	=> '<th>',
 			'heading_cell_end'    	=> '</th>',
 			'row_start'           	=> '<tr>',
 			'row_end'             	=> '</tr>',

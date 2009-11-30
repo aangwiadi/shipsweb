@@ -49,15 +49,15 @@ class Vessels_model extends Model
 		}
 	}
 
-	function get_vessels_page($num, $offset, $sort_column, $sort_direction)
+	function get_vessels_page($num, $offset, $sort_column, $sort_direction, $searchitem, $searchdata)
 	{
 		$sql = "SELECT VESSEL.Id AS Id, VESSEL.Name,
-			Type, Dwat, Built, LOA, Beam, Draft,
-			Grain, Bale, HO, HA, BT, NT, Mobile,
-			MANAGER.Name AS ManagerName, ManagerId
-			FROM VESSEL, MANAGER
-			WHERE ManagerId = MANAGER.ID
-			ORDER BY $sort_column $sort_direction LIMIT ?, ?";
+				Type, Dwat, Built, LOA, Beam, Draft,
+				Grain, Bale, HO, HA, BT, NT, Mobile,
+				MANAGER.Name AS ManagerName, ManagerId
+				FROM VESSEL, MANAGER
+				WHERE ManagerId = MANAGER.ID
+				ORDER BY $sort_column $sort_direction LIMIT ?, ?";
 
 		$query = $this->db->query($sql, array((int)$offset, (int)$num)); 
 
