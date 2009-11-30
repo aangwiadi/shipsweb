@@ -48,8 +48,9 @@ class Vessels extends Controller
 		$result = $this->Vessels_model->get_vessels_page($config['per_page'], 
 								 $start_index, 
 								 $sort_col, 
-								 $sort_direction
-							 	);
+								 $sort_direction,
+								 $this->session->userdata('searchitem'),
+								 $this->session->userdata('searchtext'));
 
 		$tmpl = array (
 			'table_open'        	=> '<table>',
