@@ -45,9 +45,9 @@ class Vessels extends Controller
 		$data['fields'] = $this->Vessels_model->get_tabel_def();
 
 		$result = $this->Vessels_model->get_vessels_page($config['per_page'], 
-		    						 $start_index, 
-								 $sort_col, 
-								 $sort_direction);
+														 $start_index, 
+														 $sort_col, 
+														 $sort_direction);
 
 		$tmpl = array (
 			'table_open'        	=> '<table>',

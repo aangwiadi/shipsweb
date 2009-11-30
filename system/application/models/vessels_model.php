@@ -10,24 +10,34 @@ class Vessels_model extends Model
 
 	function get_all_vessels($searchitem, $searchtext)
 	{
-	    $this->db->select('Id, Name, Type, Dwat, Built, LOA, Beam, Draft, Grain, Bale, HO, HA, BT, NT, Mobile');
+		$this->db->select('Id, Name, Type, Dwat, Built, LOA, Beam, Draft, Grain, Bale, HO, HA, BT, NT, Mobile');
 
-	    if(strlen($searchitem))
-		if(strlen($searchtext))
+		if(strlen($searchitem))
+			if(strlen($searchtext))
+			{
+				$this->db->where("$searchitem LIKE %$searchtext%");
+			}
+
+		$query = $this->db->get('VESSEL');
+		if($query->num_rows() > 0)
 		{
-		    $this->db->where("$searchitem LIKE %$searchtext%");
+			return $query->result_array();
 		}
-
-	    $query = $this->db->get('VESSEL');
-	    if($query->num_rows() > 0)
-	    {
-		return $query->result_array();
-	    }
 	}
 
 	function get_tabel_def()
 	{
-	    return  $this->db->list_fields('VESSEL');
+		$fields = $this->db->field_data('VESSEL');
+
+		foreach ($fields as $field)
+		{
+			echo $field->name;
+			echo $field->type;
+			echo $field->max_length;
+			echo $field->primary_key;
+		} 
+
+		return  $this->db->list_fields('VESSEL');
 	}
 
 	function get_vessel($id)
