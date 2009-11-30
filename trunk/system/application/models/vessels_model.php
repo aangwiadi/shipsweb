@@ -28,6 +28,8 @@ class Vessels_model extends Model
 	function get_tabel_def()
 	{
 		$fields = $this->db->field_data('VESSEL');
+		$table_defs = array();
+		/*
 
 		foreach ($fields as $field)
 		{
@@ -36,8 +38,17 @@ class Vessels_model extends Model
 			echo $field->max_length;
 			echo $field->primary_key;
 		} 
+		 */
 
-		return  $this->db->list_fields('VESSEL');
+		$fields = $this->db->list_fields('VESSEL');
+		foreach($fields as $field)
+		{
+			if(strrpos($field, 'Id') === false)
+			{
+				$table_defs[$field] = $field;
+			}
+		}
+		return $table_defs;
 	}
 
 	function get_vessel($id)
@@ -56,8 +67,13 @@ class Vessels_model extends Model
 				Grain, Bale, HO, HA, BT, NT, Mobile,
 				MANAGER.Name AS ManagerName, ManagerId
 				FROM VESSEL, MANAGER
-				WHERE ManagerId = MANAGER.ID
-				ORDER BY $sort_column $sort_direction LIMIT ?, ?";
+				WHERE ManagerId = MANAGER.ID";
+
+		if(!empty($searchitem))
+			if(!empty($searchdata))
+				$sql = $sql . " AND VESSEL.$searchitem LIKE '%$searchdata%' ";
+
+		$sql = $sql . " ORDER BY $sort_column $sort_direction LIMIT ?, ?";
 
 		$query = $this->db->query($sql, array((int)$offset, (int)$num)); 
 
@@ -69,6 +85,7 @@ class Vessels_model extends Model
 
 	function get_total_vessels()
 	{
+		// todo do searchitem and searchdata
 		return $this->db->count_all('VESSEL');
 	}
 

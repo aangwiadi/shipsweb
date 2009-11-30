@@ -8,6 +8,7 @@
 		echo form_dropdown('searchitem', $fields, '');
 		echo form_input('searchtext', '');
 		echo form_submit('submit', 'Search');
+		echo form_submit('reset', 'Reset');
 		echo form_close(); 
 		?>
 	</div>
