@@ -74,19 +74,22 @@ class Vessels_model extends Model
 				$sql = $sql . " AND VESSEL.$searchitem LIKE '%$searchdata%' ";
 
 		$sql = $sql . " ORDER BY $sort_column $sort_direction LIMIT ?, ?";
-
 		$query = $this->db->query($sql, array((int)$offset, (int)$num)); 
-
 		if($query->num_rows() > 0)
 		{
 			return $query->result_array();
 		}
 	}
 
-	function get_total_vessels()
+	function get_total_vessels($searchitem, $searchdata)
 	{
-		// todo do searchitem and searchdata
-		return $this->db->count_all('VESSEL');
+		$sql = "SELECT COUNT(*) FROM VESSEL ";
+
+		if(!empty($searchitem))
+			if(!empty($searchdata))
+				$sql = $sql . " WHERE VESSEL.$searchitem LIKE '%$searchdata%' ";
+
+	    return $this->db->query($sql)->row('COUNT(*)');
 	}
 
 	function update_vessel($data)

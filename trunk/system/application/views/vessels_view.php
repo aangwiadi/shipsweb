@@ -5,8 +5,8 @@
 		<?php $attributes = array('id' => 'searchform');
 		echo form_open(site_url().'/vessels/'); 
 		echo form_label('Search by', 'searchtext');
-		echo form_dropdown('searchitem', $fields, '');
-		echo form_input('searchtext', '');
+		echo form_dropdown('searchitem', $fields, $this->session->userdata('searchitem'));
+		echo form_input('searchtext', $this->session->userdata('searchtext'));
 		echo form_submit('submit', 'Search');
 		echo form_submit('reset', 'Reset');
 		echo form_close(); 
