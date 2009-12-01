@@ -38,7 +38,8 @@ class Vessels extends Controller
 		$this->load->library('pagination');
 		$config['base_url'] = $baseurl.$sort_col.'/'.$sort_direction.'/';
 		$config['uri_segment'] = 5;
-		$config['total_rows'] = $this->Vessels_model->get_total_vessels();
+		$config['total_rows'] = $this->Vessels_model->get_total_vessels($this->session->userdata('searchitem'), 
+																		$this->session->userdata('searchtext'));
 		$config['per_page'] = '25';
 		$config['num_links'] = '5';
 		$this->pagination->initialize($config);
