@@ -17,29 +17,26 @@ class Vessels extends Controller
 	{
 		$baseurl = base_url() . 'index.php/vessels/index/';
 
-		// get any posted search parameters
-		// todo
 		if($this->input->post('submit'))
 		{
-			$searchtext = $this->input->post('searchtext');
-			$this->session->set_userdata('searchtext', $searchtext);
-			$searchitem = $this->input->post('searchitem');
-			$this->session->set_userdata('searchitem', $searchitem);
+			$searchtext = $this->input->post('search_text');
+			$this->session->set_userdata('vessels_search_text', $searchtext);
+			$searchitem = $this->input->post('search_item');
+			$this->session->set_userdata('vessels_search_item', $searchitem);
 		}
 
 		if($this->input->post('reset'))
 		{
-			// unset search params
-			$this->session->unset_userdata('searchitem');
-			$this->session->unset_userdata('searchtext');
+			$this->session->unset_userdata('vessels_search_item');
+			$this->session->unset_userdata('vessels_search_text');
 		}
 
 		// pagination
 		$this->load->library('pagination');
 		$config['base_url'] = $baseurl.$sort_col.'/'.$sort_direction.'/';
 		$config['uri_segment'] = 5;
-		$config['total_rows'] = $this->Vessels_model->get_total_vessels($this->session->userdata('searchitem'), 
-																		$this->session->userdata('searchtext'));
+		$config['total_rows'] = $this->Vessels_model->get_total_vessels($this->session->userdata('vessels_search_item'), 
+																		$this->session->userdata('vessels_search_text'));
 		$config['per_page'] = '25';
 		$config['num_links'] = '5';
 		$this->pagination->initialize($config);
@@ -50,12 +47,12 @@ class Vessels extends Controller
 								 $start_index, 
 								 $sort_col, 
 								 $sort_direction,
-								 $this->session->userdata('searchitem'),
-								 $this->session->userdata('searchtext'));
+								 $this->session->userdata('vessels_search_item'),
+								 $this->session->userdata('vessels_search_text'));
 
 		$tmpl = array (
 			'table_open'        	=> '<table>',
-			'heading_row_start'	=> '<tr>',
+			'heading_row_start'		=> '<tr>',
 			'heading_row_end'   	=> '</tr>',
 			'heading_cell_start'	=> '<th>',
 			'heading_cell_end'    	=> '</th>',
@@ -73,19 +70,9 @@ class Vessels extends Controller
 
 		foreach ($result as $row) {
 			$this->table->add_row(anchor(site_url().'/vessel/index/'.$row['Id'], $row['Name']),
-				$row['Type'],
-				$row['Dwat'],
-				$row['Built'],
-				$row['LOA'],
-				$row['Beam'],
-				$row['Draft'],
-				$row['Grain'],
-				$row['Bale'],
-				$row['HO'],
-				$row['HA'],
-				$row['BT'],
-				$row['NT'],
-				$row['Mobile'],
+				$row['Type'], $row['Dwat'], $row['Built'], $row['LOA'], $row['Beam'], 
+				$row['Draft'], $row['Grain'], $row['Bale'], $row['HO'], $row['HA'], 
+				$row['BT'], $row['NT'], $row['Mobile'],
 				anchor(site_url().'/manager/index/'.$row['ManagerId'], $row['ManagerName'])
 			);
 		}
@@ -113,6 +100,5 @@ class Vessels extends Controller
 		$this->template->write_view('content', 'vessels_view', $data);
 		$this->template->render();
 	}
-
 }
 ?>
