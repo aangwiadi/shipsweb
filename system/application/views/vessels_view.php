@@ -1,5 +1,5 @@
 	<header>
-		<h1>Vessels</h1>
+		<h2>Vessels</h2>
 	</header>
 	<div id="search">
 		<?php $attributes = array('id' => 'searchform');

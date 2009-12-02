@@ -75,10 +75,11 @@ class Vessels_model extends Model
 
 		$sql = $sql . " ORDER BY $sort_column $sort_direction LIMIT ?, ?";
 		$query = $this->db->query($sql, array((int)$offset, (int)$num)); 
+
 		if($query->num_rows() > 0)
-		{
 			return $query->result_array();
-		}
+
+		return array();
 	}
 
 	function get_total_vessels($searchitem, $searchdata)
@@ -89,7 +90,11 @@ class Vessels_model extends Model
 			if(!empty($searchdata))
 				$sql = $sql . " WHERE VESSEL.$searchitem LIKE '%$searchdata%' ";
 
-	    return $this->db->query($sql)->row('COUNT(*)');
+		$row_count = $this->db->query($sql)->row('COUNT(*)');
+		if($row_count > 0)
+			return $row_count;
+
+	    return 0;
 	}
 
 	function update_vessel($data)
