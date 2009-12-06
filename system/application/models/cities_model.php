@@ -50,7 +50,7 @@ class Cities_model extends Model
 
 		if(!empty($search_item))
 			if(!empty($search_text))
-				$sql = $sql . " WHERE $search_item LIKE '%$search_text%' ";
+				$sql = $sql . " WHERE CITY.$search_item LIKE '%$search_text%' ";
 
 		$sql = $sql . " ORDER BY CITY.$sort_column $sort_direction LIMIT ?, ?";
 		$query = $this->db->query($sql, array((int)$offset, (int)$num)); 
@@ -64,7 +64,7 @@ class Cities_model extends Model
 
 		if(!empty($search_item))
 			if(!empty($search_text))
-				$sql = $sql . " WHERE $search_item LIKE '%$search_text%' ";
+				$sql = $sql . " WHERE CITY.$search_item LIKE '%$search_text%' ";
 
 	    return $this->db->query($sql)->row('COUNT(*)');
 	}
