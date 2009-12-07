@@ -1,11 +1,11 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Cities_model extends Model
+class Countries_model extends Model
 {
-	protected $table = 'CITY';
-	protected $col_str = 'CITY.Id, CITY.Name';
+	protected $table = 'COUNTRY';
+	protected $col_str = 'COUNTRY.Id, COUNTRY.Name';
 
-	function Cities_model()
+	function countries_model()
 	{
 		parent::Model();
 		$this->load->database();
@@ -44,15 +44,14 @@ class Cities_model extends Model
 
 	function get_page($num, $offset, $sort_column, $sort_direction, $search_item, $search_text)
 	{
-		$sql = "SELECT $this->col_str, COUNTRY.Name AS CountryName, CountryId 
-			    FROM $this->table, COUNTRY
-				WHERE CountryId = COUNTRY.Id";
+		$sql = "SELECT $this->col_str 
+			    FROM $this->table";
 
 		if(!empty($search_item))
 			if(!empty($search_text))
-				$sql = $sql . " AND CITY.$search_item LIKE '%$search_text%' ";
+				$sql = $sql . " AND COUNTRY.$search_item LIKE '%$search_text%' ";
 
-		$sql = $sql . " ORDER BY CITY.$sort_column $sort_direction LIMIT ?, ?";
+		$sql = $sql . " ORDER BY COUNTRY.$sort_column $sort_direction LIMIT ?, ?";
 		$query = $this->db->query($sql, array((int)$offset, (int)$num)); 
 		if($query->num_rows() > 0)
 			return $query->result_array();
@@ -64,7 +63,7 @@ class Cities_model extends Model
 
 		if(!empty($search_item))
 			if(!empty($search_text))
-				$sql = $sql . " WHERE CITY.$search_item LIKE '%$search_text%' ";
+				$sql = $sql . " WHERE COUNTRY.$search_item LIKE '%$search_text%' ";
 
 	    return $this->db->query($sql)->row('COUNT(*)');
 	}
