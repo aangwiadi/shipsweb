@@ -35,7 +35,7 @@ class Vessels extends Controller
 		$this->load->library('pagination');
 		$config['base_url'] = $baseurl.$sort_col.'/'.$sort_direction.'/';
 		$config['uri_segment'] = 5;
-		$config['total_rows'] = $this->Vessels_model->get_total_vessels($this->session->userdata('vessels_search_item'), 
+		$config['total_rows'] = $this->Vessels_model->read_total_num($this->session->userdata('vessels_search_item'), 
 																		$this->session->userdata('vessels_search_text'));
 		$config['per_page'] = '25';
 		$config['num_links'] = '5';
@@ -43,7 +43,7 @@ class Vessels extends Controller
 
 		$data['fields'] = $this->Vessels_model->get_tabel_def();
 
-		$result = $this->Vessels_model->get_vessels_page($config['per_page'], 
+		$result = $this->Vessels_model->read_page($config['per_page'], 
 								 $start_index, 
 								 $sort_col, 
 								 $sort_direction,
@@ -52,7 +52,7 @@ class Vessels extends Controller
 
 		$tmpl = array (
 			'table_open'        	=> '<table>',
-			'heading_row_start'		=> '<tr>',
+			'heading_row_start'	=> '<tr>',
 			'heading_row_end'   	=> '</tr>',
 			'heading_cell_start'	=> '<th>',
 			'heading_cell_end'    	=> '</th>',
@@ -69,11 +69,17 @@ class Vessels extends Controller
 		$this->table->set_template($tmpl);
 
 		foreach ($result as $row) {
+ 
+			if(isset($row['ManagerName']))
+			  $manager = anchor(site_url().'/manager/index/'.$row['ManagerId'], $row['ManagerName']);
+			else
+			  $manager = '';
+			
 			$this->table->add_row(anchor(site_url().'/vessel/index/'.$row['Id'], $row['Name']),
 				$row['Type'], $row['Dwat'], $row['Built'], $row['LOA'], $row['Beam'], 
 				$row['Draft'], $row['Grain'], $row['Bale'], $row['HO'], $row['HA'], 
 				$row['BT'], $row['NT'], $row['Mobile'],
-				anchor(site_url().'/manager/index/'.$row['ManagerId'], $row['ManagerName'])
+				$manager
 			);
 		}
 

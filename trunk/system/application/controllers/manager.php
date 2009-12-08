@@ -18,10 +18,18 @@ class Manager extends Controller
 		$data['manager'] = $this->Manager_model->get($id);
 
 		$this->load->model('Vessels_model');
-		$data['vessels'] = $this->Vessels_model->get_vessels_by_manager($id);
+		$data['vessels'] = $this->Vessels_model->read_by_manager($id);
 
 		$this->template->write_view('content', 'manager_view', $data);
 		$this->template->render();
+	}
+
+	function add()
+	{
+	    $this->load->model('City_model');
+	    $data['ddcity'] = $this->get_dd_list($this->City_model);
+	    $this->template->write_view('content', 'manager_add_view', $data);
+	    $this->template->render();
 	}
 
 	function edit($id)
@@ -48,7 +56,7 @@ class Manager extends Controller
 
 
 
-	function save($id)
+	function save($id = 0)
 	{
 		// todo
 		// form validation see user guide
@@ -69,8 +77,15 @@ class Manager extends Controller
 			'Mic3' => $this->input->post('Mic3'),
 			'Mic4' => $this->input->post('Mic4'),
 			'Remarks' => $this->input->post('Remarks'),
-			'CityId' => $this->input->post('cities')
+			'CityId' => $this->input->post('Cities')
 		);
+		
+		if($id == 0)
+		{
+		  $id = $this->Manager_model->create($data);
+		  $this->index($id);
+		  return;
+		}
 
 		if($this->Manager_model->update($id, $data))
 		{

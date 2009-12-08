@@ -7,7 +7,7 @@
       <?php echo "\t" . anchor(site_url()."/vessels/index/", "Cancel"); ?>
     </div>
     <ul class="section-left">
-      <li><?php echo form_label('Name', 'Name') . form_input('Name', ''); ?></li>
+    <li><?php echo form_label('Name', 'Name') . form_input('Name', set_value('username')); ?></li>
       <li><?php echo form_label('IMONumber', 'IMONumber') . form_input('IMONumber', ''); ?></li>
       <li><?php echo form_label('Type', 'Type') . form_input('Type', ''); ?></li>
       <li><?php echo form_label('Dwat', 'Dwat') . form_input('Dwat', ''); ?></li>

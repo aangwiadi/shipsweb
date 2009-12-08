@@ -17,7 +17,7 @@ class Vessel extends Controller
 
 	function index($id)
 	{
-		$result = $this->Vessel_model->get($id);
+		$result = $this->Vessel_model->read($id);
 		$data['vessel'] = $result;
 		$this->template->write_view('content', 'vessel_view', $data);
 		$this->template->render();
@@ -37,7 +37,7 @@ class Vessel extends Controller
 	{
 		$this->load->model('City_model');
 		$this->load->model('Manager_model');
-		$result = $this->Vessel_model->get($id);
+		$result = $this->Vessel_model->read($id);
 		$data['vessel'] = $result;
 		$data['ddcity'] = $this->get_dd_list($this->City_model);
 		$data['ddmanager'] = $this->get_dd_list($this->Manager_model);
@@ -61,6 +61,21 @@ class Vessel extends Controller
 	{
 		// todo
 		// form validation see user guide
+		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('Name', 'Name', 'required');
+		$this->form_validation->set_rules('Dwat', 'Dwat', 'required');
+		
+		if ($this->form_validation->run() == FALSE)
+		{
+		  if($id == 0)
+		    $this->add();
+		  else
+		    $this->edit($id);
+		  
+		  return;
+		}
 
 		$data = array(
 			'Name' => $this->input->post('Name'),
@@ -105,7 +120,7 @@ class Vessel extends Controller
 
 		if($id == 0)
 		{
-			$id = $this->Vessel_model->savenew($data);
+			$id = $this->Vessel_model->create($data);
 			$this->index($id);
 			return;
 		}
