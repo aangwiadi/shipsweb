@@ -12,8 +12,8 @@ class Manager_model extends Model
 
 	function create($data)
 	{
-		$this->db->insert($this->table);
-		return;
+	  $this->db->insert($this->table, $data);
+	  return $this->db->insert_id();
 	}
 
 	function get($id)
@@ -22,7 +22,7 @@ class Manager_model extends Model
 			Phone1, Phone2, Phone3, Fax, Email1, Email2, 
 			Homepage, Mic1, Mic2, Mic3, Mic4, 
 			Remarks, CITY.Name AS CityName, CityId
-			FROM MANAGER
+			FROM $this->table
 			LEFT JOIN CITY ON CityId = CITY.Id
 			WHERE MANAGER.Id = ?";
 

@@ -60,18 +60,18 @@ class Vessels_model extends Model
 		}
 	}
 
-	function get_vessels_page($num, $offset, $sort_column, $sort_direction, $searchitem, $searchdata)
+	function read_page($num, $offset, $sort_column, $sort_direction, $searchitem, $searchdata)
 	{
 		$sql = "SELECT VESSEL.Id AS Id, VESSEL.Name,
 				Type, Dwat, Built, LOA, Beam, Draft,
 				Grain, Bale, HO, HA, BT, NT, Mobile,
 				MANAGER.Name AS ManagerName, ManagerId
-				FROM VESSEL, MANAGER
-				WHERE (ManagerId = MANAGER.ID OR ISNULL(ManagerId)) ";
+				FROM VESSEL
+				LEFT JOIN MANAGER ON ManagerId = MANAGER.Id";
 
 		if(!empty($searchitem))
 			if(!empty($searchdata))
-				$sql = $sql . " AND VESSEL.$searchitem LIKE '%$searchdata%' ";
+				$sql = $sql . " WHERE VESSEL.$searchitem LIKE '%$searchdata%' ";
 
 		$sql = $sql . " ORDER BY $sort_column $sort_direction LIMIT ?, ?";
 		$query = $this->db->query($sql, array((int)$offset, (int)$num)); 
@@ -82,7 +82,7 @@ class Vessels_model extends Model
 		return array();
 	}
 
-	function get_total_vessels($searchitem, $searchdata)
+	function read_total_num($searchitem, $searchdata)
 	{
 		$sql = "SELECT COUNT(*) FROM VESSEL ";
 
@@ -97,17 +97,7 @@ class Vessels_model extends Model
 	    return 0;
 	}
 
-	function update_vessel($data)
-	{
-
-	}
-
-	function create_vessel($data)
-	{
-
-	}
-
-	function get_vessels_by_manager($manager_id)
+	function read_by_manager($manager_id)
 	{
 		$query = $this->db->get_where('VESSEL', array('ManagerId' => (int)$manager_id));
 		if($query->num_rows() > 0)

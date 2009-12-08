@@ -1,7 +1,7 @@
   <header>
     <h1><?php echo $manager->Name; ?></h1>
   </header> 
-  <p><?php echo anchor(site_url().'/manager/edit/'.$manager->Id, 'Edit').' | '.anchor('', 'New') ?></p>
+  <p><?php echo anchor(site_url().'/manager/edit/'.$manager->Id, 'Edit').' | '.anchor('/manager/add/', 'New') ?></p>
   <ul class="section-left">
     <li><span>Name:</span><?php echo $manager->Name; ?></li>
     <li><span>Adress:</span><?php echo $manager->Address; ?></li>
