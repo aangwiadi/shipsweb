@@ -67,7 +67,7 @@ class Vessels_model extends Model
 				Grain, Bale, HO, HA, BT, NT, Mobile,
 				MANAGER.Name AS ManagerName, ManagerId
 				FROM VESSEL, MANAGER
-				WHERE ManagerId = MANAGER.ID";
+				WHERE (ManagerId = MANAGER.ID OR ISNULL(ManagerId)) ";
 
 		if(!empty($searchitem))
 			if(!empty($searchdata))

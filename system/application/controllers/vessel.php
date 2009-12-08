@@ -23,6 +23,16 @@ class Vessel extends Controller
 		$this->template->render();
 	}
 
+	function add()
+	{
+		$this->load->model('City_model');
+		$this->load->model('Manager_model');
+		$data['ddcity'] = $this->get_dd_list($this->City_model);
+		$data['ddmanager'] = $this->get_dd_list($this->Manager_model);
+		$this->template->write_view('content', 'vessel_add_view', $data);
+		$this->template->render();
+	}
+
 	function edit($id)
 	{
 		$this->load->model('City_model');
@@ -47,7 +57,7 @@ class Vessel extends Controller
 		return $data;
 	}
 
-	function save($id)
+	function save($id = 0)
 	{
 		// todo
 		// form validation see user guide
@@ -92,6 +102,14 @@ class Vessel extends Controller
 			'CountryId' => $this->input->post('Countries')
 		);
 
+
+		if($id == 0)
+		{
+			$id = $this->Vessel_model->savenew($data);
+			$this->index($id);
+			return;
+		}
+
 		if($this->Vessel_model->update($id, $data))
 		{
 			$this->index($id);
@@ -103,4 +121,3 @@ class Vessel extends Controller
 }
 
 ?>
-
