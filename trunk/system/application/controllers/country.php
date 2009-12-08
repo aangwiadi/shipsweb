@@ -48,10 +48,7 @@ class Country extends Controller
 		// todo
 		// form validation see user guide
 
-		$data = array(
-			'Name' => $this->input->post('Name'),
-			'CountryId' => $this->input->post('Countries')
-		);
+		$data = array('Name' => $this->input->post('Name'));
 
 		if($this->country_model->update($id, $data))
 		{

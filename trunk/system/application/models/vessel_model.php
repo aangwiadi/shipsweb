@@ -20,6 +20,12 @@ class Vessel_model extends Model
 		return $this->db->update('VESSEL', $data);
 	}
 
+	function savenew($data)
+	{
+		$this->db->insert('VESSEL', $data);
+		return $this->db->insert_id();
+	}
+
 	function get($id)
 	{
 		$sql = "SELECT VESSEL.*, MANAGER.Name AS ManagerName, CITY.Name AS HomePort, COUNTRY.Name AS Flag
