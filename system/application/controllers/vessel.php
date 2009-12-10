@@ -63,7 +63,8 @@ class Vessel extends Controller
 	{
 		// form validation 
 		$this->form_validation->set_rules('Name', 'Name', 'required');
-		$this->form_validation->set_rules('Dwat', 'Dwat', 'required');
+		$this->form_validation->set_rules('Dwat', 'Dwat', 'required|numeric');
+		$this->form_validation->set_rules('LOA', 'LOA', 'numeric');
 		
 		if ($this->form_validation->run() == FALSE)
 		{

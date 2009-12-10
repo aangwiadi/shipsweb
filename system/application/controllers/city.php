@@ -31,6 +31,14 @@ class City extends Controller
 		$this->template->render();
 	}
 
+	function add()
+	{
+	    $this->load->model('Country_model');
+	    $data['ddcountry'] = $this->get_dd_list($this->Country_model);
+	    $this->template->write_view('content', 'city_add_view', $data);
+	    $this->template->render();
+	}
+
 	// refactor put in helper??
 	function get_dd_list($model)
 	{
@@ -43,7 +51,7 @@ class City extends Controller
 		return $data;
 	}
 
-	function save($id)
+	function save($id = 0)
 	{
 		// todo
 		// form validation see user guide
@@ -52,6 +60,13 @@ class City extends Controller
 			'Name' => $this->input->post('Name'),
 			'CountryId' => $this->input->post('Countries')
 		);
+
+		if($id == 0)
+		{
+			$id = $this->City_model->create($data);
+			$this->index($id);
+			return;
+		}
 
 		if($this->City_model->update($id, $data))
 		{
