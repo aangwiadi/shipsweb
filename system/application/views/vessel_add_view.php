@@ -1,16 +1,17 @@
     <header>
 	<h1>New</h1>
     </header> 
+	<?php echo validation_errors(); ?>
     <?php echo form_open(site_url()."/vessel/save/"); ?>
     <div id="menu-button">
       <?php echo "\t" . form_submit('save', 'Save')."\n"; ?>
       <?php echo "\t" . anchor(site_url()."/vessels/index/", "Cancel"); ?>
     </div>
     <ul class="section-left">
-    <li><?php echo form_label('Name', 'Name') . form_input('Name', set_value('username')); ?></li>
+      <li><?php echo form_label('Name', 'Name') . form_input('Name', set_value('Name')); ?></li>
       <li><?php echo form_label('IMONumber', 'IMONumber') . form_input('IMONumber', ''); ?></li>
       <li><?php echo form_label('Type', 'Type') . form_input('Type', ''); ?></li>
-      <li><?php echo form_label('Dwat', 'Dwat') . form_input('Dwat', ''); ?></li>
+      <li><?php echo form_label('Dwat', 'Dwat') . form_input('Dwat', set_value('Dwat')); ?></li>
       <li><?php echo form_label('Built', 'Built') . form_input('Built', ''); ?></li>
       <li><?php echo form_label('Gear', 'Gear') . form_input('Gear', ''); ?></li>
       <li><?php echo form_label('CallSign', 'CallSign') . form_input('CallSign', ''); ?></li>

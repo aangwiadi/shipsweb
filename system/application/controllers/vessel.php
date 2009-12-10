@@ -10,6 +10,8 @@ class Vessel extends Controller
 		$this->load->model('City_model');
 		$this->load->model('Country_model');
 		$this->load->library('table');
+		$this->load->library('form_validation');
+		$this->load->helper(array('form', 'url'));
 		is_logged_in();
 
 		$this->output->enable_profiler(TRUE); 
@@ -59,11 +61,7 @@ class Vessel extends Controller
 
 	function save($id = 0)
 	{
-		// todo
-		// form validation see user guide
-		$this->load->helper(array('form', 'url'));
-		$this->load->library('form_validation');
-		
+		// form validation 
 		$this->form_validation->set_rules('Name', 'Name', 'required');
 		$this->form_validation->set_rules('Dwat', 'Dwat', 'required');
 		
