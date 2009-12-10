@@ -13,8 +13,8 @@ class City_model extends Model
 
 	function create($data)
 	{
-		$this->db->insert('CITY');
-		return;
+		$this->db->insert($this->table, $data);
+		return $this->db->insert_id();
 	}
 
 	function get($id)
