@@ -43,12 +43,28 @@ class Country extends Controller
 		return $data;
 	}
 
-	function save($id)
+	function add()
+	{
+	    $this->template->write_view('content', 'country_add_view');
+	    $this->template->render();
+	}
+
+	function save($id = 0)
 	{
 		// todo
 		// form validation see user guide
 
 		$data = array('Name' => $this->input->post('Name'));
+
+		if($id == 0)
+		{
+			$id = $this->country_model->create($data);
+			if(isset($id))
+			{
+				$this->index($id);
+				return;
+			}
+		}
 
 		if($this->country_model->update($id, $data))
 		{
