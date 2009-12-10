@@ -17,6 +17,7 @@
 	<li><a href="<?php print site_url();?>/managers">Managers</a></li>
 	<li><a href="<?php print site_url();?>/cities">Cities</a></li>
 	<li><a href="<?php print site_url();?>/countries">Countries</a></li>
+	<li><a href="<?php print site_url();?>/logout">Logout</a></li>
       </ul>
     </nav>
     <section id="main-content">
