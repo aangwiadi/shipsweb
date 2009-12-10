@@ -67,9 +67,11 @@ class Countries extends Controller
 			'table_close'       => '</table>'
 		);
 
-		foreach ($result as $row) {
-			$this->table->add_row(anchor(base_url().'index.php/country/index/'.$row['Id'], $row['Name']));
-		}
+
+		if(isset($result))
+		    foreach ($result as $row)
+		      $this->table->add_row(anchor(base_url().'index.php/country/index/'.$row['Id'], $row['Name']));
+			
 
 		$this->table->set_template($tmpl);
 

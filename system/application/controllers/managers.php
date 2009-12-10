@@ -72,16 +72,17 @@ class Managers extends Controller
 		);
 
 
-		foreach ($result as $row) {
-			$this->table->add_row(anchor(base_url().'index.php/manager/index/'.$row['Id'], $row['Name']),
-				$row['Address'],
-				$row['PostalCode'],
-				$row['Phone1'],
-				$row['Email1'],
-				$row['Mic1'],
-				$row['Remarks']
-			);
-		}
+		if(isset($result))
+		  foreach ($result as $row) {
+			  $this->table->add_row(anchor(base_url().'index.php/manager/index/'.$row['Id'], $row['Name']),
+				  $row['Address'],
+				  $row['PostalCode'],
+				  $row['Phone1'],
+				  $row['Email1'],
+				  $row['Mic1'],
+				  $row['Remarks']
+			  );
+		  }
 
 		$this->table->set_template($tmpl);
 

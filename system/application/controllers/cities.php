@@ -67,11 +67,12 @@ class Cities extends Controller
 			'table_close'       => '</table>'
 		);
 
-		foreach ($result as $row) {
-			$this->table->add_row(anchor(base_url().'index.php/city/index/'.$row['Id'], $row['Name']),
-				anchor(site_url().'/country/index/'.$row['CountryId'], $row['CountryName'])
-			);
-		}
+		if(isset($result))
+		  foreach ($result as $row) {
+			  $this->table->add_row(anchor(base_url().'index.php/city/index/'.$row['Id'], $row['Name']),
+				  anchor(site_url().'/country/index/'.$row['CountryId'], $row['CountryName'])
+			  );
+		  }
 
 		$this->table->set_template($tmpl);
 

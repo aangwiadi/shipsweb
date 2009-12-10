@@ -49,7 +49,7 @@ class Countries_model extends Model
 
 		if(!empty($search_item))
 			if(!empty($search_text))
-				$sql = $sql . " AND COUNTRY.$search_item LIKE '%$search_text%' ";
+				$sql = $sql . " WHERE COUNTRY.$search_item LIKE '%$search_text%' ";
 
 		$sql = $sql . " ORDER BY COUNTRY.$sort_column $sort_direction LIMIT ?, ?";
 		$query = $this->db->query($sql, array((int)$offset, (int)$num)); 

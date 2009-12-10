@@ -10,8 +10,8 @@ class Login extends Controller
 	function index()
 	{
 		$is_logged_in = $this->session->userdata('is_logged_in');
-
-		if(isset($is_logged_in) || $is_logged_in == true)
+		
+		if(isset($is_logged_in) && $is_logged_in == true)
 		{
 			$this->template->write_view('content', 'vessels_view.php');
 		}
