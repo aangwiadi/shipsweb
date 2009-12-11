@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
    <title>Ships</title>
-   <link href="<?php echo base_url();?>css/baseline.reset.css" media="screen" rel="stylesheet" type="text/css" />
-   <link href="<?php echo base_url();?>css/ships.css" media="screen" rel="stylesheet" type="text/css" />
+   <link href="<?php print base_url();?>css/baseline.reset.css" media="screen" rel="stylesheet" type="text/css" />
+   <link href="<?php print base_url();?>css/ships.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body>
   <div id="page">
