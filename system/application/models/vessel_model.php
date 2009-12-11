@@ -2,6 +2,7 @@
 
 class Vessel_model extends Model
 {
+	protected const $table = "VESSEL"; 
 	function Vessel_model()
 	{
 		parent::Model();
@@ -10,10 +11,9 @@ class Vessel_model extends Model
 
 	function create($data)
 	{
-	  $this->db->insert('VESSEL', $data);
+	  $this->db->insert($table, $data);
 	  return $this->db->insert_id();
 	}
-
 
 	function update($id, $data)
 	{

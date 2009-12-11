@@ -41,6 +41,7 @@
 			<th>NT</th>
 			<th>Mobile</th>
 		</tr>
+	</thead>
 	<tbody>
 		<?php foreach($vessels as $vessel): ?>
 		<tr>
@@ -60,5 +61,5 @@
 		</tr>
 		<?php endforeach ?>
 	</tbody>
-     </table>
+    </table>
   <?php } ?>
