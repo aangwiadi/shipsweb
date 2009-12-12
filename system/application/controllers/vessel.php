@@ -63,8 +63,29 @@ class Vessel extends Controller
 	{
 		// form validation 
 		$this->form_validation->set_rules('Name', 'Name', 'required');
+		$this->form_validation->set_rules('IMONumber', 'IMONumber', 'numeric');
+		$this->form_validation->set_rules('Type', 'Type', 'alpha');
 		$this->form_validation->set_rules('Dwat', 'Dwat', 'required|numeric');
+		$this->form_validation->set_rules('Built', 'Built', 'numeric');
+		$this->form_validation->set_rules('Gear', 'Gear', 'alpha_numeric');
+		$this->form_validation->set_rules('CallSign', 'CallSign', 'alpha_numeric');
 		$this->form_validation->set_rules('LOA', 'LOA', 'numeric');
+		$this->form_validation->set_rules('Beam', 'Beam', 'numeric');
+		$this->form_validation->set_rules('Draft', 'Draft', 'numeric');
+		$this->form_validation->set_rules('Grain', 'Grain', 'numeric');
+		$this->form_validation->set_rules('Bale', 'Bale', 'numeric');
+		$this->form_validation->set_rules('HO', 'HO', 'numeric');
+		$this->form_validation->set_rules('HO_dims', 'HO_dims', 'alpha_numeric');
+		$this->form_validation->set_rules('HA', 'HA', 'numeric');
+		$this->form_validation->set_rules('HA_dims', 'HA_dims', 'alpha_numeric');
+		$this->form_validation->set_rules('HA', 'HA', 'numeric');
+		$this->form_validation->set_rules('HA', 'HA', 'numeric');
+		$this->form_validation->set_rules('HA', 'HA', 'numeric');
+		$this->form_validation->set_rules('HA', 'HA', 'numeric');
+		$this->form_validation->set_rules('HA', 'HA', 'numeric');
+		$this->form_validation->set_rules('HA', 'HA', 'numeric');
+		$this->form_validation->set_rules('HA', 'HA', 'numeric');
+		$this->form_validation->set_rules('HA', 'HA', 'numeric');
 		
 		if ($this->form_validation->run() == FALSE)
 		{

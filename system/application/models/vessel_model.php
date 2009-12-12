@@ -2,7 +2,7 @@
 
 class Vessel_model extends Model
 {
-	protected const $table = "VESSEL"; 
+	protected $table = "VESSEL"; 
 	function Vessel_model()
 	{
 		parent::Model();

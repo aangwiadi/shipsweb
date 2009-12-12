@@ -1,7 +1,8 @@
     <header>
 	<h1><?php echo $manager->Name; ?></h1>
     </header> 
-    <?php echo form_open(site_url()."/manager/save/$manager->Id"); ?>
+	<?php echo validation_errors(); ?>
+	<?php echo form_open(site_url()."/manager/save/$manager->Id"); ?>
     <div id="menu-button">
       <?php echo "\t" . form_submit('save', 'Save')."\n"; ?>
       <?php echo "\t" . anchor(site_url()."/manager/index/$manager->Id", "Cancel"); ?>

@@ -51,8 +51,17 @@ class Country extends Controller
 
 	function save($id = 0)
 	{
-		// todo
-		// form validation see user guide
+		$this->form_validation->set_rules('Name', 'Name', 'required');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			if($id == 0)
+				return $this->add();
+			else
+				return $this->edit($id);
+
+			echo "Error";
+		}
 
 		$data = array('Name' => $this->input->post('Name'));
 

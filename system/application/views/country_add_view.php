@@ -1,6 +1,7 @@
     <header>
 	<h1>New</h1>
     </header> 
+	<?php echo validation_errors(); ?>
     <?php echo form_open(site_url()."/country/save/"); ?>
     <div id="menu-button">
       <?php echo "\t" . form_submit('save', 'Save')."\n"; ?>

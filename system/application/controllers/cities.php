@@ -8,7 +8,7 @@ class Cities extends Controller
 		$this->load->model('Cities_model');
 		$this->load->helper('url');
 		is_logged_in();
-		
+
 		$this->output->enable_profiler(TRUE);
 	}
 
@@ -23,7 +23,7 @@ class Cities extends Controller
 			$searchitem = $this->input->post('search_item');
 			$this->session->set_userdata('cities_search_item', $searchitem);
 		}
-	
+
 		if($this->input->post('reset'))
 		{
 			$this->session->unset_userdata('cities_search_item');
@@ -35,7 +35,7 @@ class Cities extends Controller
 		$config['base_url'] = $baseurl.$sort_col.'/'.$sort_direction.'/';
 		$config['uri_segment'] = 5;
 		$config['total_rows'] = $this->Cities_model->get_total($this->session->userdata('cities_search_item'),
-															   $this->session->userdata('cities_search_text'));
+			$this->session->userdata('cities_search_text'));
 		$config['per_page'] = '25';
 		$config['num_links'] = '10';
 		$this->pagination->initialize($config);
@@ -43,11 +43,11 @@ class Cities extends Controller
 		$data['fields'] = $this->Cities_model->get_tabel_def();
 
 		$result = $this->Cities_model->get_page($config['per_page'], 
-												  $start_index, 
-												  $sort_col, 
-												  $sort_direction,
-												  $this->session->userdata('cities_search_item'),
-									  			  $this->session->userdata('cities_search_text'));
+			$start_index, 
+			$sort_col, 
+			$sort_direction,
+			$this->session->userdata('cities_search_item'),
+			$this->session->userdata('cities_search_text'));
 		// table
 		$this->load->library('table');
 		$tmpl = array (
@@ -68,11 +68,11 @@ class Cities extends Controller
 		);
 
 		if(isset($result))
-		  foreach ($result as $row) {
-			  $this->table->add_row(anchor(base_url().'index.php/city/index/'.$row['Id'], $row['Name']),
-				  anchor(site_url().'/country/index/'.$row['CountryId'], $row['CountryName'])
-			  );
-		  }
+			foreach ($result as $row) {
+				$this->table->add_row(anchor(base_url().'index.php/city/index/'.$row['Id'], $row['Name']),
+					anchor(site_url().'/country/index/'.$row['CountryId'], $row['CountryName'])
+				);
+			}
 
 		$this->table->set_template($tmpl);
 
