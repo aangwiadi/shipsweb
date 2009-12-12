@@ -51,8 +51,8 @@ class Vessels extends Controller
 								 $this->session->userdata('vessels_search_text'));
 
 		$tmpl = array (
-			'table_open'        	=> '<table>',
-			'heading_row_start'	=> '<tr>',
+			'table_open'        	=> '<table id="vessel_table">',
+			'heading_row_start'		=> '<tr>',
 			'heading_row_end'   	=> '</tr>',
 			'heading_cell_start'	=> '<th>',
 			'heading_cell_end'    	=> '</th>',

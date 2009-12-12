@@ -8,7 +8,7 @@
       <?php echo "\t" . anchor(site_url()."/countries/index/", "Cancel"); ?>
     </div>
     <ul class="section-left">
-	  <li><?php echo form_label('Shortname', 'Shortname') . form_input('Shortname', ''); ?></li>
-	  <li><?php echo form_label('Name', 'Name') . form_input('Name', ''); ?></li>
+	  <li><?php echo form_label('Shortname', 'Shortname') . form_input('Shortname', set_value('Shortname')); ?></li>
+	  <li><?php echo form_label('Name', 'Name') . form_input('Name', set_value('Name')); ?></li>
 	</ul>
 	<?php echo form_close();  ?>

@@ -51,7 +51,7 @@ class Country extends Controller
 
 	function save($id = 0)
 	{
-		$this->form_validation->set_rules('Name', 'Name', 'required');
+		$this->form_validation->set_rules('Name', 'Name', 'required|alpha');
 
 		if ($this->form_validation->run() == FALSE)
 		{
