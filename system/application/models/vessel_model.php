@@ -11,7 +11,7 @@ class Vessel_model extends Model
 
 	function create($data)
 	{
-	  $this->db->insert($table, $data);
+	  $this->db->insert($this->table, $data);
 	  return $this->db->insert_id();
 	}
 

@@ -7,6 +7,7 @@ class Manager extends Controller
 		parent::Controller();
 		$this->load->model('Manager_model');
 		$this->load->helper('url');
+		$this->load->library('form_validation');
 		is_logged_in();
 
 		$this->output->enable_profiler(TRUE);
@@ -59,6 +60,8 @@ class Manager extends Controller
 	function save($id = 0)
 	{
 		$this->form_validation->set_rules('Name', 'Name', 'required');
+		$this->form_validation->set_rules('Email1', 'Email1', 'valid_email');
+		$this->form_validation->set_rules('Email2', 'Email2', 'valid_email');
 
 		if ($this->form_validation->run() == FALSE)
 		{
