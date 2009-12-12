@@ -7,6 +7,8 @@ class City extends Controller
 		parent::Controller();
 		$this->load->model('City_model');
 		$this->load->library('table');
+		$this->load->library('form_validation');
+		
 		is_logged_in();
 
 		$this->output->enable_profiler(TRUE); 
@@ -53,8 +55,17 @@ class City extends Controller
 
 	function save($id = 0)
 	{
-		// todo
-		// form validation see user guide
+		$this->form_validation->set_rules('Name', 'Name', 'required|alpha');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			if($id == 0)
+				return $this->add();
+			else
+				return $this->edit($id);
+
+			echo "Error";
+		}
 
 		$data = array(
 			'Name' => $this->input->post('Name'),

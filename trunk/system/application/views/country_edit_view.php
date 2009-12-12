@@ -1,4 +1,5 @@
     <header>
+	<?php echo validation_errors(); ?>
 	<h1><?php echo $country->Name; ?></h1>
     </header> 
     <?php echo form_open(site_url()."/country/save/$country->Id"); ?>
