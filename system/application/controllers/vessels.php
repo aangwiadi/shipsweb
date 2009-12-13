@@ -49,59 +49,11 @@ class Vessels extends Controller
 								 $sort_direction,
 								 $this->session->userdata('vessels_search_item'),
 								 $this->session->userdata('vessels_search_text'));
-
-		$tmpl = array (
-			'table_open'        	=> '<table id="vessel_table">',
-			'heading_row_start'		=> '<tr>',
-			'heading_row_end'   	=> '</tr>',
-			'heading_cell_start'	=> '<th>',
-			'heading_cell_end'    	=> '</th>',
-			'row_start'           	=> '<tr>',
-			'row_end'             	=> '</tr>',
-			'cell_start'          	=> '<td>',
-			'cell_end'            	=> '</td>',
-			'row_alt_start'       	=> '<tr>',
-			'row_alt_end'         	=> '</tr>',
-			'cell_alt_start'      	=> '<td>',
-			'cell_alt_end'        	=> '</td>',
-			'table_close'         	=> '</table>'
-		);
-		$this->table->set_template($tmpl);
-
-		foreach ($result as $row) {
- 
-			if(isset($row['ManagerName']))
-			  $manager = anchor(site_url().'/manager/index/'.$row['ManagerId'], $row['ManagerName']);
-			else
-			  $manager = '';
-			
-			$this->table->add_row(anchor(site_url().'/vessel/index/'.$row['Id'], $row['Name']),
-				$row['Type'], $row['Dwat'], $row['Built'], $row['LOA'], $row['Beam'], 
-				$row['Draft'], $row['Grain'], $row['Bale'], $row['HO'], $row['HA'], 
-				$row['BT'], $row['NT'], $row['Mobile'],
-				$manager
-			);
-		}
+		$data['vessels'] = $result;
 
 		$sort_direction = $sort_direction == 'ASC' ? 'DESC' : 'ASC';
-
-		$this->table->set_heading(
-			anchor($baseurl.'Name/'.$sort_direction.'/'.$start_index, 'Name'), 
-			anchor($baseurl.'Type/'.$sort_direction.'/'.$start_index, 'Type'), 
-			anchor($baseurl.'Dwat/'.$sort_direction.'/'.$start_index, 'Dwat'),
-			anchor($baseurl.'Built/'.$sort_direction.'/'.$start_index, 'Built'),
-			anchor($baseurl.'LOA/'.$sort_direction.'/'.$start_index, 'LOA'),
-			anchor($baseurl.'Beam/'.$sort_direction.'/'.$start_index, 'Beam'),
-			anchor($baseurl.'Draft/'.$sort_direction.'/'.$start_index, 'Draft'),
-			anchor($baseurl.'Grain/'.$sort_direction.'/'.$start_index, 'Grain'),
-			anchor($baseurl.'Bale/'.$sort_direction.'/'.$start_index, 'Bale'),
-			anchor($baseurl.'HO/'.$sort_direction.'/'.$start_index, 'HO'),
-			anchor($baseurl.'HA/'.$sort_direction.'/'.$start_index, 'HA'),
-			anchor($baseurl.'BT/'.$sort_direction.'/'.$start_index, 'BT'),
-			anchor($baseurl.'NT/'.$sort_direction.'/'.$start_index, 'NT'),
-			'Mobile',
-			'Manager'
-		);
+		$data['sort_direction'] = $sort_direction;
+		$data['start_index'] = $start_index;
 
 		$this->template->write_view('content', 'vessels_view', $data);
 		$this->template->render();

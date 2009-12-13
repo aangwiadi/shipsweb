@@ -12,6 +12,29 @@
 		echo form_close(); 
 		?>
 	</div>
-    <?php echo $this->table->generate(); ?>
-    <?php echo $this->pagination->create_links(); ?> 
 
+	<div id="managers_table">
+    <table>
+		<thead>
+			<tr>
+				<?php $base = site_url()."/managers/index/"; ?>
+				<th><?php echo anchor($base.'Name/'.$sort_direction.'/'.$start_index, 'Name'); ?></th>
+				<th>Address</th>
+				<th>Postal Code</th>
+				<th>Phone</th>
+				<th>Email</th>
+				<th>Mic</th>
+				<th>Remarks</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($managers as $manager): ?><tr>
+				<td><?php echo anchor(site_url().'/vessel/index/'.$manager['Id'], $manager['Name']); ?></td>
+				<td><?php echo $manager['Address']; ?></td><td><?php echo $manager['PostalCode']; ?></td><td><?php echo $manager['Phone1']; ?></td>
+				</td><td><?php echo $manager['Email1']; ?></td><td><?php echo $manager['Mic1']; ?></td>
+				<td><?php echo $manager['Remarks']; ?></td>
+			</tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
+    <?php echo $this->pagination->create_links(); ?> 

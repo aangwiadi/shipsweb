@@ -31,9 +31,6 @@ class Managers extends Controller
 			$this->session->unset_userdata('managers_search_text');
 		}
 
-	//	echo $this->session->userdata('manager_search_item');
-	//	echo $this->session->userdata('manager_search_text');
-
 		// pagination
 		$this->load->library('pagination');
 		$config['base_url'] = $baseurl.$sort_col.'/'.$sort_direction.'/';
@@ -52,51 +49,10 @@ class Managers extends Controller
 												  $sort_direction,
 												  $this->session->userdata('managers_search_item'),
 									  			  $this->session->userdata('managers_search_text'));
-		// table
-		$this->load->library('table');
-		$tmpl = array (
-			'table_open' 	  	=> '<table>',
-			'heading_row_start' => '<tr>',
-			'heading_row_end'   => '</tr>',
-			'heading_cell_start'=> '<th>',
-			'heading_cell_end'  => '</th>',
-			'row_start'         => '<tr id="roweven">',
-			'row_end'           => '</tr>',
-			'cell_start'        => '<td>',
-			'cell_end'          => '</td>',
-			'row_alt_start'     => '<tr id="rowodd">',
-			'row_alt_end'       => '</tr>',
-			'cell_alt_start'    => '<td>',
-			'cell_alt_end'      => '</td>',
-			'table_close'       => '</table>'
-		);
 
-
-		if(isset($result))
-		  foreach ($result as $row) {
-			  $this->table->add_row(anchor(base_url().'index.php/manager/index/'.$row['Id'], $row['Name']),
-				  $row['Address'],
-				  $row['PostalCode'],
-				  $row['Phone1'],
-				  $row['Email1'],
-				  $row['Mic1'],
-				  $row['Remarks']
-			  );
-		  }
-
-		$this->table->set_template($tmpl);
-
-		$sort_direction = $sort_direction == 'ASC' ? 'DESC' : 'ASC';
-
-		$this->table->set_heading(
-			anchor($baseurl.'Name/'.$sort_direction.'/'.$start_index, 'Name'), 
-			'Address', 
-			'Postal Code',
-			'Phone',
-			'Email',
-			'Mic',
-			'Remarks'
-		);
+		$data['managers'] = $result;
+		$data['sort_direction'] = $sort_direction == 'ASC' ? 'DESC' : 'ASC';
+		$data['start_index'] = $start_index;
 
 		$this->template->write_view('content', 'managers_view', $data);
 		$this->template->render();
