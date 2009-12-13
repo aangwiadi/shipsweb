@@ -48,40 +48,10 @@ class Cities extends Controller
 			$sort_direction,
 			$this->session->userdata('cities_search_item'),
 			$this->session->userdata('cities_search_text'));
-		// table
-		$this->load->library('table');
-		$tmpl = array (
-			'table_open' 	  	=> '<table>',
-			'heading_row_start' => '<tr>',
-			'heading_row_end'   => '</tr>',
-			'heading_cell_start'=> '<th>',
-			'heading_cell_end'  => '</th>',
-			'row_start'         => '<tr id="roweven">',
-			'row_end'           => '</tr>',
-			'cell_start'        => '<td>',
-			'cell_end'          => '</td>',
-			'row_alt_start'     => '<tr id="rowodd">',
-			'row_alt_end'       => '</tr>',
-			'cell_alt_start'    => '<td>',
-			'cell_alt_end'      => '</td>',
-			'table_close'       => '</table>'
-		);
 
-		if(isset($result))
-			foreach ($result as $row) {
-				$this->table->add_row(anchor(base_url().'index.php/city/index/'.$row['Id'], $row['Name']),
-					anchor(site_url().'/country/index/'.$row['CountryId'], $row['CountryName'])
-				);
-			}
-
-		$this->table->set_template($tmpl);
-
-		$sort_direction = $sort_direction == 'ASC' ? 'DESC' : 'ASC';
-
-		$this->table->set_heading(
-			anchor($baseurl.'Name/'.$sort_direction.'/'.$start_index, 'Name'), 
-			'Country'
-		);
+		$data['cities'] = $result;
+		$data['sort_direction'] = $sort_direction == 'ASC' ? 'DESC' : 'ASC';
+		$data['start_index'] = $start_index;
 
 		$this->template->write_view('content', 'cities_view', $data);
 		$this->template->render();

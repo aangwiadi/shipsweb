@@ -12,6 +12,21 @@
 		echo form_close(); 
 		?>
 	</div>
-    <?php echo $this->table->generate(); ?>
+	<div id="cities_table">
+    <table>
+		<thead>
+			<tr>
+				<?php $base = site_url()."/cities/index/"; ?>
+				<th><?php echo anchor($base.'Name/'.$sort_direction.'/'.$start_index, 'Name'); ?></th>
+				<th>Country</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($cities as $city): ?><tr>
+				<td><?php echo anchor(site_url().'/city/index/'.$city['Id'], $city['Name']); ?></td>
+				<th><?php echo anchor(site_url().'/country/index/'.$city['CountryId'], $city['CountryName']); ?></th>
+			</tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
     <?php echo $this->pagination->create_links(); ?> 
-
