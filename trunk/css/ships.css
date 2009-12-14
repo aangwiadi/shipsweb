@@ -32,14 +32,17 @@ table			{ width: 100%; }
 
 #main-menu li a:hover { background-color:blue; }
 
-#vessel_table col_name { width: 10% }
-#vessel_table col_type {}
-#vessel_table col_dwat {}
-#vessel_table col_built {}
-#vessel_table col_loa {}
-#vessel_table col_beam {}
-#vessel_table col_draft {}
-
+#vessels_table #Name { width: 150px }
+#vessels_table #Type { width: 50px }
+#vessels_table #Dwat { width: 50px }
+#vessels_table #Built { width: 50px }
+#vessels_table #LOA { width: 50px }
+#vessels_table #Name { width: 150px }
+#vessels_table #Name { width: 150px }
+#vessels_table #Name { width: 150px }
+#vessels_table #Name { width: 150px }
+#vessels_table #Name { width: 150px }
+#vessels_table #Name { width: 150px }
 
 tr:nth-child(even) {background: #CCC}
 tr:nth-child(odd) {background: #FFF}

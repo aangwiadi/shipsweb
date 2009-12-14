@@ -17,6 +17,23 @@ class Vessels extends Controller
 	{
 		$baseurl = base_url() . 'index.php/vessels/index/';
 
+		// config output
+		$data['show_fields'] = array('Name' => 'Name', 
+									 'Type' => 'Type', 
+									 'Dwat' => 'Dwat', 
+									 'Built' => 'Built', 
+									 'LOA' => 'LOA', 
+									 'Beam' => 'Beam', 
+									 'Draft' => 'Draft', 
+									 'Grain' => 'Grain', 
+									 'Bale' => 'Bale', 
+									 'HO' => 'HO', 
+									 'HA' => 'HA', 
+									 'BT' => 'BT', 
+									 'NT' => 'NT', 
+									 'Mobile' => 'Mobile', 
+									 'Manager' => 'ManagerName');
+
 		if($this->input->post('submit'))
 		{
 			$searchtext = $this->input->post('search_text');
