@@ -17,21 +17,9 @@
 		<thead>
 			<tr>
 				<?php $base = site_url()."/vessels/index/"; ?>
-				<th><?php echo anchor($base.'Name/'.$sort_direction.'/'.$start_index, 'Name'); ?></th>
-				<th><?php echo anchor($base.'Type/'.$sort_direction.'/'.$start_index, 'Type'); ?></th>
-				<th><?php echo anchor($base.'Dwat/'.$sort_direction.'/'.$start_index, 'Dwat'); ?></th>
-				<th><?php echo anchor($base.'Built/'.$sort_direction.'/'.$start_index, 'Built'); ?></th>
-				<th><?php echo anchor($base.'LOA/'.$sort_direction.'/'.$start_index, 'LOA'); ?></th>
-				<th><?php echo anchor($base.'Beam/'.$sort_direction.'/'.$start_index, 'Beam'); ?></th>
-				<th><?php echo anchor($base.'Draft/'.$sort_direction.'/'.$start_index, 'Draft'); ?></th>
-				<th><?php echo anchor($base.'Grain/'.$sort_direction.'/'.$start_index, 'Grain'); ?></th>
-				<th><?php echo anchor($base.'Bale/'.$sort_direction.'/'.$start_index, 'Bale'); ?></th>
-				<th><?php echo anchor($base.'HO/'.$sort_direction.'/'.$start_index, 'HO'); ?></th>
-				<th><?php echo anchor($base.'HA/'.$sort_direction.'/'.$start_index, 'HA'); ?></th>
-				<th><?php echo anchor($base.'BT/'.$sort_direction.'/'.$start_index, 'BT'); ?></th>
-				<th><?php echo anchor($base.'NT/'.$sort_direction.'/'.$start_index, 'NT'); ?></th>
-				<th>Mobile</th>
-				<th>Manager</th>
+				<?php foreach($show_fields as $show_field => $db_field): ?> 
+				<th id="$show_field"><?php echo anchor($base."$db_field/".$sort_direction.'/'.$start_index, "$show_field"); ?></th>
+				<?php endforeach ?>
 			</tr>
 		</thead>
 		<tbody>
