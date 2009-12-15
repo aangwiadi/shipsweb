@@ -1,5 +1,13 @@
   <header>
-    <h1><?php echo $vessel->Name; ?></h1>
+<h1><?php 
+	if(isset($vessel))
+		echo $vessel->Name; 
+	else
+	{
+		echo "No vessel found";
+		die();
+	}
+?></h1>
   </header> 
   <p><?php echo anchor(site_url().'/vessel/edit/'.$vessel->Id, 'Edit').' | '.anchor('/vessel/add/', 'New') ?></p>
   <ul class="section-left">
