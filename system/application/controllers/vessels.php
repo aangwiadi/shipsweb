@@ -17,22 +17,22 @@ class Vessels extends Controller
 	{
 		$baseurl = base_url() . 'index.php/vessels/index/';
 
-		// config output
-		$data['show_fields'] = array('Name' => 'Name', 
-									 'Type' => 'Type', 
-									 'Dwat' => 'Dwat', 
-									 'Built' => 'Built', 
-									 'LOA' => 'LOA', 
-									 'Beam' => 'Beam', 
-									 'Draft' => 'Draft', 
-									 'Grain' => 'Grain', 
-									 'Bale' => 'Bale', 
-									 'HO' => 'HO', 
-									 'HA' => 'HA', 
-									 'BT' => 'BT', 
-									 'NT' => 'NT', 
-									 'Mobile' => 'Mobile', 
-									 'Manager' => 'ManagerName');
+		// config output: array(showname => array(dbname, showsortlink))
+		$data['show_fields'] = array('Name' 	=> array('Id', true), 
+									 'Type' 	=> array('Type', true), 
+									 'Dwat' 	=> array('Dwat', true), 
+									 'Built' 	=> array('Built', true), 
+									 'LOA' 		=> array('LOA', true), 
+									 'Beam' 	=> array('Beam', true), 
+									 'Draft' 	=> array('Draft', true), 
+									 'Grain' 	=> array('Grain', true), 
+									 'Bale' 	=> array('Bale', true), 
+									 'HO' 		=> array('HO', true), 
+									 'HA' 		=> array('HA', true), 
+									 'BT' 		=> array('BT', true), 
+									 'NT' 		=> array('NT', true), 
+									 'Mobile' 	=> array('Mobile', false), 
+									 'Manager' 	=> array('Manager:Name', true));
 
 		if($this->input->post('submit'))
 		{
