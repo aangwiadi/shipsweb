@@ -12,12 +12,12 @@
     </header>
     <nav id="main-menu">
       <ul>
-	<li><a href="<?php print site_url();?>/vessels">Home</a></li>
-	<li><a href="<?php print site_url();?>/vessels">Vessels</a></li>
-	<li><a href="<?php print site_url();?>/managers">Managers</a></li>
-	<li><a href="<?php print site_url();?>/cities">Cities</a></li>
-	<li><a href="<?php print site_url();?>/countries">Countries</a></li>
-	<li><a href="<?php print site_url();?>/logout">Logout</a></li>
+		<li id="nav_vessels"><a href="<?php print site_url();?>/vessels">Home</a></li>
+		<li id="nav_vessels"><a href="<?php print site_url();?>/vessels">Vessels</a></li>
+		<li id="nav_managers"><a href="<?php print site_url();?>/managers">Managers</a></li>
+		<li id="nav_cities"><a href="<?php print site_url();?>/cities">Cities</a></li>
+		<li id="nav_countries"><a href="<?php print site_url();?>/countries">Countries</a></li>
+		<li id="nav_logout"><a href="<?php print site_url();?>/logout">Logout</a></li>
       </ul>
     </nav>
     <section id="main-content">
