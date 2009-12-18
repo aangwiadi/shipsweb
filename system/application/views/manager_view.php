@@ -22,6 +22,7 @@
     <li><span>Remarks:</span><?php echo $manager->Remarks; ?></li>
     <li><span>City:</span><?php echo $manager->CityName; ?></li>
   </ul>
+  <h3>Vessels managed</h3>
   <?php if(count($vessels) > 0) { ?>
     <table>
 	<thead>
