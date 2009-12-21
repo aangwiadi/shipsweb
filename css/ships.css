@@ -11,7 +11,7 @@
 
 body 			{ background-color:	#fff; margin: 40px; font-family: Lucida Grande, Verdana, Sans-serif; font-size:	12px; color: #000; }
 
-h1				{ font-size: 18px; margin: 5px 0 5px 0;	}
+h1				{ font-size: 18px; margin: 5px 0 5px 0; color:grey; }
 h2 				{ font-size: 16px; margin: 2px 0 2px 0;	}
 h3 				{ font-size: 14px; margin: 2px 0 2px 0;	}
 table			{ width: 100%; }

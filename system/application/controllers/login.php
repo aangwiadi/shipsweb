@@ -13,10 +13,11 @@ class Login extends Controller
 		
 		if(isset($is_logged_in) && $is_logged_in == true)
 		{
-			$this->template->write_view('content', 'vessels_view.php');
+			$this->iload_view('content', 'vessels_view.php');
+			
 		}
-		$this->template->write_view('content', 'login/login_view');
-		$this->template->render();  
+		$this->iload_view('content', 'login/login_view');
+		$this->view->render();  
 
 	}
 
