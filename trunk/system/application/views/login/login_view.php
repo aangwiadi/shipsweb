@@ -14,6 +14,10 @@
   <h1>Login</h1>
   <?php echo form_open('login/validate');?>
   <div>
+<?php
+	echo $data['login_error'];
+	if(isset($data['login_error'])) ?>
+		<span class="error"><?php echo $data['login_error']; ?></span>
   <label>Username<?php echo form_input(array('name' => 'username',
 										     'value' => '',
 											 'class' => 'text',
@@ -24,6 +28,11 @@
 									  			'value' => '',
 												'class' => 'text',
 												'type' => 'text'));?></label>
+
+  	<?php
+		if(isset($_SERVER['HTTP_REFERER']))
+			echo form_hidden('referer', $_SERVER['HTTP_REFERER']);
+	?>
   </div>
   <?php echo form_submit('submit', 'Login'); ?>
   <?php echo form_close(); ?>
