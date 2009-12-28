@@ -7,29 +7,25 @@ class Login extends Controller
 		parent::Controller();
 	}
 
-	function index()
+	function index($error = NULL)
 	{
+		echo $error;
+		$data['login_error'] = $error;
 		$this->session->unset_userdata('is_logged_in');
-/*		$is_logged_in = $this->session->userdata('is_logged_in');
-		
-		if(isset($is_logged_in) && $is_logged_in == true)
-		{
-			$this->load->view('vessels_view.php');
-		}
-		$this->load->view('login/login_view');
- */
-		$this->load->view('login/login_view');
+		$this->load->view('login/login_view', $data);
 	}
 
 	function validate()
 	{
-		$this->load->model('membership_model');
+		// validation
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
 		
-		$query = $this->membership_model->validate($this->input->post('username'), md5($this->input->post('password')));
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
 
-		echo $query;
-
-		if($query)
+		if($this->check_user($username, $password))
 		{
 			$data = array(
 				'username' => $this->input->post('username'),
@@ -37,14 +33,28 @@ class Login extends Controller
 			);
 
 			$this->session->set_userdata($data);
-			redirect('vessels');
+			
+//			$referer = $this->input->post('referer');
+
+//			if(isset($referer))
+//				redirect($referer);
+//			else
+				redirect('vessels');
 		}
 		else 
 		{
-			//echo $query;
-			$this->index();
+			$this->index('Invalid username or password');
 		}
+	}
 
+	function check_user($username, $password)
+	{
+		$this->load->model('membership_model');
+		$query = $this->membership_model->validate($username, md5($password));
+		if($query)
+			return TRUE;
+		else
+			return FALSE;
 	}
 }
 ?>
