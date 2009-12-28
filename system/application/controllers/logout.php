@@ -15,9 +15,7 @@ class Logout extends Controller
 		{
 		    $this->session->unset_userdata('is_logged_in');
 		}
-		$this->template->write_view('content', 'login/login_view');
-		$this->template->render();  
-
+		$this->load->view('login/login_view');
 	}
 }
 ?>
