@@ -44,7 +44,7 @@
       <li><?php echo form_label('Class', 'Class') . form_input('Class', $vessel->Class); ?></li>
       <li><?php echo form_label('Pandi', 'Pandi') . form_input('Pandi', $vessel->Pandi); ?></li>
       <li><?php echo form_label('Remarks', 'Remarks') . form_textarea(array('name' => 'Remarks', 'id' => 'Remarks', 'value' => $vessel->Remarks, 'rows' => '2', 'cols' => '23')); ?></li>
-      <li><?php echo form_label('Managers', 'Managers') . form_dropdown('Managers', $ddmanager, $vessel->ManagerId, 'class="dd-list"'); ?></li>
-      <li><?php echo form_label('Cities', 'Cities') . form_dropdown('Cities', $ddcity, $vessel->CityId, 'class="dd-list"'); ?></li>
+      <li><?php echo form_label('Manager', 'Manager') . form_dropdown('Managers', $ddmanager, $vessel->ManagerId, 'class="dd-list"'); ?></li>
+      <li><?php echo form_label('Homeport', 'Cities') . form_dropdown('Cities', $ddcity, $vessel->CityId, 'class="dd-list"'); ?></li>
     </ul>
     <?php echo $vessel->CityId. form_close(); ?>

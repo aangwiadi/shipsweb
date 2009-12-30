@@ -11,6 +11,7 @@ class Vessel extends Controller
 		$this->load->model('Country_model');
 		$this->load->library('table');
 		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		$this->load->helper(array('form', 'url'));
 		is_logged_in();
 

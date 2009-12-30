@@ -22,8 +22,7 @@ class Managers extends Controller
 									 'Postal Code' 	=> array('PostalCode', false), 
 									 'Phone' 	=> array('Phone1', false), 
 									 'Email' 		=> array('Email1', false), 
-									 'Mic' 	=> array('Mic1', false), 
-									 'Remarks' 	=> array('Remarks', false)); 
+									 'Mic' 	=> array('Mic1', false)); 
 
 		if($this->input->post('submit'))
 		{
@@ -45,7 +44,7 @@ class Managers extends Controller
 		$config['uri_segment'] = 5;
 		$config['total_rows'] = $this->Managers_model->get_total($this->session->userdata('managers_search_item'),
 																 $this->session->userdata('managers_search_text'));
-		$config['per_page'] = '15';
+		$config['per_page'] = '25';
 		$config['num_links'] = '10';
 		$this->pagination->initialize($config);
 

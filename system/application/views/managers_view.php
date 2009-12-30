@@ -15,6 +15,14 @@
 
 	<div id="managers_table">
     <table>
+		<colgroup>
+			<col id="name">
+			<col id="address">
+			<col id="postal_code">
+			<col id="phone">
+			<col id="email">
+			<col id="mic">
+		</colgroup>
 		<thead>
 			<tr>
 				<?php $base = site_url()."/managers/index/"; ?>
@@ -24,7 +32,6 @@
 				<th>Phone</th>
 				<th>Email</th>
 				<th>Mic</th>
-				<th>Remarks</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -32,7 +39,6 @@
 				<td><?php echo anchor(site_url().'/manager/index/'.$manager['Id'], $manager['Name']); ?></td>
 				<td><?php echo $manager['Address']; ?></td><td><?php echo $manager['PostalCode']; ?></td><td><?php echo $manager['Phone1']; ?></td>
 				</td><td><?php echo $manager['Email1']; ?></td><td><?php echo $manager['Mic1']; ?></td>
-				<td><?php echo $manager['Remarks']; ?></td>
 			</tr>
 			<?php endforeach ?>
 		</tbody>

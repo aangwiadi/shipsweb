@@ -28,3 +28,6 @@ INSERT INTO `ships`.`MEMBERSHIP` (
 VALUES (
 NULL , 'Hovmand', 'hovmand', MD5( 'hovmand4941' ) , 'alfr@hovmand.dk'
 );
+
+
+Set all "n" managers to NULL
