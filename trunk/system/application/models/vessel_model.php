@@ -38,4 +38,4 @@ class Vessel_model extends Model
 	}
 }
 
-?>
+// EOF

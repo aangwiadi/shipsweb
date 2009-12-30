@@ -18,4 +18,5 @@ class Logout extends Controller
 		$this->load->view('login/login_view');
 	}
 }
-?>
+
+// EOF

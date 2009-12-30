@@ -7,7 +7,7 @@
       <?php echo "\t" . form_submit('save', 'Save')."\n"; ?>
       <?php echo "\t" . anchor(site_url()."/vessel/index/$vessel->Id", "Cancel"); ?>
     </div>
-    <ul class="section-left">
+    <ul class="section">
       <li><?php echo form_label('Name', 'Name') . form_input('Name', $vessel->Name); ?></li>
       <li><?php echo form_label('IMONumber', 'IMONumber') . form_input('IMONumber', $vessel->IMONumber); ?></li>
       <li><?php echo form_label('Type', 'Type') . form_input('Type', $vessel->Type); ?></li>
@@ -27,7 +27,7 @@
       <li><?php echo form_label('CaptName', 'CaptName') . form_input('CaptName', $vessel->CaptName); ?></li>
       <li><?php echo form_label('Crew', 'Crew') . form_input('Crew', $vessel->Crew); ?></li>
     </ul>
-    <ul class="section-right">
+    <ul class="section">
       <li><?php echo form_label('BRT', 'BRT') . form_input('BRT', $vessel->BRT); ?></li>
       <li><?php echo form_label('NRT', 'NRT') . form_input('NRT', $vessel->NRT); ?></li>
       <li><?php echo form_label('BT', 'BT') . form_input('BT', $vessel->BT); ?></li>

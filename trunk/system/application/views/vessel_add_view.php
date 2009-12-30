@@ -7,7 +7,7 @@
       <?php echo "\t" . form_submit('save', 'Save')."\n"; ?>
       <?php echo "\t" . anchor(site_url()."/vessels/index/", "Cancel"); ?>
     </div>
-    <ul class="section-left">
+    <ul class="section">
       <li><?php echo form_label('Name', 'Name') . form_input('Name', set_value('Name')); ?></li>
       <li><?php echo form_label('IMONumber', 'IMONumber') . form_input('IMONumber', set_value('IMONumber')); ?></li>
       <li><?php echo form_label('Type', 'Type') . form_input('Type', set_value('Type')); ?></li>
@@ -27,7 +27,7 @@
       <li><?php echo form_label('CaptName', 'CaptName') . form_input('CaptName', set_value('CaptName')); ?></li>
       <li><?php echo form_label('Crew', 'Crew') . form_input('Crew', set_value('Crew')); ?></li>
     </ul>
-    <ul class="section-right">
+    <ul class="section">
       <li><?php echo form_label('BRT', 'BRT') . form_input('BRT', set_value('BRT')); ?></li>
       <li><?php echo form_label('NRT', 'NRT') . form_input('NRT', set_value('NRT')); ?></li>
       <li><?php echo form_label('BT', 'BT') . form_input('BT', set_value('BT')); ?></li>

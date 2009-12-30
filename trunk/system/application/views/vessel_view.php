@@ -10,7 +10,7 @@
 ?></h1>
   </header> 
   <p><?php echo anchor(site_url().'/vessel/edit/'.$vessel->Id, 'Edit').' | '.anchor('/vessel/add/', 'New') ?></p>
-  <ul class="section-left">
+  <ul class="section">
     <li><span>Name:</span><?php echo $vessel->Name; ?></li>
     <li><span>IMONumber:</span><?php echo $vessel->IMONumber; ?></li>
     <li><span>Type:</span><?php echo $vessel->Type; ?></li>
@@ -30,7 +30,7 @@
     <li><span>CaptName:</span><?php echo $vessel->CaptName; ?></li>
     <li><span>Crew:</span><?php echo $vessel->Crew; ?></li>
   </ul>
-  <ul class="section-right">
+  <ul class="section">
     <li><span>BRT:</span><?php echo $vessel->BRT; ?></li>
     <li><span>NRT:</span><?php echo $vessel->NRT; ?></li>
     <li><span>BT:</span><?php echo $vessel->BT; ?></li>

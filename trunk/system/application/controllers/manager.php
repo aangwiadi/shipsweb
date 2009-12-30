@@ -108,4 +108,5 @@ class Manager extends Controller
 		echo "Error";
 	}
 }
-?>
+
+// EOF

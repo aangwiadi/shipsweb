@@ -7,51 +7,60 @@
  * * * * * * { outline: 1px solid green }
  * * * * * * * { outline: 1px solid orange }
  * * * * * * * * { outline: 1px solid blue }
- */
+*/
 
 body 			{ background-color:	#fff; margin: 40px; font-family: Lucida Grande, Verdana, Sans-serif; font-size:	12px; color: #000; }
 
-h1				{ font-size: 18px; margin: 5px 0 5px 0; color:grey; }
+h1				{ font-size: 22px; margin: 5px 0 5px 0; color:grey; }
 h2 				{ font-size: 16px; margin: 2px 0 2px 0;	}
 h3 				{ font-size: 14px; margin: 2px 0 2px 0;	}
 table			{ width: 100%; }
 
 #page			{ width: 990px; padding: 0 18px; margin: 0 auto; }
 
-#main-menu		{ margin: 0; padding:0; background: #808259; float:left; width:100%; border:1px solid #42432d; border-width:1px 0; }
+#main-menu		{ margin: 0; padding:0; float:left; width:100%; border:1px solid #42432d; }
 #main-menu li 	{ display: inline; padding: 0; margin: 0}
 #main-menu li a:hover { background-color:blue; }
 #main-menu a:link, 
-#main-menu a:visited { color:#000; background:#b2b580; padding:20px 40px 4px 10px; float:left; width:auto;
+#main-menu a:visited { color:#000; padding:20px 40px 4px 10px; float:left; width:auto;
    					   border-right:1px solid #42432d; text-decoration:none; font:bold 1em/1em Arial, Helvetica, sans-serif;
 					   text-transform:uppercase; text-shadow: 2px 2px 2px #555; }
 #main-menu a:hover 	{ color:#fff; background:#727454; }
-#main-menu li:first-child a { border-left:1px solid #42432d; }
 
-#vessels_table #Name { width: 150px }
-#vessels_table #Type { width: 50px }
-#vessels_table #Dwat { width: 50px }
-#vessels_table #Built { width: 50px }
-#vessels_table #LOA { width: 50px }
-#vessels_table #Name { width: 150px }
-#vessels_table #Name { width: 150px }
-#vessels_table #Name { width: 150px }
-#vessels_table #Name { width: 150px }
-#vessels_table #Name { width: 150px }
-#vessels_table #Name { width: 150px }
+tr:nth-child(odd) td:nth-child(even), tr:nth-child(even) td:nth-child(odd) { 
+		          background-color: silver; 
+				          color: white; 
+						        } 
+
+td:nth-child(even) {background: #B9BB9B}
+td:nth-child(odd) {background: #FFF}
 
 tr:nth-child(even) {background: #B9BB9B}
 tr:nth-child(odd) {background: #FFF}
 
-.section-left { float: left; width: 350px; list-style-type: none; border: 1px solid black; padding-top: 20px; }
-.section-left li		{ clear: both }
-.section-left li span	{ float: left; width: 90px; padding: 0px 10px 10px 0px; }
-.section-left label		{ float: left; width: 90px; padding: 0px 10px 10px 0px; }
-
-.section-right { float: left; width: 350px; list-style-type: none; border: 1px solid black; padding-top: 20px; }
-.section-right li		{ clear: both; }
-.section-right li span	{ float: left; width: 90px; padding: 0px 10px 10px 0px; }
-.section-right label	{ float: left; width: 90px; padding: 0px 10px 10px 0px; }
+.section { float: left; width: 350px; list-style-type: none; border: 1px solid black; padding-top: 20px; }
+.section li		{ clear: both }
+.section li span	{ float: left; width: 90px; padding: 0px 10px 10px 0px; }
+.section label		{ float: left; width: 90px; padding: 0px 10px 10px 0px; }
 
 .dd-list	{ width: 178px }
+
+#vessels_table col#name {width: 150px }
+#vessels_table col#type {width: 30px }
+#vessels_table col#dwat {width: 30px }
+#vessels_table col#built {width: 30px }
+#vessels_table col#loa {width: 40px }
+#vessels_table col#beam {width: 40px }
+#vessels_table col#draft {width: 40px }
+#vessels_table col#grain {width: 50px }
+#vessels_table col#bale {width: 50px }
+#vessels_table col#ho {width: 25px }
+#vessels_table col#ha {width: 25px }
+#vessels_table col#bt {width: 40px }
+#vessels_table col#nt {width: 40px }
+#vessels_table col#mobile {width: 150px }
+#vessels_table col#manager {width: 250px }
+
+
+
 

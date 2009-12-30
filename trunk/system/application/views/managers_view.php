@@ -29,7 +29,7 @@
 		</thead>
 		<tbody>
 			<?php foreach($managers as $manager): ?><tr>
-				<td><?php echo anchor(site_url().'/vessel/index/'.$manager['Id'], $manager['Name']); ?></td>
+				<td><?php echo anchor(site_url().'/manager/index/'.$manager['Id'], $manager['Name']); ?></td>
 				<td><?php echo $manager['Address']; ?></td><td><?php echo $manager['PostalCode']; ?></td><td><?php echo $manager['Phone1']; ?></td>
 				</td><td><?php echo $manager['Email1']; ?></td><td><?php echo $manager['Mic1']; ?></td>
 				<td><?php echo $manager['Remarks']; ?></td>

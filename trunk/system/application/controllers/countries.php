@@ -57,4 +57,5 @@ class Countries extends Controller
 		$this->template->render();
 	}
 }
-?>
+
+// EOF

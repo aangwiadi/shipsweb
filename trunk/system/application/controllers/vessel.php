@@ -64,11 +64,8 @@ class Vessel extends Controller
 		// form validation 
 		$this->form_validation->set_rules('Name', 'Name', 'required');
 		$this->form_validation->set_rules('IMONumber', 'IMONumber', 'numeric');
-		$this->form_validation->set_rules('Type', 'Type', 'alpha');
 		$this->form_validation->set_rules('Dwat', 'Dwat', 'required|numeric');
 		$this->form_validation->set_rules('Built', 'Built', 'numeric');
-		$this->form_validation->set_rules('Gear', 'Gear', 'alpha_numeric');
-		$this->form_validation->set_rules('CallSign', 'CallSign', 'alpha_numeric');
 		$this->form_validation->set_rules('LOA', 'LOA', 'numeric');
 		$this->form_validation->set_rules('Beam', 'Beam', 'numeric');
 		$this->form_validation->set_rules('Draft', 'Draft', 'numeric');
@@ -78,14 +75,19 @@ class Vessel extends Controller
 		$this->form_validation->set_rules('HO_dims', 'HO_dims', 'alpha_numeric');
 		$this->form_validation->set_rules('HA', 'HA', 'numeric');
 		$this->form_validation->set_rules('HA_dims', 'HA_dims', 'alpha_numeric');
-		$this->form_validation->set_rules('HA', 'HA', 'numeric');
-		$this->form_validation->set_rules('HA', 'HA', 'numeric');
-		$this->form_validation->set_rules('HA', 'HA', 'numeric');
-		$this->form_validation->set_rules('HA', 'HA', 'numeric');
-		$this->form_validation->set_rules('HA', 'HA', 'numeric');
-		$this->form_validation->set_rules('HA', 'HA', 'numeric');
-		$this->form_validation->set_rules('HA', 'HA', 'numeric');
-		$this->form_validation->set_rules('HA', 'HA', 'numeric');
+		$this->form_validation->set_rules('Crew', 'Crew', 'numeric');
+		$this->form_validation->set_rules('BRT', 'BRT', 'numeric');
+		$this->form_validation->set_rules('NRT', 'NRT', 'numeric');
+		$this->form_validation->set_rules('BT', 'BT', 'numeric');
+		$this->form_validation->set_rules('NT', 'NT', 'numeric');
+		$this->form_validation->set_rules('Speed_ball', 'Speed_ball', 'numeric');
+		$this->form_validation->set_rules('Speed_laden', 'Speed_laden', 'numeric');
+		$this->form_validation->set_rules('IFO_sea_ball', 'IFO_sea_ball', 'numeric');
+		$this->form_validation->set_rules('IFO_sea_laden', 'IFO_sea_laden', 'numeric');
+		$this->form_validation->set_rules('MDO_sea_ball', 'MDO_sea_ball', 'numeric');
+		$this->form_validation->set_rules('MDO_sea_laden', 'MODO_sea_laden', 'numeric');
+		$this->form_validation->set_rules('MDO_port', 'MDO_port', 'numeric');
+		$this->form_validation->set_rules('IFO_port', 'IFO_port', 'numeric');
 		
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -134,9 +136,15 @@ class Vessel extends Controller
 			'Remarks' => $this->input->post('Remarks'),
 			'ManagerId' => $this->input->post('Managers'),
 			'CityId' => $this->input->post('Cities'),
-			'CountryId' => $this->input->post('Countries')
+			'CountryId' => NULL 
 		);
 
+		if(isset($data['CityId']))
+		{
+			$this->load->model('City_model');
+			$city = $this->City_model->get($data['CityId']);
+			$data['CountryId'] = $city->CountryId;
+		}
 
 		if($id == 0)
 		{
@@ -155,4 +163,4 @@ class Vessel extends Controller
 	}
 }
 
-?>
+// EOF

@@ -7,7 +7,7 @@
       <?php echo "\t" . form_submit('save', 'Save')."\n"; ?>
       <?php echo "\t" . anchor(site_url()."/managers/index/", "Cancel"); ?>
     </div>
-    <ul class="section-left">
+    <ul class="section">
       <li><?php echo form_label('Name', 'Name') . form_input('Name', set_value('Name')); ?></li>
       <li><?php echo form_label('Address', 'Address') . form_input('Address', set_value('Address')); ?></li>
       <li><?php echo form_label('PostalCode', 'PostalCode') . form_input('PostalCode', set_value('PostalCode')); ?></li>
@@ -18,7 +18,7 @@
       <li><?php echo form_label('Email1', 'Email1') . form_input('Email1', set_value('Email1')); ?></li>
       <li><?php echo form_label('Email2', 'Email2') . form_input('Email2', set_value('Email2')); ?></li>
     </ul>
-    <ul class="section-right">
+    <ul class="section">
       <li><?php echo form_label('Homepage', 'Homepage') . form_input('Homepage', set_value('Homepage'));?></li>
       <li><?php echo form_label('Mic1', 'Mic1') . form_input('Mic1', set_value('Mic1')); ?></li>
       <li><?php echo form_label('Mic2', 'Mic2') . form_input('Mic2', set_value('Mic2')); ?></li>

@@ -7,7 +7,7 @@
       <?php echo "\t" . form_submit('save', 'Save')."\n"; ?>
       <?php echo "\t" . anchor(site_url()."/cities/index/", "Cancel"); ?>
     </div>
-    <ul class="section-left">
+    <ul class="section">
       <li><?php echo form_label('Name', 'Name') . form_input('Name', set_value('Name')); ?></li>
       <li><?php echo form_label('Country', 'Country') . form_dropdown('Countries', $ddcountry, ''); ?></li>
 	</ul>

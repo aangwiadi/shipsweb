@@ -57,4 +57,5 @@ class Cities extends Controller
 		$this->template->render();
 	}
 }
-?>
+
+// EOF

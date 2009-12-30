@@ -53,4 +53,5 @@ class City_model extends Model
 		return $this->db->update('CITY', $data);
 	}
 }
-?>
+
+// EOF

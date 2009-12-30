@@ -20,4 +20,4 @@ class Membership_model extends Model
   }
 }
 
-?>
+// EOF
