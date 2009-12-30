@@ -8,6 +8,7 @@ class Manager extends Controller
 		$this->load->model('Manager_model');
 		$this->load->helper('url');
 		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		is_logged_in();
 
 		$this->output->enable_profiler(TRUE);

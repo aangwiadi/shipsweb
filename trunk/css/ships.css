@@ -1,66 +1,61 @@
-/* 
- * { outline: 2px dotted red }
- * * { outline: 2px dotted green }
- * * * { outline: 2px dotted orange }
- * * * * { outline: 2px dotted blue }
- * * * * * { outline: 1px solid red }
- * * * * * * { outline: 1px solid green }
- * * * * * * * { outline: 1px solid orange }
- * * * * * * * * { outline: 1px solid blue }
-*/
-
 body 			{ background-color:	#fff; margin: 40px; font-family: Lucida Grande, Verdana, Sans-serif; font-size:	12px; color: #000; }
-
 h1				{ font-size: 22px; margin: 5px 0 5px 0; color:grey; }
 h2 				{ font-size: 16px; margin: 2px 0 2px 0;	}
 h3 				{ font-size: 14px; margin: 2px 0 2px 0;	}
-table			{ width: 100%; }
 
 #page			{ width: 990px; padding: 0 18px; margin: 0 auto; }
 
-#main-menu		{ margin: 0; padding:0; float:left; width:100%; border:1px solid #42432d; }
-#main-menu li 	{ display: inline; padding: 0; margin: 0}
-#main-menu li a:hover { background-color:blue; }
+#main-menu				{ margin: 0; padding:0; float:left; width:100%; border:1px solid #000; }
+#main-menu li 			{ display: inline; padding: 0; margin: 0}
+#main-menu li a:hover 	{ background-color:blue; }
 #main-menu a:link, 
-#main-menu a:visited { color:#000; padding:20px 40px 4px 10px; float:left; width:auto;
-   					   border-right:1px solid #42432d; text-decoration:none; font:bold 1em/1em Arial, Helvetica, sans-serif;
-					   text-transform:uppercase; text-shadow: 2px 2px 2px #555; }
-#main-menu a:hover 	{ color:#fff; background:#727454; }
+#main-menu a:visited 	{ color:#000; padding:20px 40px 4px 10px; float:left; width:auto;
+   					   	  border-right:1px solid #42432d; text-decoration:none; font:bold 1em/1em Arial, Helvetica, sans-serif;
+					   	  text-transform:uppercase; text-shadow: 2px 2px 2px #555; }
+#main-menu a:hover 		{ color:#fff; background:#727454; }
 
-tr:nth-child(odd) td:nth-child(even), tr:nth-child(even) td:nth-child(odd) { 
-		          background-color: silver; 
-				          color: white; 
-						        } 
+table { margin: 10px 0px; table-layout:fixed; width:100%; } 
+td, td a { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+tr:nth-child(odd) 	{background: #e7e7e7}
 
-td:nth-child(even) {background: #B9BB9B}
-td:nth-child(odd) {background: #FFF}
+#login_form { margin-left: auto; margin-right: auto; width: 360px; font-size: 16px; }
+#login_form form { background-color: #e7e7e7; padding: 10px; border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; }
+#login_form form label { font-weight: bold; color: #11151E; }
+#login_form form input[type=text],input[type=password] { width: 316px; font-weight: bold; padding: 8px; border: 1px solid #FFF;
+														 border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; }
+#login_form form input[type=submit] { display: block; margin: auto; margin-top: 5px; font-size: 14px;
+								  	  background-color: #FFF; border: 1px solid #BBB; -moz-border-radius: 6px; -webkit-border-radius: 6px; }
 
-tr:nth-child(even) {background: #B9BB9B}
-tr:nth-child(odd) {background: #FFF}
-
-.section { float: left; width: 350px; list-style-type: none; border: 1px solid black; padding-top: 20px; }
-.section li		{ clear: both }
+.section 			{ float: left; width: 350px; list-style-type: none; padding-top: 10px; }
+.section li			{ clear: both }
 .section li span	{ float: left; width: 90px; padding: 0px 10px 10px 0px; }
 .section label		{ float: left; width: 90px; padding: 0px 10px 10px 0px; }
+.section li:nth-child(odd) { background: #aba }
 
 .dd-list	{ width: 178px }
 
-#vessels_table col#name {width: 150px }
-#vessels_table col#type {width: 30px }
-#vessels_table col#dwat {width: 30px }
-#vessels_table col#built {width: 30px }
-#vessels_table col#loa {width: 40px }
-#vessels_table col#beam {width: 40px }
-#vessels_table col#draft {width: 40px }
-#vessels_table col#grain {width: 50px }
-#vessels_table col#bale {width: 50px }
-#vessels_table col#ho {width: 25px }
-#vessels_table col#ha {width: 25px }
-#vessels_table col#bt {width: 40px }
-#vessels_table col#nt {width: 40px }
-#vessels_table col#mobile {width: 150px }
-#vessels_table col#manager {width: 250px }
+#vessels_table col#name {width: 15% }
+#vessels_table col#type {width: 7% }
+#vessels_table col#dwat {width: 4% }
+#vessels_table col#built {width: 4% }
+#vessels_table col#loa {width: 5% }
+#vessels_table col#beam {width: 5% }
+#vessels_table col#draft {width:  5% }
+#vessels_table col#grain {width: 6% }
+#vessels_table col#bale {width: 6% }
+#vessels_table col#ho {width: 3% }
+#vessels_table col#ha {width: 3% }
+#vessels_table col#bt {width: 5% }
+#vessels_table col#nt {width: 5% }
+#vessels_table col#mobile {width: 10% }
 
+#managers_table col#name { width: 20% }
+#managers_table col#address { width: 17% }
+#managers_table col#postal_code { width: 10% }
+#managers_table col#phone { width: 15% }
+#managers_table col#email { width: 20% }
 
+.error { color: red; display: block }
 
+#vessels_managed { clear: both; }
 

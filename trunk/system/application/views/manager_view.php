@@ -24,8 +24,25 @@
   </ul>
   <?php if(count($vessels) > 0) { ?>
 	<div id="vessels_managed">
-	<h3>Vessels managed</h3>
+	<h3>Managed vessels</h3>
+	<div id="vessels_table">
     <table>
+		<colgroup>
+			<col id="name">
+			<col id="type">
+			<col id="dwat">
+			<col id="built">
+			<col id="loa">
+			<col id="beam">
+			<col id="draft">
+			<col id="grain">
+			<col id="bale">
+			<col id="ho">
+			<col id="ha">
+			<col id="bt">
+			<col id="nt">
+			<col id="mobile">
+		</colgroup>
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -59,11 +76,13 @@
 			<td><?php echo $vessel['HO']; ?></td>
 			<td><?php echo $vessel['HA']; ?></td>
 			<td><?php echo $vessel['BT']; ?></td>
+			<td><?php echo $vessel['NT']; ?></td>
 			<td><?php echo $vessel['Mobile']; ?></td>
 		</tr>
 		<?php endforeach ?>
 	</tbody>
 	</table>
+	</div>
 	</div>
   <?php } ?>
 

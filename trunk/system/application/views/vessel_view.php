@@ -46,8 +46,8 @@
     <li><span>Class:</span><?php echo $vessel->Class; ?></li>
     <li><span>Pandi:</span><?php echo $vessel->Pandi; ?></li>
     <li><span>Remarks:</span><?php echo $vessel->Remarks; ?></li>
-    <li><span>ManagerName:</span><?php echo $vessel->ManagerName; ?></li>
-    <li><span>HomePort:</span><?php echo $vessel->HomePort; ?></li>
+    <li><span>Manager:</span><?php echo $vessel->ManagerName; ?></li>
+    <li><span>Homeport:</span><?php echo $vessel->HomePort; ?></li>
     <li><span>Flag:</span><?php echo $vessel->Flag; ?></li>
   </ul>
   

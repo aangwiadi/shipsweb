@@ -8,7 +8,8 @@ class City extends Controller
 		$this->load->model('City_model');
 		$this->load->library('table');
 		$this->load->library('form_validation');
-		
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');		
+
 		is_logged_in();
 
 		$this->output->enable_profiler(TRUE); 
