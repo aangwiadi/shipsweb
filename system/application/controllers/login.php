@@ -9,8 +9,11 @@ class Login extends Controller
 
 	function index($error = NULL)
 	{
-		echo $error;
-		$data['login_error'] = $error;
+		$data = NULL;
+
+		if(isset($error))
+			$data['login_error'] = $error;
+
 		$this->session->unset_userdata('is_logged_in');
 		$this->load->view('login/login_view', $data);
 	}
@@ -57,4 +60,5 @@ class Login extends Controller
 			return FALSE;
 	}
 }
-?>
+
+// EOF

@@ -2,7 +2,7 @@
     <h1><?php echo $manager->Name; ?></h1>
   </header> 
   <p><?php echo anchor(site_url().'/manager/edit/'.$manager->Id, 'Edit').' | '.anchor('/manager/add/', 'New') ?></p>
-  <ul class="section-left">
+  <ul class="section">
     <li><span>Name:</span><?php echo $manager->Name; ?></li>
     <li><span>Adress:</span><?php echo $manager->Address; ?></li>
     <li><span>Postal Code:</span><?php echo $manager->PostalCode; ?></li>
@@ -13,7 +13,7 @@
     <li><span>Email 1:</span><?php echo $manager->Email1; ?></li>
     <li><span>Email 2:</span><?php echo $manager->Email2; ?></li>
   </ul>
-  <ul class="section-right">
+  <ul class="section">
     <li><span>Homepage:</span><?php echo $manager->Homepage; ?></li>
     <li><span>Mic 1:</span><?php echo $manager->Mic1; ?></li>
     <li><span>Mic 2:</span><?php echo $manager->Mic2; ?></li>
@@ -22,8 +22,9 @@
     <li><span>Remarks:</span><?php echo $manager->Remarks; ?></li>
     <li><span>City:</span><?php echo $manager->CityName; ?></li>
   </ul>
-  <h3>Vessels managed</h3>
   <?php if(count($vessels) > 0) { ?>
+	<div id="vessels_managed">
+	<h3>Vessels managed</h3>
     <table>
 	<thead>
 		<tr>
@@ -62,5 +63,8 @@
 		</tr>
 		<?php endforeach ?>
 	</tbody>
-    </table>
+	</table>
+	</div>
   <?php } ?>
+
+

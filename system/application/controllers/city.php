@@ -63,8 +63,6 @@ class City extends Controller
 				return $this->add();
 			else
 				return $this->edit($id);
-
-			echo "Error";
 		}
 
 		$data = array(
@@ -88,4 +86,5 @@ class City extends Controller
 		echo "Error";
 	}
 }
-?>
+
+// EOF

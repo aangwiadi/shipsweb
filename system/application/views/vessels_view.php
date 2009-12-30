@@ -13,7 +13,24 @@
 		?>
 	</div>
 	<div id="vessels_table">
-    <table>
+	<table>
+		<colgroup>
+			<col id="name">
+			<col id="type">
+			<col id="dwat">
+			<col id="built">
+			<col id="loa">
+			<col id="beam">
+			<col id="draft">
+			<col id="grain">
+			<col id="bale">
+			<col id="ho">
+			<col id="ha">
+			<col id="bt">
+			<col id="nt">
+			<col id="mobile">
+			<col id="managername">
+		</colgroup>
 		<thead>
 			<tr>
 				<?php $base = site_url()."/vessels/index/"; ?>

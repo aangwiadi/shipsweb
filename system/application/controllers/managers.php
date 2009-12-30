@@ -73,4 +73,5 @@ class Managers extends Controller
 		$this->template->render();
 	}
 }
-?>
+
+// EOF

@@ -22,16 +22,6 @@ class Managers_model extends Model
 	function get_tabel_def()
 	{
 		$table_defs = array();
-/*
-		$fields = $this->db->field_data($this->table);
-		foreach ($fields as $field)
-		{
-			echo $field->name;
-			echo $field->type;
-			echo $field->max_length;
-			echo $field->primary_key;
-		} 
-*/	
 
 		$fields = $this->db->list_fields($this->table);
 		foreach($fields as $field)
@@ -68,4 +58,4 @@ class Managers_model extends Model
 	}
 }
 
-?>
+// EOF

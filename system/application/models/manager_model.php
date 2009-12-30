@@ -50,4 +50,5 @@ class Manager_model extends Model
 		return $this->db->update($this->table, $data);
 	}
 }
-?>
+
+// EOF

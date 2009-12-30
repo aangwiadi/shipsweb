@@ -84,4 +84,5 @@ class Country extends Controller
 		echo "Error";
 	}
 }
-?>
+
+// EOF

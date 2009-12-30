@@ -14,10 +14,9 @@
   <h1>Login</h1>
   <?php echo form_open('login/validate');?>
   <div>
-<?php
-	echo $data['login_error'];
-	if(isset($data['login_error'])) ?>
-		<span class="error"><?php echo $data['login_error']; ?></span>
+<?php if(isset($login_error)) { ?>
+		<span class="error"><?php echo $login_error; ?></span>
+<?php } ?>
   <label>Username<?php echo form_input(array('name' => 'username',
 										     'value' => '',
 											 'class' => 'text',

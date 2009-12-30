@@ -69,4 +69,4 @@ class Countries_model extends Model
 	}
 }
 
-?>
+// EOF

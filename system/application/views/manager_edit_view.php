@@ -7,7 +7,7 @@
       <?php echo "\t" . form_submit('save', 'Save')."\n"; ?>
       <?php echo "\t" . anchor(site_url()."/manager/index/$manager->Id", "Cancel"); ?>
     </div>
-    <ul class="section-left">
+    <ul class="section">
       <li><?php echo form_label('Name', 'Name') . form_input('Name', $manager->Name); ?></li>
       <li><?php echo form_label('Address', 'Address') . form_input('Address', $manager->Address); ?></li>
       <li><?php echo form_label('PostalCode', 'PostalCode') . form_input('PostalCode', $manager->PostalCode); ?></li>
@@ -18,7 +18,7 @@
       <li><?php echo form_label('Email1', 'Email1') . form_input('Email1', $manager->Email1); ?></li>
       <li><?php echo form_label('Email2', 'Email2') . form_input('Email2', $manager->Email2); ?></li>
     </ul>
-    <ul class="section-right">
+    <ul class="section">
       <li><?php echo form_label('Homepage', 'Homepage') . form_input('Homepage', $manager->Homepage);?></li>
       <li><?php echo form_label('Mic1', 'Mic1') . form_input('Mic1', $manager->Mic1); ?></li>
       <li><?php echo form_label('Mic2', 'Mic2') . form_input('Mic2', $manager->Mic2); ?></li>
