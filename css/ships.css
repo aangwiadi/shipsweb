@@ -1,9 +1,11 @@
 body 			{ background-color:	#fff; margin: 40px; font-family: Lucida Grande, Verdana, Sans-serif; font-size:	12px; color: #000; }
 h1				{ font-size: 22px; margin: 5px 0 5px 0; color:grey; }
-h2 				{ font-size: 16px; margin: 2px 0 2px 0;	}
+h2 				{ font-size: 16px; margin: 2px 0 2px 0; color:grey;	}
 h3 				{ font-size: 14px; margin: 2px 0 2px 0;	}
 
-#page			{ width: 990px; padding: 0 18px; margin: 0 auto; }
+#page			{ width: 990px; padding: 0; margin: 0 auto; }
+
+header { background-color: #e7e7e7; margin: 10px 0px 10px 0px; padding: 10px; border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; }
 
 #main-menu				{ margin: 0; padding:0; float:left; width:100%; border:1px solid #000; }
 #main-menu li 			{ display: inline; padding: 0; margin: 0}
