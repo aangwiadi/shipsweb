@@ -56,7 +56,7 @@ class City extends Controller
 
 	function save($id = 0)
 	{
-		$this->form_validation->set_rules('Name', 'Name', 'required|alpha');
+		$this->form_validation->set_rules('Name', 'Name', 'required');
 
 		if ($this->form_validation->run() == FALSE)
 		{

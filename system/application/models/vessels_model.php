@@ -29,16 +29,6 @@ class Vessels_model extends Model
 	{
 		$fields = $this->db->field_data('VESSEL');
 		$table_defs = array();
-		/*
-
-		foreach ($fields as $field)
-		{
-			echo $field->name;
-			echo $field->type;
-			echo $field->max_length;
-			echo $field->primary_key;
-		} 
-		 */
 
 		$fields = $this->db->list_fields('VESSEL');
 		foreach($fields as $field)
@@ -71,7 +61,31 @@ class Vessels_model extends Model
 
 		if(!empty($searchitem))
 			if(!empty($searchdata))
-				$sql = $sql . " WHERE VESSEL.$searchitem LIKE '%$searchdata%' ";
+			{
+				$minmax = explode(' ', $searchdata);
+
+				if(count($minmax) == 3)
+					return;
+
+				if(count($minmax) == 2)
+				{
+					if(is_numeric($minmax[0]))
+						if(is_numeric($minmax[1]))
+							$sql = $sql . " WHERE VESSEL.$searchitem > $minmax[0] AND VESSEL.$searchitem < $minmax[1] ";
+						else
+							$sql = $sql . " WHERE VESSEL.$searchitem > $minmax[0] ";
+					else
+						$sql = $sql . " WHERE VESSEL.$searchitem LIKE '%$searchdata%' ";
+				}
+				
+				if(count($minmax) == 1)
+				{
+					if(is_numeric($minmax[0]))
+						$sql = $sql . " WHERE VESSEL.$searchitem > $minmax[0] ";
+					else
+						$sql = $sql . " WHERE VESSEL.$searchitem LIKE '%$searchdata%' ";
+				}
+			}
 
 		$sql = $sql . " ORDER BY $sort_column $sort_direction LIMIT ?, ?";
 		$query = $this->db->query($sql, array((int)$offset, (int)$num)); 
@@ -88,13 +102,37 @@ class Vessels_model extends Model
 
 		if(!empty($searchitem))
 			if(!empty($searchdata))
-				$sql = $sql . " WHERE VESSEL.$searchitem LIKE '%$searchdata%' ";
+			{
+				$minmax = explode(' ', $searchdata);
+
+				if(count($minmax) == 3)
+					return;
+
+				if(count($minmax) == 2)
+				{
+					if(is_numeric($minmax[0]))
+						if(is_numeric($minmax[1]))
+							$sql = $sql . " WHERE VESSEL.$searchitem > $minmax[0] AND VESSEL.$searchitem < $minmax[1] ";
+						else
+							$sql = $sql . " WHERE VESSEL.$searchitem > $minmax[0] ";
+					else
+						$sql = $sql . " WHERE VESSEL.$searchitem LIKE '%$searchdata%' ";
+				}
+				
+				if(count($minmax) == 1)
+				{
+					if(is_numeric($minmax[0]))
+						$sql = $sql . " WHERE VESSEL.$searchitem > $minmax[0] ";
+					else
+						$sql = $sql . " WHERE VESSEL.$searchitem LIKE '%$searchdata%' ";
+				}
+			}
 
 		$row_count = $this->db->query($sql)->row('COUNT(*)');
 		if($row_count > 0)
 			return $row_count;
 
-	    return 0;
+		return 0;
 	}
 
 	function read_by_manager($manager_id)

@@ -7,6 +7,7 @@
 	echo form_input('search_text', $this->session->userdata('vessels_search_text'));
 	echo form_submit('submit', 'Search');
 	echo form_submit('reset', 'Reset');
+	echo img(base_url().'images/help_small.png');
 	echo form_close(); 
 	?>
 </div>
@@ -37,7 +38,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach($vessels as $vessel): ?>
+			<?php
+				if(count($vessels) == 0)
+					echo "<span class=\"error\">No vessels found</span>";
+				else
+					foreach($vessels as $vessel): ?>
 			<tr>
 				<td><?php echo anchor(site_url().'/vessel/index/'.$vessel['Id'], $vessel['Name']); ?></td><td><?php echo $vessel['Type']; ?></td><td><?php echo $vessel['Dwat']; ?></td><td><?php echo $vessel['Built']; ?></td><td><?php echo $vessel['LOA']; ?></td><td><?php echo $vessel['Beam']; ?></td><td><?php echo $vessel['Draft']; ?></td><td><?php echo $vessel['Grain']; ?></td><td><?php echo $vessel['Bale']; ?></td><td><?php echo $vessel['HO']; ?></td><td><?php echo $vessel['HA']; ?></td><td><?php echo $vessel['BT']; ?></td><td><?php echo $vessel['NT']; ?></td><td><?php echo $vessel['Mobile']; ?></td><td><?php if(isset($vessel['ManagerName'])) echo anchor(site_url().'/manager/index/'.$vessel['ManagerId'], $vessel['ManagerName']); else echo ''; ?></td>
 			</tr>
