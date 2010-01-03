@@ -1,6 +1,4 @@
-    <header>
-	<h1><?php echo $vessel->Name; ?></h1>
-    </header> 
+	<h2><?php echo $vessel->Name; ?></h2>
 	<?php echo validation_errors(); ?>
     <?php echo form_open(site_url()."/vessel/save/$vessel->Id"); ?>
     <div id="menu-button">

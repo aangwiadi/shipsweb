@@ -1,6 +1,4 @@
-    <header>
-	<h1>New</h1>
-    </header> 
+	<h2>New</h2>
 	<?php echo validation_errors(); ?>
     <?php echo form_open(site_url()."/vessel/save/"); ?>
     <div id="menu-button">

@@ -1,6 +1,4 @@
-  <header>
-    <h1><?php echo $manager->Name; ?></h1>
-  </header> 
+  <h2><?php echo $manager->Name; ?></h2>
   <p><?php echo anchor(site_url().'/manager/edit/'.$manager->Id, 'Edit').' | '.anchor('/manager/add/', 'New') ?></p>
   <ul class="section">
     <li><span>Name:</span><?php echo $manager->Name; ?></li>
