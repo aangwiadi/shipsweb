@@ -1,6 +1,4 @@
-    <header>
-      <h2>Countries</h2>
-    </header>
+    <h2>Countries</h2>
 	<div id="search">
 		<?php $attributes = array('id' => 'searchform');
 		echo form_open(site_url().'/countries/'); 

@@ -1,6 +1,4 @@
-    <header>
 	<h1><?php echo $city->Name; ?></h1>
-    </header> 
 	<?php echo validation_errors(); ?>
     <?php echo form_open(site_url()."/city/save/$city->Id"); ?>
     <div id="menu-button">

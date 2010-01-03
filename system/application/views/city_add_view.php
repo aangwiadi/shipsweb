@@ -1,6 +1,4 @@
-    <header>
 	<h1>New</h1>
-    </header> 
 	<?php echo validation_errors(); ?>
     <?php echo form_open(site_url()."/city/save/"); ?>
     <div id="menu-button">

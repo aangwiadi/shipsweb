@@ -1,6 +1,4 @@
-    <header>
-      <h2>Cities</h2>
-    </header>
+    <h2>Cities</h2>
 	<div id="search">
 		<?php $attributes = array('id' => 'searchform');
 		echo form_open(site_url().'/cities/'); 

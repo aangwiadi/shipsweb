@@ -1,5 +1,4 @@
-  <header>
-<h1><?php 
+	<h2><?php 
 	if(isset($vessel))
 		echo $vessel->Name; 
 	else
@@ -7,8 +6,7 @@
 		echo "No vessel found";
 		die();
 	}
-?></h1>
-  </header> 
+	?></h2>
   <p><?php echo anchor(site_url().'/vessel/edit/'.$vessel->Id, 'Edit').' | '.anchor('/vessel/add/', 'New') ?></p>
   <ul class="section">
     <li><span>Name:</span><?php echo $vessel->Name; ?></li>
