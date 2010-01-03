@@ -7,6 +7,7 @@ class Vessels extends Controller
 		parent::Controller();
 		$this->load->model('Vessels_model');
 		$this->load->library('table');
+		$this->load->helper('html');
 		$this->load->helper('url');
 		is_logged_in();
 
@@ -53,7 +54,7 @@ class Vessels extends Controller
 		$config['base_url'] = $baseurl.$sort_col.'/'.$sort_direction.'/';
 		$config['uri_segment'] = 5;
 		$config['total_rows'] = $this->Vessels_model->read_total_num($this->session->userdata('vessels_search_item'), 
-																		$this->session->userdata('vessels_search_text'));
+ 																	 $this->session->userdata('vessels_search_text'));
 		$config['per_page'] = '25';
 		$config['num_links'] = '5';
 		$this->pagination->initialize($config);
@@ -61,11 +62,11 @@ class Vessels extends Controller
 		$data['fields'] = $this->Vessels_model->get_tabel_def();
 
 		$result = $this->Vessels_model->read_page($config['per_page'], 
-								 $start_index, 
-								 $sort_col, 
-								 $sort_direction,
-								 $this->session->userdata('vessels_search_item'),
-								 $this->session->userdata('vessels_search_text'));
+												  $start_index, 
+								 				  $sort_col, 
+				 								  $sort_direction,
+												  $this->session->userdata('vessels_search_item'),
+								 				  $this->session->userdata('vessels_search_text'));
 		$data['vessels'] = $result;
 
 		$sort_direction = $sort_direction == 'ASC' ? 'DESC' : 'ASC';
