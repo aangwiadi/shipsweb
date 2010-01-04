@@ -13,7 +13,7 @@ h3 						{ font-size: 14px; margin: 2px 0 2px 0;	}
 						  border-radius: 10px; -moz-border-radius: 10px; 
 						  -webkit-border-radius: 10px; }
 
-header 					{ background-color: #e7e7e7; margin: 10px 0px 10px 0px; 
+#header 					{ background-color: #e7e7e7; margin: 10px 0px 10px 0px; 
 						  padding: 10px; border-radius: 8px; -moz-border-radius: 8px; 
 						  -webkit-border-radius: 8px; }
 

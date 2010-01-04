@@ -7,10 +7,10 @@
 </head>
 <body>
   <div id="page">
-    <header>
+    <div id="header">
       <h1>Ships</h1>
-    </header>
-    <nav id="main-menu">
+    </div>
+    <div id="main-menu">
       <ul>
 		<li id="nav_vessels"><a href="<?php print site_url();?>/vessels">Home</a></li>
 		<li id="nav_vessels"><a href="<?php print site_url();?>/vessels">Vessels</a></li>
@@ -19,10 +19,10 @@
 		<li id="nav_countries"><a href="<?php print site_url();?>/countries">Countries</a></li>
 		<li id="nav_logout"><a href="<?php print site_url();?>/logout">Logout</a></li>
       </ul>
-    </nav>
-    <section id="main-content">
+    </div>
+    <div id="main-content">
 	<?php echo $content ?>
-    </section>
+    </div>
   </div>
 </body>
 </html>

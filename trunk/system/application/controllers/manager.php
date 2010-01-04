@@ -16,9 +16,17 @@ class Manager extends Controller
 
 	function index($id)
 	{
-		// pagination
-		$data['manager'] = $this->Manager_model->get($id);
+		$result = $this->Manager_model->get($id);
+		
+		$manager = array();
 
+		foreach($result as $key => $value)
+			if(strlen($value) == 0)
+				$manager[$key] = "&nbsp;";
+			else
+				$manager[$key] = $value;
+
+		$data['manager'] = $manager;
 		$this->load->model('Vessels_model');
 		$data['vessels'] = $this->Vessels_model->read_by_manager($id);
 

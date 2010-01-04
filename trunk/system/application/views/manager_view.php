@@ -1,24 +1,24 @@
-  <h2><?php echo $manager->Name; ?></h2>
-  <p><?php echo anchor(site_url().'/manager/edit/'.$manager->Id, 'Edit').' | '.anchor('/manager/add/', 'New') ?></p>
+  <h2><?php echo $manager['Name']; ?></h2>
+  <p><?php echo anchor(site_url().'/manager/edit/'.$manager['Id'], 'Edit').' | '.anchor('/manager/add/', 'New') ?></p>
   <ul class="section">
-    <li><span>Name:</span><?php echo $manager->Name; ?></li>
-    <li><span>Adress:</span><?php echo $manager->Address; ?></li>
-    <li><span>Postal Code:</span><?php echo $manager->PostalCode; ?></li>
-    <li><span>Phone 1:</span><?php echo $manager->Phone1; ?></li>
-    <li><span>Phone 2:</span><?php echo $manager->Phone2; ?></li>
-    <li><span>Phone 3:</span><?php echo $manager->Phone3; ?></li>
-    <li><span>Fax:</span><?php echo $manager->Fax; ?></li>
-    <li><span>Email 1:</span><?php echo $manager->Email1; ?></li>
-    <li><span>Email 2:</span><?php echo $manager->Email2; ?></li>
+    <li><span>Name:</span><?php echo $manager['Name']; ?></li>
+    <li><span>Adress:</span><?php echo $manager['Address']; ?></li>
+    <li><span>Postal Code:</span><?php echo $manager['PostalCode']; ?></li>
+    <li><span>Phone 1:</span><?php echo $manager['Phone1']; ?></li>
+    <li><span>Phone 2:</span><?php echo $manager['Phone2']; ?></li>
+    <li><span>Phone 3:</span><?php echo $manager['Phone3']; ?></li>
+    <li><span>Fax:</span><?php echo $manager['Fax']; ?></li>
+    <li><span>Email 1:</span><?php echo $manager['Email1']; ?></li>
+    <li><span>Email 2:</span><?php echo $manager['Email2']; ?></li>
   </ul>
   <ul class="section">
-    <li><span>Homepage:</span><?php echo $manager->Homepage; ?></li>
-    <li><span>Mic 1:</span><?php echo $manager->Mic1; ?></li>
-    <li><span>Mic 2:</span><?php echo $manager->Mic2; ?></li>
-    <li><span>Mic 3:</span><?php echo $manager->Mic3; ?></li>
-    <li><span>Mic 4:</span><?php echo $manager->Mic4; ?></li>
-    <li><span>Remarks:</span><?php echo $manager->Remarks; ?></li>
-    <li><span>City:</span><?php echo $manager->CityName; ?></li>
+    <li><span>Homepage:</span><?php echo $manager['Homepage']; ?></li>
+    <li><span>Mic 1:</span><?php echo $manager['Mic1']; ?></li>
+    <li><span>Mic 2:</span><?php echo $manager['Mic2']; ?></li>
+    <li><span>Mic 3:</span><?php echo $manager['Mic3']; ?></li>
+    <li><span>Mic 4:</span><?php echo $manager['Mic4']; ?></li>
+    <li><span>Remarks:</span><?php echo $manager['Remarks']; ?></li>
+    <li><span>City:</span><?php echo $manager['CityName']; ?></li>
   </ul>
   <?php if(count($vessels) > 0) { ?>
 	<div id="vessels_managed">

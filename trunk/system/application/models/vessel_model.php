@@ -33,7 +33,7 @@ class Vessel_model extends Model
 		$query = $this->db->query($sql, array($id));
 		if($query->num_rows() > 0)
 		{
-			return $query->row();
+			return $query->row_array();
 		}
 	}
 }
