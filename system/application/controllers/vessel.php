@@ -15,13 +15,22 @@ class Vessel extends Controller
 		$this->load->helper(array('form', 'url'));
 		is_logged_in();
 
-//		$this->output->enable_profiler(TRUE); 
+		//$this->output->enable_profiler(TRUE); 
 	}
 
 	function index($id)
 	{
 		$result = $this->Vessel_model->read($id);
-		$data['vessel'] = $result;
+
+		$vessel = array();
+
+		foreach($result as $key => $value)
+			if(strlen($value) == 0)
+				$vessel[$key] = "&nbsp;";
+			else
+				$vessel[$key] = $value;
+
+		$data['vessel'] = $vessel;
 		$this->template->write_view('content', 'vessel_view', $data);
 		$this->template->render();
 	}
