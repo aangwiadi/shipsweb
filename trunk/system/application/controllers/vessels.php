@@ -11,7 +11,7 @@ class Vessels extends Controller
 		$this->load->helper('url');
 		is_logged_in();
 
-		$this->output->enable_profiler(TRUE);
+//		$this->output->enable_profiler(TRUE);
 	}
 
 	function index($sort_col = 'Name', $sort_direction = 'ASC', $start_index = 0)

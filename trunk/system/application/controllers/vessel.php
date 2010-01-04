@@ -15,7 +15,7 @@ class Vessel extends Controller
 		$this->load->helper(array('form', 'url'));
 		is_logged_in();
 
-		$this->output->enable_profiler(TRUE); 
+//		$this->output->enable_profiler(TRUE); 
 	}
 
 	function index($id)
