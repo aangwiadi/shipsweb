@@ -11,7 +11,7 @@ class Manager extends Controller
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		is_logged_in();
 
-		$this->output->enable_profiler(TRUE);
+		//$this->output->enable_profiler(TRUE);
 	}
 
 	function index($id)

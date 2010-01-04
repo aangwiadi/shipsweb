@@ -9,7 +9,7 @@ class Country extends Controller
 		$this->load->library('table');
 		is_logged_in();
 
-		$this->output->enable_profiler(TRUE); 
+		// $this->output->enable_profiler(TRUE); 
 	}
 
 	function index($id)
