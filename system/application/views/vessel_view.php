@@ -48,4 +48,4 @@
     <li><span>Homeport:</span><?php echo $vessel['HomePort']; ?></li>
     <li><span>Flag:</span><?php echo $vessel['Flag']; ?></li>
   </ul>
-  
+  <p></p> 
