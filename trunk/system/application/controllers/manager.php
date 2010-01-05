@@ -72,14 +72,14 @@ class Manager extends Controller
 		$this->form_validation->set_rules('Email1', 'Email1', 'valid_email');
 		$this->form_validation->set_rules('Email2', 'Email2', 'valid_email');
 
-		if ($this->form_validation->run() == FALSE)
+		if ($this->form_validation->run() === FALSE)
 		{
 			if($id == 0)
 				return $this->add();
 			else
 				return $this->edit($id);
 
-			echo "Error";
+			show_error("Error saving item");
 		}
 
 		$data = array(

@@ -17,12 +17,12 @@ class Managers extends Controller
 		$baseurl = base_url() . 'index.php/managers/index/';
 
 		// config output: array(showname => array(dbname, showsortlink))
-		$data['show_fields'] = array('Name' 	=> array('Name', true), 
-									 'Address'	=> array('Address', false), 
-									 'Postal Code' 	=> array('PostalCode', false), 
-									 'Phone' 	=> array('Phone1', false), 
-									 'Email' 		=> array('Email1', false), 
-									 'Mic' 	=> array('Mic1', false)); 
+		$data['show_fields'] = array('Name' 	=> array('Name', TRUE), 
+									 'Address'	=> array('Address', FALSE), 
+									 'Postal Code' 	=> array('PostalCode', FALSE), 
+									 'Phone' 	=> array('Phone1', FALSE), 
+									 'Email' 		=> array('Email1', FALSE), 
+									 'Mic' 	=> array('Mic1', FALSE)); 
 
 		if($this->input->post('submit'))
 		{

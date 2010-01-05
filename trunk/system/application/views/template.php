@@ -22,6 +22,7 @@
     </div>
     <div id="main-content">
 	<?php echo $content ?>
+	<br style="clear: both;">
     </div>
   </div>
 </body>

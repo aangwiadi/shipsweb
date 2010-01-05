@@ -47,10 +47,10 @@ class City extends Controller
 	{
 		$data['0'] = 'Choose ...';
 		$result = $model->get_all_ordered();
+		
 		foreach($result as $item)
-		{
 			$data[$item['Id']] = $item['Name'];
-		}
+
 		return $data;
 	}
 
@@ -58,7 +58,7 @@ class City extends Controller
 	{
 		$this->form_validation->set_rules('Name', 'Name', 'required');
 
-		if ($this->form_validation->run() == FALSE)
+		if ($this->form_validation->run() === FALSE)
 		{
 			if($id == 0)
 				return $this->add();
@@ -84,7 +84,7 @@ class City extends Controller
 			return;
 		}
 
-		echo "Error";
+		show_error("Error saving item");
 	}
 }
 

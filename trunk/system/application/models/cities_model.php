@@ -24,11 +24,11 @@ class Cities_model extends Model
 		$table_defs = array();
 
 		$fields = $this->db->list_fields($this->table);
+		
 		foreach($fields as $field)
-		{
-			if(strrpos($field, 'Id') === false)
+			if(strrpos($field, 'Id') === FALSE)
 				$table_defs[$field] = $field;
-		}
+
 		return $table_defs;
 	}
 

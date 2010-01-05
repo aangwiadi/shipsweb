@@ -37,9 +37,8 @@ class Country extends Controller
 		$data['0'] = 'Choose ...';
 		$result = $model->get_all_ordered();
 		foreach($result as $item)
-		{
 			$data[$item['Id']] = $item['Name'];
-		}
+		
 		return $data;
 	}
 
@@ -53,14 +52,14 @@ class Country extends Controller
 	{
 		$this->form_validation->set_rules('Name', 'Name', 'required|alpha');
 
-		if ($this->form_validation->run() == FALSE)
+		if ($this->form_validation->run() === FALSE)
 		{
 			if($id == 0)
 				return $this->add();
 			else
 				return $this->edit($id);
 
-			echo "Error";
+			show_error("Error saving item");
 		}
 
 		$data = array('Name' => $this->input->post('Name'));
@@ -81,7 +80,7 @@ class Country extends Controller
 			return;
 		}
 
-		echo "Error";
+		show_error("Error saving item");
 	}
 }
 
