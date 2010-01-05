@@ -7,16 +7,16 @@
 </head>
 <body>
   <div id="page">
-    <header>
+    <div id="header">
 	  <h1>Ships</h1>
-	</header>
+	</div>
 	<div id="login_form">
-  	<h1>Login</h1>
-  	<?php echo form_open('login/validate');?>
-  	<div>
-	<?php if(isset($login_error)) { ?>
-		<span class="error"><?php echo $login_error; ?></span>
-	<?php } ?>
+	  	<h1>Login</h1>
+  			<?php echo form_open('login/validate');?>
+	  	<div>
+		<?php if(isset($login_error)) { ?>
+			<span class="error"><?php echo $login_error; ?></span>
+		<?php } ?>
   		<label>Username<?php echo form_input(array('name' => 'username',
 										     'value' => '',
 											 'class' => 'text',
@@ -33,8 +33,8 @@
 			echo form_hidden('referer', $_SERVER['HTTP_REFERER']);
 	?>
   	</div>
-  <?php echo form_submit('submit', 'Login'); ?>
-  <?php echo form_close(); ?>
+	<?php echo form_submit('submit', 'Login'); ?>
+	<?php echo form_close(); ?>
   </div>
 </body>
 </html>
