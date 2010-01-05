@@ -33,7 +33,7 @@ class Vessels_model extends Model
 		$fields = $this->db->list_fields('VESSEL');
 		foreach($fields as $field)
 		{
-			if(strrpos($field, 'Id') === false)
+			if(strrpos($field, 'Id') === FALSE)
 			{
 				$table_defs[$field] = $field;
 			}

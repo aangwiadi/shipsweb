@@ -13,6 +13,7 @@ class Vessel extends Controller
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		$this->load->helper(array('form', 'url'));
+
 		is_logged_in();
 
 		//$this->output->enable_profiler(TRUE); 
@@ -99,7 +100,7 @@ class Vessel extends Controller
 		$this->form_validation->set_rules('MDO_port', 'MDO_port', 'numeric');
 		$this->form_validation->set_rules('IFO_port', 'IFO_port', 'numeric');
 		
-		if ($this->form_validation->run() == FALSE)
+		if ($this->form_validation->run() === FALSE)
 		{
 		  if($id == 0)
 		    $this->add();
@@ -149,7 +150,7 @@ class Vessel extends Controller
 			'CountryId' => NULL 
 		);
 
-		if(isset($data['CityId']))
+		if($data['CityId'] != 0)
 		{
 			$this->load->model('City_model');
 			$city = $this->City_model->get($data['CityId']);
@@ -169,7 +170,7 @@ class Vessel extends Controller
 			return;
 		}
 
-		echo "Error";
+		show_error("Error saving item");
 	}
 }
 

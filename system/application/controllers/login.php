@@ -32,7 +32,7 @@ class Login extends Controller
 		{
 			$data = array(
 				'username' => $this->input->post('username'),
-				'is_logged_in' => true
+				'is_logged_in' => TRUE
 			);
 
 			$this->session->set_userdata($data);
