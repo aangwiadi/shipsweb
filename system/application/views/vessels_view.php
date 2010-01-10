@@ -7,28 +7,10 @@
 	echo form_input('search_text', $this->session->userdata('vessels_search_text'));
 	echo form_submit('submit', 'Search');
 	echo form_submit('reset', 'Reset'); ?>
-	<a id="lightbox" href="#lightbox_data">Help</a>
+	<a class="greybox" href="<?php print base_url();?>view/help_text.html">Help</a>
 	<?php
 	echo form_close(); 
 	?>
-</div>
-<div id="lightbox_data">
-	<div id="help_text">
-		<p>You can search on all the fields in the drop down box. Some fields are numeric, e.g. in Vessels the fields Dwat, Draft or Beam are numeric. Others are texttual, e.g. Name</p>
-		<p><strong>Examples of queries:</strong></p>
-		<p>Numeric</p>
-		<ul>
-			<li>1000: Search items greater 1000</li>
-			<li>1000 2000: Search items greater than 1000 but less than 2000</li>
-			<li>0 1000: Search items less than 1000</li>
-		</ul>
-		<p>Textual</p>
-		<ul>
-			<li>a: Search items with the word "a" in the name</li>
-			<li>ab: Search items with the word "ab" in the name</li>
-			<li>anne: Search items with the word "ann" in the name</li>
-		</ul>
-	</div>
 </div>
 <div id="vessels_table">
 	<table>
