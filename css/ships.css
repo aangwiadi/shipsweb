@@ -74,7 +74,7 @@ thead					{ background: #9292b8; color: white; text-decoration: none; }
 #vessels_table col#ha 		{ width: 3% }
 #vessels_table col#bt 		{ width: 5% }
 #vessels_table col#nt 		{ width: 5% }
-#vessels_table col#mobile 	{width: 10% }
+#vessels_table col#mobile 	{ width: 10% }
 
 #managers_table col#name 	{ width: 20% }
 #managers_table col#address { width: 17% }
@@ -86,3 +86,4 @@ thead					{ background: #9292b8; color: white; text-decoration: none; }
 
 #vessels_managed 		{ clear: both; }
 
+#help_text p		{ margin: 10px 0 0 5px; }
