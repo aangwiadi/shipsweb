@@ -6,10 +6,15 @@
 	echo form_dropdown('search_item', $fields, $this->session->userdata('vessels_search_item'));
 	echo form_input('search_text', $this->session->userdata('vessels_search_text'));
 	echo form_submit('submit', 'Search');
-	echo form_submit('reset', 'Reset');
-	echo img(base_url().'images/help_small.png');
+	echo form_submit('reset', 'Reset'); ?>
+	<a id="lightbox" href="#help_text">Help</a>
+	<?php
 	echo form_close(); 
 	?>
+</div>
+<div id="help_text">
+	<h3>Search help</h3>
+	<p><strong>Search text: </strong>Enter text</p>
 </div>
 <div id="vessels_table">
 	<table>
@@ -50,3 +55,15 @@
 		</tbody>
     </table>
 <?php echo $this->pagination->create_links(); ?> 
+<script type="text/javascript">
+	$(document).ready(function() { 
+		$("div#help_text").hide();
+		$("a#lightbox").fancybox({ 'hideOnContentClick': true }); 
+		$("a#lightbox").fancybox(
+			{ 
+				'zoomSpeedIn': 300, 
+				'zoomSpeedOut': 300, 
+				'overlayShow': true
+			}); 
+	}); 
+</script>
