@@ -1,5 +1,5 @@
   <h2><?php echo $manager['Name']; ?></h2>
-  <p><?php echo anchor(site_url().'/manager/edit/'.$manager['Id'], 'Edit').' | '.anchor('/manager/add/', 'New') ?></p>
+  <p><?php echo anchor(site_url().'/manager/edit/'.$manager['Id'], 'Edit').' | '.anchor('/manager/delete/'.$manager['Id'], 'Delete').' | '.anchor('/manager/add/', 'New') ?></p>
   <ul class="section">
     <li><span>Name:</span><?php echo $manager['Name']; ?></li>
     <li><span>Adress:</span><?php echo $manager['Address']; ?></li>

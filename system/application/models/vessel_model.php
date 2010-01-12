@@ -3,6 +3,7 @@
 class Vessel_model extends Model
 {
 	protected $table = "VESSEL"; 
+
 	function Vessel_model()
 	{
 		parent::Model();
@@ -35,6 +36,12 @@ class Vessel_model extends Model
 		{
 			return $query->row_array();
 		}
+	}
+
+	function delete($id)
+	{
+		$this->db->where('Id', $id);
+		return $this->db->delete('VESSEL');
 	}
 }
 

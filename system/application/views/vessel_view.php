@@ -7,7 +7,7 @@
 		die();
 	}
 	?></h2>
-  <p><?php echo anchor(site_url().'/vessel/edit/'.$vessel['Id'], 'Edit').' | '.anchor('/vessel/add/', 'New') ?></p>
+  <p><?php echo anchor(site_url().'/vessel/edit/'.$vessel['Id'], 'Edit').' | '.anchor('/vessel/delete/'.$vessel['Id'], 'Delete').' | '.anchor('/vessel/add', 'New') ?></p>
   <ul class="section">
     <li><span>Name:</span><?php echo $vessel['Name']; ?></li>
     <li><span>IMONumber:</span><?php echo $vessel['IMONumber']; ?></li>
