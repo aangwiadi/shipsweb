@@ -16,7 +16,7 @@ class Vessel extends Controller
 
 		is_logged_in();
 
-		//$this->output->enable_profiler(TRUE); 
+		$this->output->enable_profiler(TRUE); 
 	}
 
 	function index($id)
@@ -44,6 +44,14 @@ class Vessel extends Controller
 		$data['ddmanager'] = $this->get_dd_list($this->Manager_model);
 		$this->template->write_view('content', 'vessel_add_view', $data);
 		$this->template->render();
+	}
+
+	function delete($id)
+	{
+		if($this->Vessel_model->delete($id))
+		{
+			redirect(site_url().'/vessels');
+		}
 	}
 
 	function edit($id)

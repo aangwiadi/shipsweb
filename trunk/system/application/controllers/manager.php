@@ -42,6 +42,25 @@ class Manager extends Controller
 	    $this->template->render();
 	}
 
+	function delete($id)
+	{
+		// find out if any vessels attached, throw error if this is the case
+		$this->load->model('Vessels_model');
+		$vessels = $this->Vessels_model->read_by_manager($id);
+		if(count($vessels) > 0)
+		{
+			$this->session->set_flashdata('error', 'There are still vessels attached to this manager');
+			$this->index($id);
+		}
+		else
+		{
+			if($this->Manager_model->delete($id))
+			{
+				redirect(site_url().'/managers');
+			}
+		}
+	}
+
 	function edit($id)
 	{
 		$this->load->model('City_model');

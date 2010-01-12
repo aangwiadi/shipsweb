@@ -33,6 +33,12 @@ class Manager_model extends Model
 		}
 	}
 
+	function delete($id)
+	{
+		$this->db->where('Id', $id);
+		return $this->db->delete($this->table);
+	}
+
 	function get_all_ordered()
 	{
 		$this->db->order_by('Name');
