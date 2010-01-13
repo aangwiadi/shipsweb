@@ -23,6 +23,12 @@ class Vessel extends Controller
 	{
 		$result = $this->Vessel_model->read($id);
 
+		if(count($result) == 0)
+		{
+			$this->session->set_flashdata('error', 'No vessel found');
+			redirect(site_url().'/vessels');
+		}
+
 		$vessel = array();
 
 		foreach($result as $key => $value)
@@ -50,6 +56,7 @@ class Vessel extends Controller
 	{
 		if($this->Vessel_model->delete($id))
 		{
+			$this->session->set_flashdata('info', 'Vessel deleted');
 			redirect(site_url().'/vessels');
 		}
 	}
@@ -169,16 +176,19 @@ class Vessel extends Controller
 		{
 			$id = $this->Vessel_model->create($data);
 			$this->index($id);
+			$this->session->set_flashdata('info', 'Vessel saved');
 			return;
 		}
 
 		if($this->Vessel_model->update($id, $data))
 		{
 			$this->index($id);
+			$this->session->set_flashdata('info', 'Vessel saved');
 			return;
 		}
 
-		show_error("Error saving item");
+		$this->session->set_flashdata('error', 'Error saving vessel, please report');
+		redirect(site_url().'/vessels/');
 	}
 }
 

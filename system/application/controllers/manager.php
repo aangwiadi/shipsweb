@@ -49,13 +49,14 @@ class Manager extends Controller
 		$vessels = $this->Vessels_model->read_by_manager($id);
 		if(count($vessels) > 0)
 		{
-			$this->session->set_flashdata('error', 'There are still vessels attached to this manager');
-			$this->index($id);
+			$this->session->set_flashdata('error', 'There are still vessels attached to this manager, delete the vessels first');
+			redirect(site_url().'/manager/index/'.$id);
 		}
 		else
 		{
 			if($this->Manager_model->delete($id))
 			{
+				$this->session->set_flashdata('info', 'Manager deleted');
 				redirect(site_url().'/managers');
 			}
 		}

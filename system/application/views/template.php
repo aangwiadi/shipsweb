@@ -24,8 +24,18 @@
       </ul>
     </div>
 	<div id="main-content">
+	<?php if(strlen($this->session->flashdata('error')))
+	      {
+	?>
 	<p class="error"><?php echo $this->session->flashdata('error');
-		 ?></p>
+	?></p>
+	<?php } ?>
+	<?php if(strlen($this->session->flashdata('info')))
+	      {
+	?>
+	<p class="info"><?php echo $this->session->flashdata('info');
+	?></p>
+	<?php } ?>
 	<?php echo $content ?>
 	<br style="clear: both;">
     </div>

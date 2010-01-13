@@ -20,7 +20,7 @@ h3 						{ font-size: 14px; margin: 2px 0 2px 0;	}
 #header h1				{ color: white; }
 
 
-#main-menu				{ margin: 5px 0 10px 0; padding: 0; float: left; width: 100%; border: 1px solid #000; }
+#main-menu				{ margin: 5px 0 10px 0; padding: 0; float: left; width: 100%; border: 1px solid #000; clear: both }
 #main-menu li 			{ display: inline; padding: 0; margin: 0}
 #main-menu li a:hover 	{ background-color: #ffd800; }
 #main-menu a:link, #main-menu a:visited 	
@@ -82,9 +82,13 @@ thead					{ background: #9292b8; color: white; text-decoration: none; }
 #managers_table col#phone 	{ width: 15% }
 #managers_table col#email 	{ width: 20% }
 
-.error 					{ color: red; display: block }
+.info 				{ border: 1px solid green; padding: 10px;
+       			 	  background: #DEFFD9; color: green; display: block; clear: both }
+
+.error 				{ border: 1px solid red; padding: 10px;
+       			 	  background: #FFDEDB; color: red; display: block; clear:both }
 
 #vessels_managed 		{ clear: both; }
 
-#help_text				{ display: none }
+#help_text			{ display: none }
 
