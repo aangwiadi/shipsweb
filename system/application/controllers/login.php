@@ -37,12 +37,7 @@ class Login extends Controller
 
 			$this->session->set_userdata($data);
 			
-//			$referer = $this->input->post('referer');
-
-//			if(isset($referer))
-//				redirect($referer);
-//			else
-				redirect('vessels');
+			redirect('vessels');
 		}
 		else 
 		{
