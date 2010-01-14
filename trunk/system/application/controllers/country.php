@@ -58,8 +58,6 @@ class Country extends Controller
 				return $this->add();
 			else
 				return $this->edit($id);
-
-			show_error("Error saving item");
 		}
 
 		$data = array('Name' => $this->input->post('Name'));
@@ -67,20 +65,30 @@ class Country extends Controller
 		if($id == 0)
 		{
 			$id = $this->country_model->create($data);
-			if(isset($id))
+
+			if($id > 0)
 			{
+				$this->session->set_flashdata('info', 'Country saved');
 				$this->index($id);
-				return;
+			}
+			else
+			{
+				$this->session->set_flashdata('error', 'Error saving country');
+				redirect(site_url().'/countries');
 			}
 		}
 
 		if($this->country_model->update($id, $data))
 		{
+			$this->session->set_flashdata('info', 'Country saved');
 			$this->index($id);
-			return;
+		}
+		else
+		{
+			$this->session->set_flashdata('error', 'Error saving country');
 		}
 
-		show_error("Error saving item");
+		return;
 	}
 }
 

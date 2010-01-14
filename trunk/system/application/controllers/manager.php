@@ -98,8 +98,6 @@ class Manager extends Controller
 				return $this->add();
 			else
 				return $this->edit($id);
-
-			show_error("Error saving item");
 		}
 
 		$data = array(
@@ -123,13 +121,24 @@ class Manager extends Controller
 		
 		if($id == 0)
 		{
-		  $id = $this->Manager_model->create($data);
-		  $this->index($id);
-		  return;
+			$id = $this->Manager_model->create($data);
+			if($id > 0)
+			{
+				$this->session->set_flashdata('info', 'Manager saved');
+				$this->index($id);
+				return;
+			}
+			else
+			{
+				$this->session->set_flashdata('error', 'Error saving manager');
+				redirect(site_url().'/managers');
+				return;
+			}
 		}
 
 		if($this->Manager_model->update($id, $data))
 		{
+			$this->session->set_flashdata('info', 'Manager saved');
 			$this->index($id);
 			return;
 		}

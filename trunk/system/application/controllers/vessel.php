@@ -175,9 +175,17 @@ class Vessel extends Controller
 		if($id == 0)
 		{
 			$id = $this->Vessel_model->create($data);
-			$this->index($id);
-			$this->session->set_flashdata('info', 'Vessel saved');
-			return;
+			if($id > 0)
+			{
+				$this->session->set_flashdata('info', 'Vessel saved');
+				$this->index($id);
+				return;
+			}
+			else
+			{
+				$this->session->set_flashdata('error', 'Error saving vessel');
+				redirect(site_url().'/vessels/');
+			}
 		}
 
 		if($this->Vessel_model->update($id, $data))

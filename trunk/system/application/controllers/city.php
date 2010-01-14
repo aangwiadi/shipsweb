@@ -74,17 +74,29 @@ class City extends Controller
 		if($id == 0)
 		{
 			$id = $this->City_model->create($data);
-			$this->index($id);
-			return;
+			if($id > 0)
+			{
+				$this->session->set_flashdata('info', 'City saved');
+				$this->index($id);
+			}
+			else
+			{
+				$this->session->set_flashdata('error', 'Error saving city');
+				redirect(site_url().'/cities');
+			}
 		}
 
 		if($this->City_model->update($id, $data))
 		{
+			$this->session->set_flashdata('info', 'City saved');
 			$this->index($id);
-			return;
 		}
-
-		show_error("Error saving item");
+		else
+		{
+			$this->session->set_flashdata('error', 'Error saving city');
+			redirect(site_url().'/cities');
+		}
+		return;
 	}
 }
 
