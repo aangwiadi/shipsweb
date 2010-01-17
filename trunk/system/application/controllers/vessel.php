@@ -26,7 +26,7 @@ class Vessel extends Controller
 		if(count($result) == 0)
 		{
 			$this->session->set_flashdata('error', 'No vessel found');
-			redirect(site_url().'/vessels');
+			redirect('');
 		}
 
 		$vessel = array();
@@ -57,7 +57,7 @@ class Vessel extends Controller
 		if($this->Vessel_model->delete($id))
 		{
 			$this->session->set_flashdata('info', 'Vessel deleted');
-			redirect(site_url().'/vessels');
+			redirect('/vessels');
 		}
 	}
 
@@ -79,9 +79,8 @@ class Vessel extends Controller
 		$data['0'] = 'Choose ...';
 		$result = $model->get_all_ordered();
 		foreach($result as $item)
-		{
 			$data[$item['Id']] = $item['Name'];
-		}
+
 		return $data;
 	}
 
@@ -175,27 +174,29 @@ class Vessel extends Controller
 		if($id == 0)
 		{
 			$id = $this->Vessel_model->create($data);
+			
 			if($id > 0)
 			{
 				$this->session->set_flashdata('info', 'Vessel saved');
-				$this->index($id);
-				return;
+				redirect('/vessel/index/'.$id);
 			}
 			else
 			{
 				$this->session->set_flashdata('error', 'Error saving vessel');
 				redirect(site_url().'/vessels/');
 			}
+			
+			return;
 		}
 
 		if($this->Vessel_model->update($id, $data))
 		{
 			$this->index($id);
 			$this->session->set_flashdata('info', 'Vessel saved');
-			return;
+			redirect('/vessel/index/'.$id);
 		}
 
-		$this->session->set_flashdata('error', 'Error saving vessel, please report');
+		$this->session->set_flashdata('error', 'Error saving, please report');
 		redirect(site_url().'/vessels/');
 	}
 }

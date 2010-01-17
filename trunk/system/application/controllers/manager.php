@@ -57,7 +57,7 @@ class Manager extends Controller
 			if($this->Manager_model->delete($id))
 			{
 				$this->session->set_flashdata('info', 'Manager deleted');
-				redirect(site_url().'/managers');
+				redirect('/managers');
 			}
 		}
 	}
@@ -78,9 +78,8 @@ class Manager extends Controller
 		$data['0'] = 'Choose ...';
 		$result = $model->get_all_ordered();
 		foreach($result as $item)
-		{
 			$data[$item['Id']] = $item['Name'];
-		}
+
 		return $data;
 	}
 
@@ -125,25 +124,23 @@ class Manager extends Controller
 			if($id > 0)
 			{
 				$this->session->set_flashdata('info', 'Manager saved');
-				$this->index($id);
-				return;
+				redirect('/manager/index/'.$id);
 			}
 			else
 			{
 				$this->session->set_flashdata('error', 'Error saving manager');
-				redirect(site_url().'/managers');
-				return;
+				redirect('/managers');
 			}
 		}
 
 		if($this->Manager_model->update($id, $data))
 		{
 			$this->session->set_flashdata('info', 'Manager saved');
-			$this->index($id);
-			return;
+			redirect('/manager/index/'.$id);
 		}
 
-		echo "Error";
+		$this->session->set_flashdata('error', 'Error saving, please report');
+		redirect(site_url().'/managers/');
 	}
 }
 

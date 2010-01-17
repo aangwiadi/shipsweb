@@ -74,6 +74,7 @@ class Vessels extends Controller
 		$data['start_index'] = $start_index;
 
 		$this->template->write_view('content', 'vessels_view', $data);
+				
 		$this->template->render();
 	}
 }
