@@ -7,6 +7,9 @@ class Country extends Controller
 		parent::Controller();
 		$this->load->model('country_model');
 		$this->load->library('table');
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+
 		is_logged_in();
 
 		// $this->output->enable_profiler(TRUE); 
@@ -69,26 +72,23 @@ class Country extends Controller
 			if($id > 0)
 			{
 				$this->session->set_flashdata('info', 'Country saved');
-				$this->index($id);
+				redirect('/country/index/'.$id);
 			}
 			else
 			{
 				$this->session->set_flashdata('error', 'Error saving country');
-				redirect(site_url().'/countries');
+				redirect('/countries');
 			}
 		}
 
 		if($this->country_model->update($id, $data))
 		{
 			$this->session->set_flashdata('info', 'Country saved');
-			$this->index($id);
+			redirect('/country/index/'.$id);
 		}
-		else
-		{
-			$this->session->set_flashdata('error', 'Error saving country');
-		}
-
-		return;
+		
+		$this->session->set_flashdata('error', 'Error saving, please report');
+		redirect(site_url().'/countries/');
 	}
 }
 

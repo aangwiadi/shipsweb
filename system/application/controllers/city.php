@@ -77,26 +77,23 @@ class City extends Controller
 			if($id > 0)
 			{
 				$this->session->set_flashdata('info', 'City saved');
-				$this->index($id);
+				redirect('/city/index/'.$id);
 			}
 			else
 			{
 				$this->session->set_flashdata('error', 'Error saving city');
-				redirect(site_url().'/cities');
+				redirect('/cities');
 			}
 		}
 
 		if($this->City_model->update($id, $data))
 		{
 			$this->session->set_flashdata('info', 'City saved');
-			$this->index($id);
+			redirect('/city/index/'.$id);
 		}
-		else
-		{
-			$this->session->set_flashdata('error', 'Error saving city');
-			redirect(site_url().'/cities');
-		}
-		return;
+
+		$this->session->set_flashdata('error', 'Error saving, please report');
+		redirect(site_url().'/cities');
 	}
 }
 
