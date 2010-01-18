@@ -2,7 +2,7 @@
 <div id="search">
 	<?php $attributes = array('id' => 'searchform');
 	echo form_open(site_url().'/vessels/'); 
-	echo form_label('Search by', 'search_text');
+	echo form_label('Search by', 'search_text', array('id' => 'search_label'));
 	echo form_dropdown('search_item', $fields, $this->session->userdata('vessels_search_item'));
 	echo form_input('search_text', $this->session->userdata('vessels_search_text'));
 	echo form_submit('submit', 'Search');
