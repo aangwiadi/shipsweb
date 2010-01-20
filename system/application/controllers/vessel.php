@@ -16,7 +16,7 @@ class Vessel extends Controller
 
 		is_logged_in();
 
-		$this->output->enable_profiler(TRUE); 
+		//$this->output->enable_profiler(TRUE); 
 	}
 
 	function index($id)
