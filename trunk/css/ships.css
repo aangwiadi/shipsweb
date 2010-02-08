@@ -33,9 +33,9 @@ h3 						{ font-size: 14px; margin: 2px 0 2px 0;	}
 
 /*#main-content			{ clear: both; }*/
 
-table 					{ margin: 10px 0px; table-layout:fixed; width:100%; } 
-td, td a 				{ overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-tr:nth-child(even) 		{ background: #e7e7e7; }
+#main-content table 				{ margin: 10px 0px; table-layout:fixed; width:100%; } 
+#main-content td, td a 				{ overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#main-content tr:nth-child(even) 	{ background: #e7e7e7; }
 /*
 thead					{ background: #9292b8; color: white; text-decoration: none; }
 */
@@ -88,7 +88,8 @@ thead					{ background: #9292b8; color: white; text-decoration: none; }
 .error 				{ border: 1px solid red; padding: 10px;
        			 	  background: #FFDEDB; color: red; display: block; clear:both }
 
-#vessels_managed 		{ clear: both; }
+#vessels_managed	{ clear: both; }
 
 #help_text			{ display: none }
+#fancy_div table 	{ width: 316px; background: #e7e7e7; border: 1px solid #bbb; }
 
