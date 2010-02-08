@@ -31,29 +31,3 @@
 		</tbody>
 	</table>
     <?php echo $this->pagination->create_links(); ?> 
-	<div id="help_text">
-		<h1 class="help">Search</h1>
-		<p>You can search on numerical and textual fields, they are shown in the dropdown. Choose what you want to search. Thereafter you enter the criteria for the search in the textbox. Then pres 'Search'. To delete the search and return to the default list, pres 'Reset'</p>
-		<h2>Numerical</h2>
-		<p>To search numerical ranges, e.g. Dwat, choose field in dropdown and enter the following in the textbox:</p>
-		<ul>
-			<li>Get items upto 1000: 0 1000</li>
-			<li>Get items from 1000 to 2000: 1000 2000</li>
-			<li>Get items from 1000: 1000</li>
-		</ul>
-		<h2>Textual</h2>
-		<p>To search texttual fields, e.g. Name, choose field from dropdown and enter the following in the textbox:</p>
-		<ul>
-			<li>Get items containing 'a': a</li>
-			<li>Get items containing 'an': an</li>
-			<li>Get items containing 'ann': ann</li>
-		</ul>
-	</div>
-	<script type="text/javascript">
-		$(document).ready(function() 
-		{ 
-			/* This is basic - uses default settings */ 
-			$("a#help").fancybox({ 'hideOnContentClick': true }); 
-			$("a#help").fancybox({ 'zoomSpeedIn': 300, 'zoomSpeedOut': 300, 'overlayShow': true }); 
-		}); 
-	</script>

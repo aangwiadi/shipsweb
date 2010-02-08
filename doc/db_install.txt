@@ -29,5 +29,6 @@ VALUES (
 NULL , 'Hovmand', 'hovmand', MD5( 'hovmand4941' ) , 'alfr@hovmand.dk'
 );
 
+Set all "n" in all tables to NULL
 
-Set all "n" managers to NULL
+Add more details to city and country

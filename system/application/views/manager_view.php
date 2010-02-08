@@ -22,65 +22,59 @@
   </ul>
   <?php if(count($vessels) > 0) { ?>
 	<div id="vessels_managed">
-	<h3>Managed vessels</h3>
-	<div id="vessels_table">
-    <table>
-		<colgroup>
-			<col id="name">
-			<col id="type">
-			<col id="dwat">
-			<col id="built">
-			<col id="loa">
-			<col id="beam">
-			<col id="draft">
-			<col id="grain">
-			<col id="bale">
-			<col id="ho">
-			<col id="ha">
-			<col id="bt">
-			<col id="nt">
-			<col id="mobile">
-		</colgroup>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Type</th>
-			<th>Dwat</th>
-			<th>Built</th>
-			<th>LOA</th>
-			<th>Beam</th>
-			<th>Draft</th>
-			<th>Grain</th>
-			<th>Bale</th>
-			<th>HO</th>
-			<th>HA</th>
-			<th>BT</th>
-			<th>NT</th>
-			<th>Mobile</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php foreach($vessels as $vessel): ?>
-		<tr>
-			<td><?php echo anchor(site_url().'/vessel/index/'.$vessel['Id'], $vessel['Name']); ?></td>
-			<td><?php echo $vessel['Type']; ?></td>
-			<td><?php echo $vessel['Dwat']; ?></td>
-			<td><?php echo $vessel['Built']; ?></td>
-			<td><?php echo $vessel['LOA']; ?></td>
-			<td><?php echo $vessel['Beam']; ?></td>
-			<td><?php echo $vessel['Draft']; ?></td>
-			<td><?php echo $vessel['Grain']; ?></td>
-			<td><?php echo $vessel['Bale']; ?></td>
-			<td><?php echo $vessel['HO']; ?></td>
-			<td><?php echo $vessel['HA']; ?></td>
-			<td><?php echo $vessel['BT']; ?></td>
-			<td><?php echo $vessel['NT']; ?></td>
-			<td><?php echo $vessel['Mobile']; ?></td>
-		</tr>
-		<?php endforeach ?>
-	</tbody>
-	</table>
-	</div>
+		<h3>Managed vessels</h3>
+		<div id="vessels_table">
+			<table>
+				<colgroup>
+					<col id="name">
+					<col id="type">
+					<col id="dwat">
+					<col id="built">
+					<col id="loa">
+					<col id="beam">
+					<col id="draft">
+					<col id="grain">
+					<col id="bale">
+					<col id="ho">
+					<col id="ha">
+					<col id="bt">
+					<col id="nt">
+					<col id="mobile">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Dwat</th>
+						<th>Built</th>
+						<th>LOA</th>
+						<th>Beam</th>
+						<th>Draft</th>
+						<th>Grain</th>
+						<th>Bale</th>
+						<th>HO</th>
+						<th>HA</th>
+						<th>BT</th>
+						<th>NT</th>
+						<th>Mobile</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($vessels as $vessel): ?>
+					<tr>
+						<td><?php echo anchor(site_url().'/vessel/index/'.$vessel['Id'], $vessel['Name']); ?></td>
+						<td><?php echo $vessel['Type']; ?></td><td><?php echo $vessel['Dwat']; ?></td>
+						<td><?php echo $vessel['Built']; ?></td><td><?php echo $vessel['LOA']; ?></td>
+						<td><?php echo $vessel['Beam']; ?></td><td><?php echo $vessel['Draft']; ?></td>
+						<td><?php echo $vessel['Grain']; ?></td><td><?php echo $vessel['Bale']; ?></td>
+						<td><?php echo $vessel['HO']; ?></td><td><?php echo $vessel['HA']; ?></td>
+						<td><?php echo $vessel['BT']; ?></td><td><?php echo $vessel['NT']; ?></td>
+						<td><?php echo $vessel['Mobile']; ?></td>
+					</tr>
+					<?php endforeach ?>
+				</tbody>
+			</table>
+		</div>
 	</div>
   <?php } ?>
 
