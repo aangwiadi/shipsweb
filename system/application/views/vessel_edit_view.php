@@ -18,7 +18,7 @@
   <li><?php echo form_label('Draft', 'Draft') . form_input('Draft', $vessel['Draft']); ?></li>
   <li><?php echo form_label('Grain', 'Grain') . form_input('Grain', $vessel['Grain']); ?></li>
   <li><?php echo form_label('Bale', 'Bale') . form_input('Bale', $vessel['Bale']); ?></li>
-      <li><?php echo form_label('HO', 'HO') . form_input('HO', $vessel['HO']); ?></li>
+  <li><?php echo form_label('HO', 'HO') . form_input('HO', $vessel['HO']); ?></li>
   <li><?php echo form_label('HO_dims', 'HO_dims') . form_input('HO_dims', $vessel['HO_dims']); ?></li>
   <li><?php echo form_label('HA', 'HA') . form_input('HA', $vessel['HA']); ?></li>
   <li><?php echo form_label('HA_dims', 'HA_dims') . form_input('HA_dims', $vessel['HA_dims']); ?></li>
