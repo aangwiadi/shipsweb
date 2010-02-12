@@ -19,21 +19,21 @@ class Vessels extends Controller
 		$baseurl = base_url() . 'index.php/vessels/index/';
 
 		// config output: array(showname => array(dbname, showsortlink))
-		$data['show_fields'] = array('Name' 	=> array('Id', TRUE), 
-									 'Type' 	=> array('Type', TRUE), 
-									 'Dwat' 	=> array('Dwat', TRUE), 
-									 'Built' 	=> array('Built', TRUE), 
-									 'LOA' 		=> array('LOA', TRUE), 
-									 'Beam' 	=> array('Beam', TRUE), 
-									 'Draft' 	=> array('Draft', TRUE), 
-									 'Grain' 	=> array('Grain', TRUE), 
-									 'Bale' 	=> array('Bale', TRUE), 
-									 'HO' 		=> array('HO', TRUE), 
-									 'HA' 		=> array('HA', TRUE), 
-									 'BT' 		=> array('BT', TRUE), 
-									 'NT' 		=> array('NT', TRUE), 
-									 'Mobile' 	=> array('Mobile', FALSE), 
-									 'Manager' 	=> array('Manager:Name', TRUE));
+		$data['show_fields'] = array('Name' 	=> array('Name', TRUE), 
+					 	'Type' 	=> array('Type', TRUE), 
+						'Dwat' 	=> array('Dwat', TRUE), 
+						'Built' 	=> array('Built', TRUE), 
+						'LOA' 		=> array('LOA', TRUE), 
+						'Beam' 	=> array('Beam', TRUE), 
+						'Draft' 	=> array('Draft', TRUE), 
+						'Grain' 	=> array('Grain', TRUE), 
+					 	'Bale' 	=> array('Bale', TRUE), 
+					 	'HO' 		=> array('HO', TRUE), 
+						'HA' 		=> array('HA', TRUE), 
+					 	'BT' 		=> array('BT', TRUE), 
+					 	'NT' 		=> array('NT', TRUE), 
+					 	'Mobile' 	=> array('Mobile', FALSE), 
+					 	'Manager' 	=> array('Manager:Name', TRUE));
 
 		if($this->input->post('submit'))
 		{

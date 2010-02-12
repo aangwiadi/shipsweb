@@ -41,6 +41,7 @@
   <li><?php echo form_label('Mobile', 'Mobile') . form_input('Mobile', set_value('Mobile')); ?></li>
   <li><?php echo form_label('Class', 'Class') . form_input('Class', set_value('Class')); ?></li>
   <li><?php echo form_label('Pandi', 'Pandi') . form_input('Pandi', set_value('Pandi')); ?></li>
+  <li><?php echo form_label('MMSI', 'MMSI') . form_input('MMSI', set_value('MMSI')); ?></li>
   <li><?php echo form_label('Remarks', 'Remarks') . form_textarea(array('name' => 'Remarks', 'id' => 'Remarks', 'value' => set_value('Remarks'), 'rows' => '2', 'cols' => '23')); ?></li>
   <li><?php echo form_label('Managers', 'Managers') . form_dropdown('Managers', $ddmanager, '', 'class="dd-list"'); ?></li>
   <li><?php echo form_label('Cities', 'Cities') . form_dropdown('Cities', $ddcity, '', 'class="dd-list"'); ?></li> 
