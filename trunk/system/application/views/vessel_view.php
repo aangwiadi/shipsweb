@@ -43,6 +43,7 @@
     <li><span>Mobile:</span><?php echo $vessel['Mobile']; ?></li>
     <li><span>Class:</span><?php echo $vessel['Class']; ?></li>
     <li><span>Pandi:</span><?php echo $vessel['Pandi']; ?></li>
+    <li><span>MMSI:</span><?php echo $vessel['MMSI']; ?></li>
     <li><span>Remarks:</span><?php echo $vessel['Remarks']; ?></li>
     <li><span>Manager:</span><?php if(isset($vessel['ManagerName'])) echo anchor(site_url().'/manager/index/'.$vessel['ManagerId'], $vessel['ManagerName']); else echo ''; ?></li>
     <li><span>Homeport:</span><?php echo $vessel['HomePort']; ?></li>

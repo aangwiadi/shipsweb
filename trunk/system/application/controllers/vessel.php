@@ -158,6 +158,7 @@ class Vessel extends Controller
 			'Mobile' => $this->input->post('Mobile'),
 			'Class' => $this->input->post('Class'),
 			'Pandi' => $this->input->post('Pandi'),
+			'MMSI' => $this->input->post('MMSI'),	
 			'Remarks' => $this->input->post('Remarks'),
 			'ManagerId' => $this->input->post('Managers'),
 			'CityId' => $this->input->post('Cities'),
