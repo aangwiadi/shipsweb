@@ -2,6 +2,8 @@
 
 class Vessels_model extends Model
 {
+	protected $table = "ships_vessel";
+
 	function Vessels_model()
 	{
 		parent::Model();
@@ -18,7 +20,7 @@ class Vessels_model extends Model
 				$this->db->where("$searchitem LIKE %$searchtext%");
 			}
 
-		$query = $this->db->get('VESSEL');
+		$query = $this->db->get($this->table);
 		if($query->num_rows() > 0)
 		{
 			return $query->result_array();
@@ -27,10 +29,10 @@ class Vessels_model extends Model
 
 	function get_tabel_def()
 	{
-		$fields = $this->db->field_data('VESSEL');
+		$fields = $this->db->field_data($this->table);
 		$table_defs = array();
 
-		$fields = $this->db->list_fields('VESSEL');
+		$fields = $this->db->list_fields($this->table);
 		foreach($fields as $field)
 		{
 			if(strrpos($field, 'Id') === FALSE)
@@ -43,7 +45,7 @@ class Vessels_model extends Model
 
 	function get_vessel($id)
 	{
-		$query = $this->db->get_where('VESSEL', array('ID' => (int)$id));
+		$query = $this->db->get_where($this->table, array('ID' => (int)$id));
 		if($query->num_rows() > 0)
 		{
 			return $query->row();
@@ -52,12 +54,12 @@ class Vessels_model extends Model
 
 	function read_page($num, $offset, $sort_column, $sort_direction, $searchitem, $searchdata)
 	{
-		$sql = "SELECT VESSEL.Id AS Id, VESSEL.Name,
+		$sql = "SELECT $this->table.Id AS Id, $this->table.Name,
 				Type, Dwat, Built, LOA, Beam, Draft,
 				Grain, Bale, HO, HA, BT, NT, Mobile,
-				MANAGER.Name AS ManagerName, ManagerId
-				FROM VESSEL
-				LEFT JOIN MANAGER ON ManagerId = MANAGER.Id";
+				ships_manager.Name AS ManagerName, ManagerId
+				FROM $this->table
+				LEFT JOIN ships_manager ON ManagerId = ships_manager.Id";
 
 		if(!empty($searchitem))
 			if(!empty($searchdata))
@@ -71,19 +73,19 @@ class Vessels_model extends Model
 				{
 					if(is_numeric($minmax[0]))
 						if(is_numeric($minmax[1]))
-							$sql = $sql . " WHERE VESSEL.$searchitem > $minmax[0] AND VESSEL.$searchitem < $minmax[1] ";
+							$sql = $sql . " WHERE $this->table.$searchitem > $minmax[0] AND $this->table.$searchitem < $minmax[1] ";
 						else
-							$sql = $sql . " WHERE VESSEL.$searchitem > $minmax[0] ";
+							$sql = $sql . " WHERE $this->table.$searchitem > $minmax[0] ";
 					else
-						$sql = $sql . " WHERE VESSEL.$searchitem LIKE '%$searchdata%' ";
+						$sql = $sql . " WHERE $this->table.$searchitem LIKE '%$searchdata%' ";
 				}
 				
 				if(count($minmax) == 1)
 				{
 					if(is_numeric($minmax[0]))
-						$sql = $sql . " WHERE VESSEL.$searchitem > $minmax[0] ";
+						$sql = $sql . " WHERE $this->table.$searchitem > $minmax[0] ";
 					else
-						$sql = $sql . " WHERE VESSEL.$searchitem LIKE '%$searchdata%' ";
+						$sql = $sql . " WHERE $this->table.$searchitem LIKE '%$searchdata%' ";
 				}
 			}
 
@@ -98,7 +100,7 @@ class Vessels_model extends Model
 
 	function read_total_num($searchitem, $searchdata)
 	{
-		$sql = "SELECT COUNT(*) FROM VESSEL ";
+		$sql = "SELECT COUNT(*) FROM $this->table ";
 
 		if(!empty($searchitem))
 			if(!empty($searchdata))
@@ -112,19 +114,19 @@ class Vessels_model extends Model
 				{
 					if(is_numeric($minmax[0]))
 						if(is_numeric($minmax[1]))
-							$sql = $sql . " WHERE VESSEL.$searchitem > $minmax[0] AND VESSEL.$searchitem < $minmax[1] ";
+							$sql = $sql . " WHERE $this->table.$searchitem > $minmax[0] AND $this->table.$searchitem < $minmax[1] ";
 						else
-							$sql = $sql . " WHERE VESSEL.$searchitem > $minmax[0] ";
+							$sql = $sql . " WHERE $this->table.$searchitem > $minmax[0] ";
 					else
-						$sql = $sql . " WHERE VESSEL.$searchitem LIKE '%$searchdata%' ";
+						$sql = $sql . " WHERE $this->table.$searchitem LIKE '%$searchdata%' ";
 				}
 				
 				if(count($minmax) == 1)
 				{
 					if(is_numeric($minmax[0]))
-						$sql = $sql . " WHERE VESSEL.$searchitem > $minmax[0] ";
+						$sql = $sql . " WHERE $this->table.$searchitem > $minmax[0] ";
 					else
-						$sql = $sql . " WHERE VESSEL.$searchitem LIKE '%$searchdata%' ";
+						$sql = $sql . " WHERE $this->table.$searchitem LIKE '%$searchdata%' ";
 				}
 			}
 
@@ -137,7 +139,7 @@ class Vessels_model extends Model
 
 	function read_by_manager($manager_id)
 	{
-		$query = $this->db->get_where('VESSEL', array('ManagerId' => (int)$manager_id));
+		$query = $this->db->get_where($this->table, array('ManagerId' => (int)$manager_id));
 		if($query->num_rows() > 0)
 			return $query->result_array();
 		return array();

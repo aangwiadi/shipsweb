@@ -43,7 +43,7 @@
   <li><?php echo form_label('Pandi', 'Pandi') . form_input('Pandi', set_value('Pandi', $vessel['Pandi'])); ?></li>
   <li><?php echo form_label('MMSI', 'MMSI') . form_input('MMSI',set_value('MMSI', $vessel['MMSI'])); ?></li>
   <li><?php echo form_label('Remarks', 'Remarks') . form_textarea(array('name' => 'Remarks', 'id' => 'Remarks', 'value' => $vessel['Remarks'], 'rows' => '2', 'cols' => '23')); ?></li>
-  <li><?php echo form_label('Manager', 'Manager') . form_dropdown('Managers', $ddmanager, set_value('Managers', $vessel['ManagerId'], 'class="dd-list"')); ?></li>
-  <li><?php echo form_label('Homeport', 'Cities') . form_dropdown('Cities', $ddcity, $vessel['CityId'], 'class="dd-list"'); ?></li>
+  <li><?php echo form_label('Manager', 'Manager') . form_dropdown('Managers', $ddmanager, set_value('Managers', $vessel['ManagerId']), 'class="dd-list"'); ?></li>
+  <li><?php echo form_label('Homeport', 'Cities') . form_dropdown('Cities', $ddcity, set_value('Cities', $vessel['CityId']), 'class="dd-list"'); ?></li>
 </ul>
 <?php form_close(); ?>

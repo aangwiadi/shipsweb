@@ -2,7 +2,7 @@
 
 class Managers_model extends Model
 {
-	protected $table = 'MANAGER';
+	protected $table = 'ships_manager';
 	protected $col_str = 'Id, Name, Address, PostalCode, Phone1, Email1, Mic1, Remarks';
 
 	function Managers_model()

@@ -2,7 +2,7 @@
 
 class Manager_model extends Model
 {
-	protected $table = 'MANAGER';
+	protected $table = 'ships_manager';
 
 	function Manager_model()
 	{
@@ -18,13 +18,13 @@ class Manager_model extends Model
 
 	function get($id)
 	{
-		$sql = "SELECT MANAGER.Id, MANAGER.Name, Address, PostalCode, 
-			Phone1, Phone2, Phone3, Fax, Email1, Email2, 
-			Homepage, Mic1, Mic2, Mic3, Mic4, 
-			Remarks, CITY.Name AS CityName, CityId
-			FROM $this->table
-			LEFT JOIN CITY ON CityId = CITY.Id
-			WHERE MANAGER.Id = ?";
+		$sql = "SELECT $this->table.Id, $this->table.Name, Address, PostalCode, 
+				Phone1, Phone2, Phone3, Fax, Email1, Email2, 
+				Homepage, Mic1, Mic2, Mic3, Mic4, 
+				Remarks, ships_city.Name AS CityName, CityId
+				FROM $this->table
+				LEFT JOIN ships_city ON CityId = ships_city.Id
+				WHERE $this->table.Id = ?";
 
 		$query = $this->db->query($sql, array((int)$id));
 		if($query->num_rows() > 0)
@@ -42,7 +42,7 @@ class Manager_model extends Model
 	function get_all_ordered()
 	{
 		$this->db->order_by('Name');
-		$query = $this->db->get('MANAGER');
+		$query = $this->db->get($this->table);
 		if($query->num_rows() > 0)
 		{
 			return $query->result_array();

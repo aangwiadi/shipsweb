@@ -2,7 +2,7 @@
 
 class Vessel_model extends Model
 {
-	protected $table = "VESSEL"; 
+	protected $table = "ships_vessel"; 
 
 	function Vessel_model()
 	{
@@ -19,17 +19,17 @@ class Vessel_model extends Model
 	function update($id, $data)
 	{
 		$this->db->where('Id', $id);
-		return $this->db->update('VESSEL', $data);
+		return $this->db->update($this->table, $data);
 	}
 
 	function read($id)
 	{
-		$sql = "SELECT VESSEL.*, MANAGER.Name AS ManagerName, CITY.Name AS HomePort, COUNTRY.Name AS Flag
-			FROM VESSEL
-			LEFT JOIN MANAGER ON VESSEL.ManagerId = MANAGER.Id
-			LEFT JOIN CITY ON VESSEL.CityId = CITY.Id
-			LEFT JOIN COUNTRY ON VESSEL.CountryId = COUNTRY.Id
-			WHERE VESSEL.Id = ?";
+		$sql = "SELECT $this->table.*, ships_manager.Name AS ManagerName, ships_city.Name AS HomePort, ships_country.Name AS Flag
+			FROM $this->table
+			LEFT JOIN ships_manager ON $this->table.ManagerId = ships_manager.Id
+			LEFT JOIN ships_city ON $this->table.CityId = ships_city.Id
+			LEFT JOIN ships_country ON $this->table.CountryId = ships_country.Id
+			WHERE $this->table.Id = ?";
 
 		$query = $this->db->query($sql, array($id));
 		if($query->num_rows() > 0)
@@ -41,7 +41,7 @@ class Vessel_model extends Model
 	function delete($id)
 	{
 		$this->db->where('Id', $id);
-		return $this->db->delete('VESSEL');
+		return $this->db->delete($this->table);
 	}
 }
 

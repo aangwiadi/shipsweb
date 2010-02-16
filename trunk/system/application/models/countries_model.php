@@ -2,8 +2,8 @@
 
 class Countries_model extends Model
 {
-	protected $table = 'COUNTRY';
-	protected $col_str = 'COUNTRY.Id, COUNTRY.Name';
+	protected $table = 'ships_country';
+	protected $col_str = "ships_country.Id, ships_country.Name";
 
 	function countries_model()
 	{
@@ -39,9 +39,9 @@ class Countries_model extends Model
 
 		if(!empty($search_item))
 			if(!empty($search_text))
-				$sql = $sql . " WHERE COUNTRY.$search_item LIKE '%$search_text%' ";
+				$sql = $sql . " WHERE $this->table.$search_item LIKE '%$search_text%' ";
 
-		$sql = $sql . " ORDER BY COUNTRY.$sort_column $sort_direction LIMIT ?, ?";
+		$sql = $sql . " ORDER BY $this->table.$sort_column $sort_direction LIMIT ?, ?";
 		$query = $this->db->query($sql, array((int)$offset, (int)$num)); 
 		if($query->num_rows() > 0)
 			return $query->result_array();
@@ -53,7 +53,7 @@ class Countries_model extends Model
 
 		if(!empty($search_item))
 			if(!empty($search_text))
-				$sql = $sql . " WHERE COUNTRY.$search_item LIKE '%$search_text%' ";
+				$sql = $sql . " WHERE $this->table.$search_item LIKE '%$search_text%' ";
 
 	    return $this->db->query($sql)->row('COUNT(*)');
 	}
