@@ -2,8 +2,8 @@
 
 class City_model extends Model
 {
-	protected $table = "CITY";
-	protected $columns = "CITY.Id, CITY.Name, CountryId";
+	protected $table = "ships_city";
+	protected $columns = "ships_city.Id, ships_city.Name, CountryId";
 
 	function City_model()
 	{
@@ -19,10 +19,10 @@ class City_model extends Model
 
 	function get($id)
 	{
-		$sql = "SELECT $this->columns, COUNTRY.Name AS CountryName 
+		$sql = "SELECT $this->columns, ships_country.Name AS CountryName 
 				FROM $this->table
-				LEFT JOIN COUNTRY ON CITY.CountryId = COUNTRY.Id 
-				WHERE CITY.Id = ?";
+				LEFT JOIN ships_country ON $this->table.CountryId = ships_country.Id 
+				WHERE $this->table.Id = ?";
 		$query = $this->db->query($sql, array('Id' => $id));
 		if($query->num_rows() == 1)
 			return $query->row();
@@ -30,7 +30,7 @@ class City_model extends Model
 
 	function get_all()
 	{
-		$query = $this->db->get('CITY');
+		$query = $this->db->get($this->table);
 		if($query->num_rows() > 0)
 		{
 			return $query->result_array();
@@ -40,7 +40,7 @@ class City_model extends Model
 	function get_all_ordered()
 	{
 		$this->db->order_by('Name');
-		$query = $this->db->get('CITY');
+		$query = $this->db->get($this->table);
 		if($query->num_rows() > 0)
 		{
 			return $query->result_array();
@@ -50,7 +50,7 @@ class City_model extends Model
 	function update($id, $data)
 	{
 		$this->db->where('Id', $id);
-		return $this->db->update('CITY', $data);
+		return $this->db->update($this->table, $data);
 	}
 }
 

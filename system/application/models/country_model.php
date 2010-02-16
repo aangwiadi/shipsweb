@@ -2,7 +2,7 @@
 
 class Country_model extends Model
 {
-	protected $table = "COUNTRY";
+	protected $table = "ships_country";
 
 	function Country_model()
 	{
@@ -18,7 +18,7 @@ class Country_model extends Model
 
 	function get($id)
 	{
-		$query = $this->db->get_where('COUNTRY', array('Id' => $id));
+		$query = $this->db->get_where($this->table, array('Id' => $id));
 		if($query->num_rows() == 1)
 		{
 			return $query->row();
@@ -27,7 +27,7 @@ class Country_model extends Model
 
 	function get_all()
 	{
-		$query = $this->db->get('COUNTRY');
+		$query = $this->db->get($this->table);
 		if($query->num_rows() > 0)
 		{
 			return $query->result_array();
@@ -37,7 +37,7 @@ class Country_model extends Model
 	function get_all_ordered()
 	{
 		$this->db->order_by('Name');
-		$query = $this->db->get('COUNTRY');
+		$query = $this->db->get($this->table);
 		if($query->num_rows() > 0)
 		{
 			return $query->result_array();

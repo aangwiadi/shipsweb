@@ -2,6 +2,8 @@
 
 class Membership_model extends Model
 {
+	protected $table = 'ships_membership';	
+	
 	function Membership_model()
 	{
 		parent::Model();
@@ -11,7 +13,7 @@ class Membership_model extends Model
 	{
 		$this->db->where('username', $username);
 		$this->db->where('password', $password);
-		$query = $this->db->get('MEMBERSHIP');
+		$query = $this->db->get($this->table);
 
 		if($query->num_rows == 1)
 		{
