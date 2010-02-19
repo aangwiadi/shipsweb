@@ -24,12 +24,13 @@ class Vessel_model extends Model
 
 	function read($id)
 	{
-		$sql = "SELECT $this->table.*, ships_manager.Name AS ManagerName, ships_city.Name AS HomePort, ships_country.Name AS Flag
-			FROM $this->table
-			LEFT JOIN ships_manager ON $this->table.ManagerId = ships_manager.Id
-			LEFT JOIN ships_city ON $this->table.CityId = ships_city.Id
-			LEFT JOIN ships_country ON $this->table.CountryId = ships_country.Id
-			WHERE $this->table.Id = ?";
+		$sql = "SELECT $this->table.*, ships_manager.Name AS ManagerName,
+		   		ships_city.Name AS HomePort, ships_country.Name AS Flag
+				FROM $this->table
+				LEFT JOIN ships_manager ON $this->table.ManagerId = ships_manager.Id
+				LEFT JOIN ships_city ON $this->table.CityId = ships_city.Id
+				LEFT JOIN ships_country ON $this->table.CountryId = ships_country.Id
+				WHERE $this->table.Id = ?";
 
 		$query = $this->db->query($sql, array($id));
 		if($query->num_rows() > 0)
