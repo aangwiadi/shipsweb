@@ -32,10 +32,10 @@ class Vessel extends Controller
 		$vessel = array();
 
 		foreach($result as $key => $value)
-			if(strlen($value) == 0)
-				$vessel[$key] = "&nbsp;";
-			else
+			if(strlen($value) > 0)
 				$vessel[$key] = $value;
+			else
+				$vessel[$key] = '';
 
 		$data['vessel'] = $vessel;
 		$this->template->write_view('content', 'vessel_view', $data);
@@ -47,6 +47,7 @@ class Vessel extends Controller
 		$this->load->model('City_model');
 		$this->load->model('Manager_model');
 		$data['ddcity'] = $this->get_dd_list($this->City_model);
+		$data['ddcountry'] = $this->get_dd_list($this->Country_model);
 		$data['ddmanager'] = $this->get_dd_list($this->Manager_model);
 		$this->template->write_view('content', 'vessel_add_view', $data);
 		$this->template->render();
@@ -68,6 +69,7 @@ class Vessel extends Controller
 		$result = $this->Vessel_model->read($id);
 		$data['vessel'] = $result;
 		$data['ddcity'] = $this->get_dd_list($this->City_model);
+		$data['ddcountry'] = $this->get_dd_list($this->Country_model);
 		$data['ddmanager'] = $this->get_dd_list($this->Manager_model);
 		$this->template->write_view('content', 'vessel_edit_view', $data);
 		$this->template->render();
@@ -162,15 +164,8 @@ class Vessel extends Controller
 			'Remarks' => $this->input->post('Remarks'),
 			'ManagerId' => $this->input->post('Managers'),
 			'CityId' => $this->input->post('Cities'),
-			'CountryId' => NULL 
+			'CountryId' => $this->input->post('Countries') 
 		);
-
-		if($data['CityId'] != 0)
-		{
-			$this->load->model('City_model');
-			$city = $this->City_model->get($data['CityId']);
-			$data['CountryId'] = $city->CountryId;
-		}
 
 		if($id == 0)
 		{

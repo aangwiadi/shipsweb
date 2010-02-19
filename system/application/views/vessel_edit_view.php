@@ -13,6 +13,7 @@
   <li><?php echo form_label('Built', 'Built') . form_input('Built', set_value('Built', $vessel['Built'])); ?></li>
   <li><?php echo form_label('Gear', 'Gear') . form_input('Gear', set_value('Gear', $vessel['Gear'])); ?></li>
   <li><?php echo form_label('CallSign', 'CallSign') . form_input('CallSign', set_value('CallSign', $vessel['CallSign'])); ?></li>
+  <li><?php echo form_label('MMSI', 'MMSI') . form_input('MMSI',set_value('MMSI', $vessel['MMSI'])); ?></li>
   <li><?php echo form_label('LOA', 'LOA') . form_input('LOA', set_value('LOA', $vessel['LOA'])); ?></li>
   <li><?php echo form_label('Beam', 'Beam') . form_input('Beam', set_value('Beam', $vessel['Beam'])); ?></li>
   <li><?php echo form_label('Draft', 'Draft') . form_input('Draft', set_value('Draft', $vessel['Draft'])); ?></li>
@@ -26,8 +27,6 @@
   <li><?php echo form_label('Crew', 'Crew') . form_input('Crew', set_value('Crew', $vessel['Crew'])); ?></li>
 </ul>
 <ul class="section">
-  <li><?php echo form_label('BRT', 'BRT') . form_input('BRT', set_value('BRT', $vessel['BRT'])); ?></li>
-  <li><?php echo form_label('NRT', 'NRT') . form_input('NRT', set_value('NRT', $vessel['NRT'])); ?></li>
   <li><?php echo form_label('BT', 'BT') . form_input('BT', set_value('BT', $vessel['BT'])); ?></li>
   <li><?php echo form_label('NT', 'NT') . form_input('NT', set_value('NT', $vessel['NT'])); ?></li>
   <li><?php echo form_label('Speed_ball', 'Speed_ball') . form_input('Speed_ball', set_value('Speed_ball', $vessel['Speed_ball'])); ?></li>
@@ -41,9 +40,9 @@
   <li><?php echo form_label('Mobile', 'Mobile') . form_input('Mobile', set_value('Mobile', $vessel['Mobile'])); ?></li>
   <li><?php echo form_label('Class', 'Class') . form_input('Class', set_value('Class', $vessel['Class'])); ?></li>
   <li><?php echo form_label('Pandi', 'Pandi') . form_input('Pandi', set_value('Pandi', $vessel['Pandi'])); ?></li>
-  <li><?php echo form_label('MMSI', 'MMSI') . form_input('MMSI',set_value('MMSI', $vessel['MMSI'])); ?></li>
   <li><?php echo form_label('Remarks', 'Remarks') . form_textarea(array('name' => 'Remarks', 'id' => 'Remarks', 'value' => $vessel['Remarks'], 'rows' => '2', 'cols' => '23')); ?></li>
   <li><?php echo form_label('Manager', 'Manager') . form_dropdown('Managers', $ddmanager, set_value('Managers', $vessel['ManagerId']), 'class="dd-list"'); ?></li>
   <li><?php echo form_label('Homeport', 'Cities') . form_dropdown('Cities', $ddcity, set_value('Cities', $vessel['CityId']), 'class="dd-list"'); ?></li>
+  <li><?php echo form_label('Flag', 'Countries') . form_dropdown('Countries', $ddcountry, set_value('Countries', $vessel['CountryId']), 'class="dd-list"'); ?></li>
 </ul>
 <?php form_close(); ?>

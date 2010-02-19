@@ -56,8 +56,7 @@ thead					{ background: #9292b8; color: white; text-decoration: none; }
 .section li				{ clear: both }
 .section li span		{ float: left; width: 90px; padding: 0px 10px 10px 0px; }
 .section label			{ float: left; width: 90px; padding: 0px 10px 10px 0px; }
-.section li:nth-child(even) 
-						{ background: #e7e7e7; }
+.section li:nth-child(even) { background: #e7e7e7; }
 
 .dd-list				{ width: 178px }
 
@@ -85,7 +84,7 @@ thead					{ background: #9292b8; color: white; text-decoration: none; }
 .info 				{ border: 1px solid green; padding: 10px;
        			 	  background: #DEFFD9; color: green; display: block; clear: both }
 
-.error 				{ border: 1px solid red; padding: 10px;
+.error 				{ border: 1px solid red; padding: 10px; margin-bottom: 2px;
        			 	  background: #FFDEDB; color: red; display: block; clear:both }
 
 #vessels_managed	{ clear: both; }
