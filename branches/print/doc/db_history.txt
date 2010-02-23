@@ -1,0 +1,4 @@
+16/2/2010
+- Change all tables to prefix with 'ships_'
+- Add MMSI column to ships_vessel, under CallSign
+
