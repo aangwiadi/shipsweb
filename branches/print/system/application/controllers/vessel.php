@@ -42,6 +42,28 @@ class Vessel extends Controller
 		$this->template->render();
 	}
 
+	function print_quay_note($id)
+	{
+		$result = $this->Vessel_model->read($id);
+
+		if(count($result) == 0)
+		{
+			$this->session->set_flashdata('error', 'No vessel found');
+			redirect('');
+		}
+
+		$vessel = array();
+
+		foreach($result as $key => $value)
+			if(strlen($value) > 0)
+				$vessel[$key] = $value;
+			else
+				$vessel[$key] = '';
+
+		$data['vessel'] = $vessel;
+		$this->load->view('vessel_qn_view', $data);
+	}
+
 	function add()
 	{
 		$this->load->model('City_model');
