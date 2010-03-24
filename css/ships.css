@@ -31,6 +31,9 @@ h3 						{ font-size: 14px; margin: 2px 0 2px 0;	}
 					  	  text-align: left; }
 #main-menu a:hover 		{ color:#fff; background:#727454; }
 
+.minimenu ul li			{ display: inline; } 
+
+
 /*#main-content			{ clear: both; }*/
 
 #main-content table 				{ margin: 10px 0px; table-layout:fixed; width:100%; } 
@@ -92,3 +95,4 @@ thead					{ background: #9292b8; color: white; text-decoration: none; }
 #help_text			{ display: none }
 #fancy_div table 	{ width: 316px; background: #e7e7e7; border: 1px solid #bbb; }
 
+#quaynote { border: 1px solid #CCC; }

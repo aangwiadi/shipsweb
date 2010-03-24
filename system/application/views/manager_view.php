@@ -1,5 +1,11 @@
   <h2><?php echo $manager['Name']; ?></h2>
-  <p><?php echo anchor(site_url().'/manager/edit/'.$manager['Id'], 'Edit').' | '.anchor('/manager/delete/'.$manager['Id'], 'Delete').' | '.anchor('/manager/add/', 'New') ?></p>
+  <div class="minimenu">
+	  <ul>
+		<li><?php echo anchor(site_url().'/manager/edit/'.$manager['Id'], 'Edit'); ?></li>
+		<li><?php echo anchor('/manager/delete/'.$manager['Id'], 'Delete'); ?></li>
+		<li><?php echo anchor('/manager/add/', 'New'); ?></li>
+	  </ul>
+  </div>
   <ul class="section">
     <li><span>Name:</span><?php echo $manager['Name']; ?></li>
     <li><span>Adress:</span><?php echo $manager['Address']; ?></li>

@@ -5,7 +5,7 @@
    <link href="<?php echo base_url();?>css/baseline.reset.css" media="screen" rel="stylesheet" type="text/css" />
    <link href="<?php echo base_url();?>css/ships.css" media="screen" rel="stylesheet" type="text/css" />
    <link href="<?php echo base_url();?>js/fancybox/jquery.fancybox-1.2.6.css" media="screen" rel="stylesheet" type="text/css" />   
-   <script type="text/javascript" src="<?php print base_url();?>js/jquery-1.3.2.min.js"></script> 
+   <script type="text/javascript" src="<?php print base_url();?>js/jquery-1.4.2.min.js"></script> 
    <script type="text/javascript" src="<?php print base_url();?>js/fancybox/jquery.fancybox-1.2.6.js"></script> 
 </head>
 <body>
