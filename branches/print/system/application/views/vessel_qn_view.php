@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
    <title>Ships</title>
-   <link href="http://ships.hovmand.org/css/baseline.reset.css" media="screen" rel="stylesheet" type="text/css" />
-   <link href="http://ships.hovmand.org/css/ships.css" media="screen" rel="stylesheet" type="text/css" />
+   <link href="<?php echo base_url();?>css/baseline.reset.css" media="screen" rel="stylesheet" type="text/css" />
+   <link href="<?php echo base_url();?>css/ships.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div class="print">
-		<h2>Bandholm Havn</h2>
+		<h2><?php echo $port; ?></h2>
 		<span class="header">Alfr. Hovmand - Havnepladsen 10 - 4941 Bandholm - +45 54763611</span>
 		<table id='quaynote'>
 			<tbody>
