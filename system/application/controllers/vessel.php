@@ -42,8 +42,13 @@ class Vessel extends Controller
 		$this->template->render();
 	}
 
-	function print_quay_note($id)
+	function print_quay_note($city, $id)
 	{
+		if($city == "band")
+			$data['port'] = 'Bandholm';
+		if($city == "roed")
+			$data['port'] = 'R&oslash;dbyhavn';
+
 		$result = $this->Vessel_model->read($id);
 
 		if(count($result) == 0)
@@ -61,6 +66,7 @@ class Vessel extends Controller
 				$vessel[$key] = '';
 
 		$data['vessel'] = $vessel;
+		
 		$this->load->view('vessel_qn_view', $data);
 	}
 
