@@ -27,19 +27,19 @@ p {
 }
 
 a {
-	color: #333;
+	color: #5f9fe9;
 	outline: none;
 	text-decoration: none;
 	font-weight: 400;
 }
 
 a:link {
+        color: #5f9fe9;
 	font-weight: 400;
 }
 
 a:visited {
 	font-weight: 400;
-	color: #777;
 }
 
 a:hover {
@@ -392,8 +392,10 @@ td.middle_pad {
 	overflow:hidden;
 }
 
+#footer div { float: right; }
+
 #footer a {
-	color: #888;
+	color: #8ebcf0;
 	font-weight:400;
 	text-decoration: none;
 }
@@ -1227,5 +1229,6 @@ td.key {
         margin-left: 475px;
 }
 
-#rightcolumn .memberimage { margin-bottom: 10px; }
+.floatleft { float: left; }
+
 

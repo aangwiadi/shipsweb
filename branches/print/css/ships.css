@@ -34,7 +34,7 @@ h3 		{ font-size: 14px; margin: 2px 0 2px 0;	}
 .minimenu ul li a { text-decoration: none; color: #777; 
 		    background: white; padding: 5px;
 		    border: 1px solid #ccc; }
-.minimenu li ul { display: none; position: absolute; left:300px; margin-top:5px }
+.minimenu li ul { display: none; position: absolute; margin-left: 150px; margin-top:5px }
 .minimenu li:hover ul  	{ display: block; background:white }
 .minimenu ul li ul li a	{ text-decoration: none; color: #777;
        		 	  background: white;

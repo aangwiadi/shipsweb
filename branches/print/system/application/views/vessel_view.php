@@ -12,7 +12,7 @@
 			<li><?php echo anchor('/vessel/edit/'.$vessel['Id'], 'Edit'); ?></li>
 			<li><?php echo anchor('/vessel/delete/'.$vessel['Id'], 'Delete'); ?></li>
 			<li><?php echo anchor('/vessel/add', 'New'); ?></li>
-			<li>Print
+			<li><a>Print</a>
 				<ul>
 					<li><?php echo anchor('/vessel/print_quay_note/band/'.$vessel['Id'], 'Bandholm', array('target' => '_blank')); ?></li>
 					<li><?php echo anchor('/vessel/print_quay_note/roed/'.$vessel['Id'], 'R&oslash;dbyhavn', array('target' => '_blank')); ?></li>
