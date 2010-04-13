@@ -28,12 +28,17 @@ h3 		{ font-size: 14px; margin: 2px 0 2px 0;	}
 	  	  text-align: left; }
 #main-menu a:hover 	{ color:#fff; background:#727454; }
 
+.minimenu { margin: 10px 0px 5px 0px }
 .minimenu ul	{ margin: 0; padding: 0; list-style: none: }
-.minimenu ul li	{ position: relative; display: inline; margin-right: 5px; } 
-.minimenu li ul { display: none; position: absolute; left:1px; }
+.minimenu ul li	{ display: inline; margin-right: 2px; } 
+.minimenu ul li a { text-decoration: none; color: #777; 
+		    background: white; padding: 5px;
+		    border: 1px solid #ccc; }
+.minimenu li ul { display: none; position: absolute; left:300px; margin-top:5px }
 .minimenu li:hover ul  	{ display: block; background:white }
-.minimenu ul li a	{ width: 50px; text-decoration: none; color: #777;
-       		 	  background: #fff; padding: 2px; border: 1px solid #ccc; }
+.minimenu ul li ul li a	{ text-decoration: none; color: #777;
+       		 	  background: white;
+			  padding:5px; border: 1px solid #ccc; }
 
 /*#main-content	{ clear: both; }*/
 #main-content table 	{ margin: 10px 0px; table-layout:fixed; width:100%; } 
@@ -86,7 +91,6 @@ thead	{ background: #9292b8; color: white; text-decoration: none; }
 
 .info 		{ border: 1px solid green; padding: 10px;
        		  background: #DEFFD9; color: green; display: block; clear: both }
-
 .error 		{ border: 1px solid red; padding: 10px; margin-bottom: 2px;
        		  background: #FFDEDB; color: red; display: block; clear:both }
 
@@ -97,3 +101,4 @@ thead	{ background: #9292b8; color: white; text-decoration: none; }
 
 #quaynote	{ width: 920px; }
 #quaynote tr td { height: 20px; width: 10%; border: 1px solid #000; }
+
