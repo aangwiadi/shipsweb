@@ -73,12 +73,13 @@ define( 'path', dirname(__FILE__) );
   </div>
   <div id="content_b">
    <div id="footer">
-    Gregers Hovmand
-    <a href="http://validator.w3.org/check/referer">valid xhtml</a>
-    <a href="http://jigsaw.w3.org/css-validator/check/referer">valid css</a>
-
-    <jdoc:include type="modules" name="debug" />
-    <?php $sg = ''; include "templates.php"; ?>
+    <div>
+      Alfr: Hovmand &copy; 2010 - 
+      <a href="http://validator.w3.org/check/referer">valid xhtml</a> -
+      <a href="http://jigsaw.w3.org/css-validator/check/referer">valid css</a>
+      <jdoc:include type="modules" name="debug" />
+      <!-- <?php $sg = ''; include "templates.php"; ?> -->
+    </div>
    </div>
   </div>	
  </div>
