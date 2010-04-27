@@ -6,9 +6,10 @@
 		echo "No vessel found";
 		die();
 	}
-	?></h2>
+?></h2>
+<div id="menuwrapper">
 	<div class="minimenu">
-		<ul>
+		<ul class="nav">
 			<li><?php echo anchor('/vessel/edit/'.$vessel['Id'], 'Edit'); ?></li>
 			<li><?php echo anchor('/vessel/delete/'.$vessel['Id'], 'Delete'); ?></li>
 			<li><?php echo anchor('/vessel/add', 'New'); ?></li>
@@ -20,6 +21,7 @@
 				
 			</li>
 		</ul>
+	</div>
 	</div>
 	<ul class="section">
 		<li><span>Name:</span><?php echo $vessel['Name']; ?>&nbsp;</li>
